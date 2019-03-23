@@ -1,0 +1,7 @@
+ASP.NET MVC
+csdl sql
+
+link template:
+https://colorlib.com/wp/template/confpro/?fbclid=IwAR0aOEkzDfjhgUIEdF3A_KDOp9ZXee7Zz1tJ2gvAsfhcNl-KpaFk2nYh4LM
+link courses:
+https://itcntt.com/threads/lap-trinh-asp-net-mvc5-toan-tap-qua-du-an-web-ban-hang.1656/?fbclid=IwAR1J-FQsFZf7gQTONvtLLTXIpN5qxl1M6PVGqlzDVoncvB3eRJp0ggzbQHI
