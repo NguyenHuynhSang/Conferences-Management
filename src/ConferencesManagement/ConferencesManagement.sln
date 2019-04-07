@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.539
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConferencesManagement", "ConferencesManagement\ConferencesManagement.csproj", "{6A22D030-D4D7-4289-86F9-69B63E899424}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConferencesManagement.Tests", "ConferencesManagement.Tests\ConferencesManagement.Tests.csproj", "{6092ADD5-FC51-4909-A9E5-3BDA461233E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6A22D030-D4D7-4289-86F9-69B63E899424}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A22D030-D4D7-4289-86F9-69B63E899424}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A22D030-D4D7-4289-86F9-69B63E899424}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A22D030-D4D7-4289-86F9-69B63E899424}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6092ADD5-FC51-4909-A9E5-3BDA461233E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6092ADD5-FC51-4909-A9E5-3BDA461233E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6092ADD5-FC51-4909-A9E5-3BDA461233E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6092ADD5-FC51-4909-A9E5-3BDA461233E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5B387083-4937-4C2F-B17B-1D1E1D4D027F}
+	EndGlobalSection
+EndGlobal
