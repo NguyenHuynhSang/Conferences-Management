@@ -66,3 +66,4 @@ D:\Git\Site-Hoi-Nghi-Khoa-Hoc\src\ConferencesManagement\ConferencesManagement\ob
 D:\Git\Site-Hoi-Nghi-Khoa-Hoc\src\ConferencesManagement\ConferencesManagement\obj\Debug\ConferencesManagement.csproj.CopyComplete
 D:\Git\Site-Hoi-Nghi-Khoa-Hoc\src\ConferencesManagement\ConferencesManagement\obj\Debug\ConferencesManagement.dll
 D:\Git\Site-Hoi-Nghi-Khoa-Hoc\src\ConferencesManagement\ConferencesManagement\obj\Debug\ConferencesManagement.pdb
+D:\Git\Site-Hoi-Nghi-Khoa-Hoc\src\ConferencesManagement\ConferencesManagement\obj\Debug\ConferencesManagement.csprojAssemblyReference.cache
