@@ -8,6 +8,9 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 {
     public class HomeController : Controller
     {
+
+        [Authorize]// bat buoc dang nhap
+        //[AllowAnonymous] // khong can dang nhap
         // GET: Admin/Home
         public ActionResult Index()
         {

@@ -1,0 +1,12 @@
+D:\my code\ASP.NET MVC\ConferencesManagement\Models\bin\Debug\Models.dll.config
+D:\my code\ASP.NET MVC\ConferencesManagement\Models\bin\Debug\Models.dll
+D:\my code\ASP.NET MVC\ConferencesManagement\Models\bin\Debug\Models.pdb
+D:\my code\ASP.NET MVC\ConferencesManagement\Models\bin\Debug\EntityFramework.dll
+D:\my code\ASP.NET MVC\ConferencesManagement\Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\my code\ASP.NET MVC\ConferencesManagement\Models\bin\Debug\EntityFramework.xml
+D:\my code\ASP.NET MVC\ConferencesManagement\Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\my code\ASP.NET MVC\ConferencesManagement\Models\obj\Debug\Models.csprojAssemblyReference.cache
+D:\my code\ASP.NET MVC\ConferencesManagement\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+D:\my code\ASP.NET MVC\ConferencesManagement\Models\obj\Debug\Models.csproj.CopyComplete
+D:\my code\ASP.NET MVC\ConferencesManagement\Models\obj\Debug\Models.dll
+D:\my code\ASP.NET MVC\ConferencesManagement\Models\obj\Debug\Models.pdb
