@@ -143,3 +143,10 @@ D:\my code\ASP.NET MVC\ConferencesManagement\ConferencesManagement\bin\Models.pd
 D:\my code\ASP.NET MVC\ConferencesManagement\ConferencesManagement\bin\Models.dll.config
 D:\my code\ASP.NET MVC\ConferencesManagement\ConferencesManagement\bin\EntityFramework.xml
 D:\my code\ASP.NET MVC\ConferencesManagement\ConferencesManagement\bin\EntityFramework.SqlServer.xml
+D:\Git\Site-Hoi-Nghi-Khoa-Hoc\src\ConferencesManagement\ConferencesManagement\bin\EntityFramework.dll
+D:\Git\Site-Hoi-Nghi-Khoa-Hoc\src\ConferencesManagement\ConferencesManagement\bin\EntityFramework.SqlServer.dll
+D:\Git\Site-Hoi-Nghi-Khoa-Hoc\src\ConferencesManagement\ConferencesManagement\bin\Models.dll
+D:\Git\Site-Hoi-Nghi-Khoa-Hoc\src\ConferencesManagement\ConferencesManagement\bin\Models.pdb
+D:\Git\Site-Hoi-Nghi-Khoa-Hoc\src\ConferencesManagement\ConferencesManagement\bin\Models.dll.config
+D:\Git\Site-Hoi-Nghi-Khoa-Hoc\src\ConferencesManagement\ConferencesManagement\bin\EntityFramework.xml
+D:\Git\Site-Hoi-Nghi-Khoa-Hoc\src\ConferencesManagement\ConferencesManagement\bin\EntityFramework.SqlServer.xml

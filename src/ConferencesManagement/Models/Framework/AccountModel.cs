@@ -1,4 +1,4 @@
-﻿using Models.Framework;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,10 +11,10 @@ namespace Models
     public class AccountModel
     {
 
-        private MyShopDbContext context = null;
+        private ConferencesManagementDbContext context = null;
         public AccountModel()
         {
-            context = new MyShopDbContext();
+            context = new ConferencesManagementDbContext();
         }
 
 
