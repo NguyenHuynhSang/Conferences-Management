@@ -18,7 +18,7 @@
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int IdTypeAccount { get; set; }
+        public int? IdTypeAccount { get; set; }
 
 
         [StringLength(50,ErrorMessage ="Số ký tự tối đa là 50")]

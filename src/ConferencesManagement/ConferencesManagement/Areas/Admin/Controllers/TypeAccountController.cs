@@ -37,16 +37,27 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             {
                 // TODO: Add insert logic here
 
+               
+
                 if (ModelState.IsValid)
                 {
+                    var model = new TypeAccountModel();
+                    int res = model.Create(collection.TypeName,3);
+                    if (res > 0)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Thêm lỗi rồi người ơi...");
+                    }
 
-                    return RedirectToAction("Index");
                 }
 
                 return View(collection);
               
             }
-            catch
+            catch   
             {
                 return View();
             }
@@ -87,6 +98,9 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             try
             {
                 // TODO: Add delete logic here
+
+
+
 
                 return RedirectToAction("Index");
             }

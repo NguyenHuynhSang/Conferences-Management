@@ -10,6 +10,7 @@ namespace ConferencesManagement.Areas.Admin.Models
     {
         [Required]  // bắt buộc phải có
         public string UserName { set; get; }
+        [Required]  // bắt buộc phải có
         public string PassWord { set; get; }
         public bool RememberMe { set; get; }
         
