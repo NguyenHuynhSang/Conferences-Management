@@ -25,6 +25,12 @@
 
 </head>
 
+
+<!-- Header-->
+@RenderPage("_Header.cshtml")
+
+
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -172,7 +178,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary",   @Html.ActionLink("Đăng xuất", "Logout", "Login")</a>
+                    <a class="btn btn-primary" , @Html.ActionLink("Đăng xuất", "Logout", "Login")</a>
                 </div>
             </div>
         </div>
@@ -196,5 +202,6 @@
     <script src="/Assets/Admin/js/demo/chart-pie-demo.js"></script>
 
 </body>
+
 
 </html>

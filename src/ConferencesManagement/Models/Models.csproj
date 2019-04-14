@@ -51,17 +51,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Framework\Account.cs" />
-    <Compile Include="Framework\AccountModel.cs" />
     <Compile Include="Framework\ConferencesManagementDbContext.cs" />
     <Compile Include="Framework\Event_Schedule_.cs" />
     <Compile Include="Framework\HoiThao.cs" />
     <Compile Include="Framework\News.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Framework\Speaker.cs" />
+    <Compile Include="Framework\sysdiagram.cs" />
     <Compile Include="Framework\ThongTinUser.cs" />
     <Compile Include="Framework\Ticket.cs" />
     <Compile Include="Framework\Topic.cs" />
     <Compile Include="Framework\TypeAccount.cs" />
+    <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\UserInfoModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
