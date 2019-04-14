@@ -62,6 +62,7 @@
     <Compile Include="Framework\Topic.cs" />
     <Compile Include="Framework\TypeAccount.cs" />
     <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\TypeAccountModel.cs" />
     <Compile Include="Models\UserInfoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
