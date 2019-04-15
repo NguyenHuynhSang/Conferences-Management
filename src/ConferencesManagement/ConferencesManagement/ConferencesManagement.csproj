@@ -1687,6 +1687,8 @@
     <Compile Include="Areas\Admin\Controllers\TypeAccountController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserInfoController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
+    <Compile Include="Common\CommonConstants.cs" />
+    <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -12,24 +12,30 @@ namespace Models
     public class AccountModel
     {
 
-        private ConferencesManagementDbContext context = null;
+        ConferencesManagementDbContext db = null;
         public AccountModel()
         {
-            context = new ConferencesManagementDbContext();
+            db = new ConferencesManagementDbContext();
         }
 
+        public int Insert(Account entity)
+        {
+            db.Accounts.Add(entity);
+            db.SaveChanges();
+            return entity.IdAccount;
+        }
 
-        public bool Login(string userName, string passWord) {
+        public Account GetByName(string userName)
+        {
+            return db.Accounts.SingleOrDefault(x => x.Username == userName);
+        }
+        public bool Login (string userName,string passWord)
+        {
+            var result = db.Accounts.Count(x => x.Username == userName && x.Password == passWord);
+            if (result > 0)
+                return true;
+            else return false;
 
-            object[] sqlPara= new SqlParameter[] {
-                new SqlParameter("@UserName", userName),
-                new SqlParameter("@PassWord", passWord),
-            };
-
-            var res = context.Database.SqlQuery<bool>("Sp_Account_Login @UserName,@PassWord", sqlPara).SingleOrDefault();
-            return res;
-
-      
         }
 
     }
