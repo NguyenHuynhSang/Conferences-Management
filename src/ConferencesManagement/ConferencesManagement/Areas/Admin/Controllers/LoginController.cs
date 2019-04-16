@@ -31,7 +31,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                 {
                     var user = dao.GetByName(model.UserName);
                     var userSession = new UserLogin();
-                    userSession.UserName = user.Username;
+                    userSession.UserName = user.UserName;
                     userSession.IdAccount = user.IdAccount;
                     Session.Add(CommonConstants.USER_SESSION, userSession);
                     return RedirectToAction("Index", "Home");

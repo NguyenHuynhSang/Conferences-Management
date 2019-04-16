@@ -14,8 +14,8 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         // GET: Admin/User
         public ActionResult Index()
         {
-          
-           return View();
+            SetViewBack();
+            return View();
         }
 
         public ActionResult Create(Account account)

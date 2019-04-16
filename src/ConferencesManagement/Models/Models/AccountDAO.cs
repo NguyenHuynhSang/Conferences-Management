@@ -18,7 +18,7 @@ namespace Models
             db = new ConferencesManagementDbContext();
         }
 
-        public int Insert(Account entity)
+        public long Insert(Account entity)
         {
             db.Accounts.Add(entity);
             db.SaveChanges();
@@ -27,11 +27,11 @@ namespace Models
 
         public Account GetByName(string userName)
         {
-            return db.Accounts.SingleOrDefault(x => x.Username == userName);
+            return db.Accounts.SingleOrDefault(x => x.UserName == userName);
         }
         public int Login (string userName,string passWord)
         {
-            var result = db.Accounts.SingleOrDefault(x => x.Username == userName);
+            var result = db.Accounts.SingleOrDefault(x => x.UserName == userName);
             if (result==null)
             {
                 return 0;
@@ -39,7 +39,7 @@ namespace Models
             }
             else 
             {
-                if (result.Password == passWord) return 1;
+                if (result.PassWord == passWord) return 1;
                 else return 2;
             }
          

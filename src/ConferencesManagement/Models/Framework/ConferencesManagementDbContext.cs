@@ -8,90 +8,57 @@ namespace Models.Framework
     public partial class ConferencesManagementDbContext : DbContext
     {
         public ConferencesManagementDbContext()
-            : base("name=ConferencesManagementDbContext")
+            : base("name=ConferencesManagementDbContext1")
         {
         }
 
+        public virtual DbSet<About> Abouts { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
-        public virtual DbSet<Event_Schedule_> Event_Schedule_ { get; set; }
-        public virtual DbSet<HoiThao> HoiThaos { get; set; }
-        public virtual DbSet<News> News { get; set; }
-        public virtual DbSet<Speaker> Speakers { get; set; }
-        public virtual DbSet<Ticket> Tickets { get; set; }
-        public virtual DbSet<Topic> Topics { get; set; }
+        public virtual DbSet<FeedBack> FeedBacks { get; set; }
+        public virtual DbSet<Footer> Footers { get; set; }
+        public virtual DbSet<Menu> Menus { get; set; }
+        public virtual DbSet<MenuType> MenuTypes { get; set; }
+        public virtual DbSet<Slide> Slides { get; set; }
         public virtual DbSet<TypeAccount> TypeAccounts { get; set; }
-        public virtual DbSet<ThongTinUser> ThongTinUsers { get; set; }
+        public virtual DbSet<Contact> Contacts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<About>()
+                .Property(e => e.CreatedBy)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<About>()
+                .Property(e => e.MetaDescriptions)
+                .IsFixedLength();
+
             modelBuilder.Entity<Account>()
-                .Property(e => e.Username)
+                .Property(e => e.CreatedBy)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Account>()
-                .Property(e => e.Password)
+                .Property(e => e.MetaDescriptions)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Footer>()
+                .Property(e => e.ID)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Account>()
-                .HasMany(e => e.ThongTinUsers)
-                .WithRequired(e => e.Account)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Account>()
-                .HasMany(e => e.Tickets)
-                .WithRequired(e => e.Account)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<HoiThao>()
-                .HasMany(e => e.News)
-                .WithRequired(e => e.HoiThao)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<HoiThao>()
-                .HasMany(e => e.Tickets)
-                .WithRequired(e => e.HoiThao)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<HoiThao>()
-                .HasMany(e => e.Topics)
-                .WithRequired(e => e.HoiThao)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Speaker>()
-                .Property(e => e.Email)
+            modelBuilder.Entity<Slide>()
+                .Property(e => e.CreatedBy)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Speaker>()
-                .Property(e => e.SDT)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Speaker>()
-                .HasMany(e => e.Topics)
-                .WithRequired(e => e.Speaker)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Topic>()
-                .HasMany(e => e.Event_Schedule_)
-                .WithRequired(e => e.Topic)
-                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<Slide>()
+                .Property(e => e.MetaDescriptions)
+                .IsFixedLength();
 
             modelBuilder.Entity<TypeAccount>()
-                .Property(e => e.TypeName)
+                .Property(e => e.CreatedBy)
                 .IsUnicode(false);
 
             modelBuilder.Entity<TypeAccount>()
-                .HasMany(e => e.Accounts)
-                .WithRequired(e => e.TypeAccount1)
-                .HasForeignKey(e => e.TypeAccount)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<ThongTinUser>()
-                .Property(e => e.SDT)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<ThongTinUser>()
-                .Property(e => e.Email)
-                .IsUnicode(false);
+                .Property(e => e.MetaDescriptions)
+                .IsFixedLength();
         }
     }
 }

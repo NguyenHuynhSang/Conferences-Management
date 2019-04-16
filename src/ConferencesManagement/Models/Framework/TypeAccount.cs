@@ -9,21 +9,34 @@ namespace Models.Framework
     [Table("TypeAccount")]
     public partial class TypeAccount
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TypeAccount()
-        {
-            Accounts = new HashSet<Account>();
-        }
-
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int IdTypeAccount { get; set; }
 
         [Required]
-        [StringLength(50)]
+        [StringLength(250)]
         public string TypeName { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Account> Accounts { get; set; }
+        public bool? IsDelete { get; set; }
+
+        [StringLength(250)]
+        public string SeoTitle { get; set; }
+
+        public DateTime? CreatedDate { get; set; }
+
+        [StringLength(50)]
+        public string CreatedBy { get; set; }
+
+        public DateTime? ModifiedDate { get; set; }
+
+        [StringLength(50)]
+        public string ModifiedBy { get; set; }
+
+        [StringLength(250)]
+        public string MetaKeyWords { get; set; }
+
+        [StringLength(50)]
+        public string MetaDescriptions { get; set; }
+
+        public bool? Status { get; set; }
     }
 }

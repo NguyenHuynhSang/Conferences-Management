@@ -50,19 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Framework\About.cs" />
     <Compile Include="Framework\Account.cs" />
     <Compile Include="Framework\ConferencesManagementDbContext.cs" />
-    <Compile Include="Framework\Event_Schedule_.cs" />
-    <Compile Include="Framework\HoiThao.cs" />
-    <Compile Include="Framework\News.cs" />
-    <Compile Include="Framework\Speaker.cs" />
-    <Compile Include="Framework\ThongTinUser.cs" />
-    <Compile Include="Framework\Ticket.cs" />
-    <Compile Include="Framework\Topic.cs" />
+    <Compile Include="Framework\Contact.cs" />
+    <Compile Include="Framework\FeedBack.cs" />
+    <Compile Include="Framework\Footer.cs" />
+    <Compile Include="Framework\Menu.cs" />
+    <Compile Include="Framework\MenuType.cs" />
+    <Compile Include="Framework\Slide.cs" />
     <Compile Include="Framework\TypeAccount.cs" />
     <Compile Include="Models\AccountDao.cs" />
     <Compile Include="Models\TypeAccountDao.cs" />
-    <Compile Include="Models\UserInfoDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

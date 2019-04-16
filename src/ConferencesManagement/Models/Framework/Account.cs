@@ -9,23 +9,16 @@ namespace Models.Framework
     [Table("Account")]
     public partial class Account
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Account()
-        {
-            ThongTinUsers = new HashSet<ThongTinUser>();
-            Tickets = new HashSet<Ticket>();
-        }
-
         [Key]
-        public int IdAccount { get; set; }
+        public long IdAccount { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string Username { get; set; }
+        public string UserName { get; set; }
 
         [Required]
         [StringLength(50)]
-        public string Password { get; set; }
+        public string PassWord { get; set; }
 
         [StringLength(20)]
         public string SDT { get; set; }
@@ -41,12 +34,27 @@ namespace Models.Framework
 
         public int TypeAccount { get; set; }
 
-        public virtual TypeAccount TypeAccount1 { get; set; }
+        public bool? IsDelete { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ThongTinUser> ThongTinUsers { get; set; }
+        [StringLength(250)]
+        public string SeoTitle { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ticket> Tickets { get; set; }
+        public DateTime? CreatedDate { get; set; }
+
+        [StringLength(50)]
+        public string CreatedBy { get; set; }
+
+        public DateTime? ModifiedDate { get; set; }
+
+        [StringLength(50)]
+        public string ModifiedBy { get; set; }
+
+        [StringLength(250)]
+        public string MetaKeyWords { get; set; }
+
+        [StringLength(50)]
+        public string MetaDescriptions { get; set; }
+
+        public bool? Status { get; set; }
     }
 }
