@@ -34,3 +34,15 @@ D:\hoc\ASP.net\BaoTriPhanMem\Conferences-Management\src\ConferencesManagement\Mo
 D:\hoc\ASP.net\BaoTriPhanMem\Conferences-Management\src\ConferencesManagement\Models\obj\Debug\Models.csproj.CopyComplete
 D:\hoc\ASP.net\BaoTriPhanMem\Conferences-Management\src\ConferencesManagement\Models\obj\Debug\Models.dll
 D:\hoc\ASP.net\BaoTriPhanMem\Conferences-Management\src\ConferencesManagement\Models\obj\Debug\Models.pdb
+D:\Git\Conferences-Management\src\ConferencesManagement\Models\bin\Debug\Models.dll.config
+D:\Git\Conferences-Management\src\ConferencesManagement\Models\bin\Debug\Models.dll
+D:\Git\Conferences-Management\src\ConferencesManagement\Models\bin\Debug\Models.pdb
+D:\Git\Conferences-Management\src\ConferencesManagement\Models\bin\Debug\EntityFramework.dll
+D:\Git\Conferences-Management\src\ConferencesManagement\Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\Git\Conferences-Management\src\ConferencesManagement\Models\bin\Debug\EntityFramework.xml
+D:\Git\Conferences-Management\src\ConferencesManagement\Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\Git\Conferences-Management\src\ConferencesManagement\Models\obj\Debug\Models.csprojAssemblyReference.cache
+D:\Git\Conferences-Management\src\ConferencesManagement\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+D:\Git\Conferences-Management\src\ConferencesManagement\Models\obj\Debug\Models.csproj.CopyComplete
+D:\Git\Conferences-Management\src\ConferencesManagement\Models\obj\Debug\Models.dll
+D:\Git\Conferences-Management\src\ConferencesManagement\Models\obj\Debug\Models.pdb

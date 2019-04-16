@@ -6,11 +6,8 @@ using System.Web.Mvc;
 
 namespace ConferencesManagement.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-
-        [Authorize]// bat buoc dang nhap
-        //[AllowAnonymous] // khong can dang nhap
         // GET: Admin/Home
         public ActionResult Index()
         {
