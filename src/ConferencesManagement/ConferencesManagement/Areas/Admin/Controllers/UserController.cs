@@ -14,7 +14,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         // GET: Admin/User
         public ActionResult Index()
         {
-            SetViewBack();
+           
             return View();
         }
 

@@ -1,0 +1,9 @@
+﻿@model List<Models.Framework.Menu>
+
+<ul class="d-flex flex-row align-items-center justify-content-start">
+    @foreach (var item in Model)
+    {
+        <li class="active"><a href="@item.Link" target="@item.Targer">@item.Text</a></li>
+    }
+
+</ul>

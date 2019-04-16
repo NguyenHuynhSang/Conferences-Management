@@ -1,18 +1,525 @@
 ﻿
 @{
-    Layout = null;
+    ViewBag.Title = "Trang Chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
+<!-- Home -->
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
-        "Home page-Nguyen Huynh Sang"
+<div class="home">
+
+    <!-- Home Slider -->
+    <div class="home_slider_container">
+        <div class="owl-carousel owl-theme home_slider">
+
+            <!-- Slide -->
+            <div class="slide">
+                <div class="background_image" style="background-image:url(~/Assets/Client/images/index.jpg)"></div>
+                <div class="home_container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="home_content">
+                                    <div class="home_title">
+                                        <h1>
+                                            <span>2019</span>
+                                            <span>Marketing</span>
+                                            <span>Conference</span>
+                                        </h1>
+                                    </div>
+                                    <div class="home_info_container">
+                                        <div class="home_info">
+                                            <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                <li>12-16 February 2019</li>
+                                                <li>Miami , FL</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="button button_1 home_button"><a href="#"><span>get tickets<img src="~/Assets/Client/images/arrow_2.png" alt=""></span></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide -->
+            <div class="slide">
+                <div class="background_image" style="background-image:url(https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjv6Z-l29XhAhUI_GEKHaBvDKMQjRx6BAgBEAU&url=http%3A%2F%2Fthuthuatphanmem.vn%2Fanh-dep-tong-hop-nhung-hinh-anh-dep-nhat%2F&psig=AOvVaw0g_LW6mkhdI2hGN90bglc1&ust=1555541900174496)"></div>
+                <div class="home_container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="home_content">
+                                    <div class="home_title">
+                                        <h1>
+                                            <span>2019</span>
+                                            <span>Marketing</span>
+                                            <span>Conference</span>
+                                        </h1>
+                                    </div>
+                                    <div class="home_info_container">
+                                        <div class="home_info">
+                                            <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                <li>12-16 February 2019</li>
+                                                <li>Miami , FL</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="button button_1 home_button"><a href="#"><span>get tickets<img src="~/Assets/Client/images/arrow_2.png" alt=""></span></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide -->
+            <div class="slide">
+                <div class="background_image" style="background-image:url(~/Assets/Client/images/index.jpg)"></div>
+                <div class="home_container">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <div class="home_content">
+                                    <div class="home_title">
+                                        <h1>
+                                            <span>2019</span>
+                                            <span>Marketing</span>
+                                            <span>Conference</span>
+                                        </h1>
+                                    </div>
+                                    <div class="home_info_container">
+                                        <div class="home_info">
+                                            <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                <li>12-16 February 2019</li>
+                                                <li>Miami , FL</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="button button_1 home_button"><a href="#"><span>get tickets<img src="~/Assets/Client/images/arrow_2.png" alt=""></span></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Home Slider Dots -->
+        <div class="home_slider_dots_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_slider_dots">
+                            <ul id="home_slider_custom_dots" class="home_slider_custom_dots d-flex flex-row align-items-start justify-content-start">
+                                <li class="home_slider_custom_dot active">01.</li>
+                                <li class="home_slider_custom_dot">02.</li>
+                                <li class="home_slider_custom_dot">03.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-</body>
-</html>
+</div>
+
+<!-- Timer -->
+
+<div class="timer_section">
+    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="~/Assets/Client/images/timer.jpg" data-speed="0.8"></div>
+    <div class="timer_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="timer_container">
+                    <ul class="timer d-flex flex-row align-items-center justify-content-start">
+                        <li class="d-flex flex-column justify-content-start align-items-center">
+                            <div id="day" class="timer_num">3</div>
+                            <div class="timer_unit">Days</div>
+                        </li>
+                        <li class="d-flex flex-column justify-content-start align-items-center">
+                            <div id="hour" class="timer_num">00</div>
+                            <div class="timer_unit">Hours</div>
+                        </li>
+                        <li class="d-flex flex-column justify-content-start align-items-center">
+                            <div id="minute" class="timer_num">00</div>
+                            <div class="timer_unit">Minutes</div>
+                        </li>
+                        <li class="d-flex flex-column justify-content-start align-items-center">
+                            <div id="second" class="timer_num">00</div>
+                            <div class="timer_unit">Seconds</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Intro -->
+
+<div class="intro">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <div class="section_title_container text-center">
+                    <div class="section_title"><h1>The Best Marketing Conference</h1></div>
+                </div>
+                <div class="intro_text text-center">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                </div>
+                <div class="button button_2 intro_button"><a href="#"><span>get tickets<img src="~/Assets/Client/images/arrow.png" alt=""></span></a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tabs Section -->
+
+<div class="tabs_section">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section_title_container text-center">
+                    <div class="section_subtitle">see what's all about</div>
+                    <div class="section_title"><h1>The Topics</h1></div>
+                </div>
+                <div class="tabs_container">
+                    <div class="tabs d-flex flex-row align-items-center justify-content-start flex-wrap">
+                        <div class="tab active">01. Marketing Intro</div>
+                        <div class="tab">02. Marketing Strategy</div>
+                        <div class="tab">03. Cyber Marketing</div>
+                        <div class="tab">04. Online Stategy</div>
+                        <div class="tab">05. Stories</div>
+                        <div class="tab">06. Special Guest</div>
+                    </div>
+                    <div class="tab_panels">
+                        <div class="tab_panel active">
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <div class="tab_panel_content">
+                                        <div class="tab_title"><h3>Marketing 101 - Studies for begginers</h3></div>
+                                        <div class="tab_text">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Etiam pretium, nibh vitae varius ultricies, tellus diam gravida elit, vel rhoncus eros eros sit amet ipsum. Cras cursus pellentesque tortor, vitae efficitur nisi laoreet in. Suspendisse libero erat, aliquet eu maximus ac, dignissim vitae ex. Nam vel euismod risus, tempor venenatis nunc.</p>
+                                        </div>
+                                        <div class="tab_link"><a href="#">Read More</a></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 tab_col">
+                                    <div class="tab_panel_image"><img src="~/Assets/Client/images/tabs.jpg" alt=""></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab_panel">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="tab_panel_content">
+                                        <div class="tab_title"><h3>02. Marketing Strategy</h3></div>
+                                        <div class="tab_text">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Etiam pretium, nibh vitae varius ultricies, tellus diam gravida elit, vel rhoncus eros eros sit amet ipsum. Cras cursus pellentesque tortor, vitae efficitur nisi laoreet in. Suspendisse libero erat, aliquet eu maximus ac, dignissim vitae ex. Nam vel euismod risus, tempor venenatis nunc.</p>
+                                        </div>
+                                        <div class="tab_link"><a href="#">Read More</a></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 tab_col">
+                                    <div class="tab_panel_image"><img src="~/Assets/Client/images/tabs.jpg" alt=""></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab_panel">
+                            <div class="row">
+                                <div class="col-lg-7">
+                                    <div class="tab_panel_content">
+                                        <div class="tab_title"><h3>03. Cyber Marketing</h3></div>
+                                        <div class="tab_text">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Etiam pretium, nibh vitae varius ultricies, tellus diam gravida elit, vel rhoncus eros eros sit amet ipsum. Cras cursus pellentesque tortor, vitae efficitur nisi laoreet in. Suspendisse libero erat, aliquet eu maximus ac, dignissim vitae ex. Nam vel euismod risus, tempor venenatis nunc.</p>
+                                        </div>
+                                        <div class="tab_link"><a href="#">Read More</a></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-5 tab_col">
+                                    <div class="tab_panel_image"><img src="~/Assets/Client/images/tabs.jpg" alt=""></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab_panel">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="tab_panel_content">
+                                        <div class="tab_title"><h3>04. Online Stategy</h3></div>
+                                        <div class="tab_text">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Etiam pretium, nibh vitae varius ultricies, tellus diam gravida elit, vel rhoncus eros eros sit amet ipsum. Cras cursus pellentesque tortor, vitae efficitur nisi laoreet in. Suspendisse libero erat, aliquet eu maximus ac, dignissim vitae ex. Nam vel euismod risus, tempor venenatis nunc.</p>
+                                        </div>
+                                        <div class="tab_link"><a href="#">Read More</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab_panel">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="tab_panel_content">
+                                        <div class="tab_title"><h3>05. Stories</h3></div>
+                                        <div class="tab_text">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Etiam pretium, nibh vitae varius ultricies, tellus diam gravida elit, vel rhoncus eros eros sit amet ipsum. Cras cursus pellentesque tortor, vitae efficitur nisi laoreet in. Suspendisse libero erat, aliquet eu maximus ac, dignissim vitae ex. Nam vel euismod risus, tempor venenatis nunc.</p>
+                                        </div>
+                                        <div class="tab_link"><a href="#">Read More</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab_panel">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="tab_panel_content">
+                                        <div class="tab_title"><h3>06. Special Guest</h3></div>
+                                        <div class="tab_text">
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Etiam pretium, nibh vitae varius ultricies, tellus diam gravida elit, vel rhoncus eros eros sit amet ipsum. Cras cursus pellentesque tortor, vitae efficitur nisi laoreet in. Suspendisse libero erat, aliquet eu maximus ac, dignissim vitae ex. Nam vel euismod risus, tempor venenatis nunc.</p>
+                                        </div>
+                                        <div class="tab_link"><a href="#">Read More</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Schedule -->
+
+<div class="schedule">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section_title_container text-center">
+                    <div class="section_subtitle">see what's all about</div>
+                    <div class="section_title"><h1>Schedule</h1></div>
+                </div>
+            </div>
+        </div>
+        <div class="row schedule_row">
+
+            <!-- Schedule Column -->
+            <div class="col-lg-6 schedule_col">
+                <div class="schedule_container">
+                    <div class="schedule_title_bar schedule_title_bar_1 text-center">Day 1. <span>February 12, 2019</span></div>
+                    <div class="schedule_list">
+                        <ul>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="schedule_image"><img src="~/Assets/Client/images/schedule_1.jpg" alt=""></div>
+                                <div class="schedule_content">
+                                    <div class="schedule_time">08:00 AM - 09:00 AM</div>
+                                    <div class="schedule_title">Grand Opening</div>
+                                    <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
+                                </div>
+                            </li>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="schedule_image"><img src="~/Assets/Client/images/schedule_2.jpg" alt=""></div>
+                                <div class="schedule_content">
+                                    <div class="schedule_time">09:00 AM - 10:00 AM</div>
+                                    <div class="schedule_title">Marketing 101</div>
+                                    <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
+                                </div>
+                            </li>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="schedule_image"><img src="~/Assets/Client/images/schedule_3.jpg" alt=""></div>
+                                <div class="schedule_content">
+                                    <div class="schedule_time">10:00 AM - 11:00 AM</div>
+                                    <div class="schedule_title">Big Marketing Strategy</div>
+                                    <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
+                                </div>
+                            </li>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="schedule_image"><img src="~/Assets/Client/images/schedule_4.jpg" alt=""></div>
+                                <div class="schedule_content">
+                                    <div class="schedule_time">11:00 AM - 12:00 AM</div>
+                                    <div class="schedule_title">Coffe Break</div>
+                                    <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
+                                </div>
+                            </li>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="schedule_image"><img src="~/Assets/Client/images/schedule_5.jpg" alt=""></div>
+                                <div class="schedule_content">
+                                    <div class="schedule_time">12:00 AM - 13:00 PM</div>
+                                    <div class="schedule_title">Online Strategy</div>
+                                    <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Schedule Column -->
+            <div class="col-lg-6 schedule_col">
+                <div class="schedule_container">
+                    <div class="schedule_title_bar schedule_title_bar_2 text-center">Day 2. <span>February 13, 2019</span></div>
+                    <div class="schedule_list">
+                        <ul>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="schedule_image"><img src="~/Assets/Client/images/schedule_6.jpg" alt=""></div>
+                                <div class="schedule_content">
+                                    <div class="schedule_time">08:00 AM - 09:00 AM</div>
+                                    <div class="schedule_title">Grand Opening</div>
+                                    <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
+                                </div>
+                            </li>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="schedule_image"><img src="~/Assets/Client/images/schedule_7.jpg" alt=""></div>
+                                <div class="schedule_content">
+                                    <div class="schedule_time">09:00 AM - 10:00 AM</div>
+                                    <div class="schedule_title">Marketing 101</div>
+                                    <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
+                                </div>
+                            </li>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="schedule_image"><img src="~/Assets/Client/images/schedule_8.jpg" alt=""></div>
+                                <div class="schedule_content">
+                                    <div class="schedule_time">10:00 AM - 11:00 AM</div>
+                                    <div class="schedule_title">Big Marketing Strategy</div>
+                                    <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
+                                </div>
+                            </li>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="schedule_image"><img src="~/Assets/Client/images/schedule_9.jpg" alt=""></div>
+                                <div class="schedule_content">
+                                    <div class="schedule_time">11:00 AM - 12:00 AM</div>
+                                    <div class="schedule_title">Coffe Break</div>
+                                    <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
+                                </div>
+                            </li>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="schedule_image"><img src="~/Assets/Client/images/schedule_10.jpg" alt=""></div>
+                                <div class="schedule_content">
+                                    <div class="schedule_time">12:00 AM - 13:00 PM</div>
+                                    <div class="schedule_title">Online Strategy</div>
+                                    <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
+                                </div>
+                            </li>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="schedule_image"><img src="~/Assets/Client/images/schedule_11.jpg" alt=""></div>
+                                <div class="schedule_content">
+                                    <div class="schedule_time">13:00 PM - 14:00 PM</div>
+                                    <div class="schedule_title">Online Strategy</div>
+                                    <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Speakers -->
+
+<div class="speakers">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section_title_container text-center">
+                    <div class="section_subtitle">see what's all about</div>
+                    <div class="section_title"><h1>Speakers</h1></div>
+                </div>
+            </div>
+        </div>
+        <div class="row speakers_row">
+
+            <!-- Speaker -->
+            <div class="col-xl-4 col-md-6">
+                <div class="speaker">
+                    <div class="speaker_image"><img src="~/Assets/Client/images/speaker_1.jpg" alt=""></div>
+                    <div class="speaker_info d-flex flex-column align-items-start justify-content-center">
+                        <div class="speaker_name"><a href="#">Maria Smith</a></div>
+                        <div class="speaker_title">Marketing Guru</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Speaker -->
+            <div class="col-xl-4 col-md-6">
+                <div class="speaker">
+                    <div class="speaker_image"><img src="~/Assets/Client/images/speaker_2.jpg" alt=""></div>
+                    <div class="speaker_info d-flex flex-column align-items-start justify-content-center">
+                        <div class="speaker_name"><a href="#">James Williams</a></div>
+                        <div class="speaker_title">Marketing Guru</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Speaker -->
+            <div class="col-xl-4 col-md-6">
+                <div class="speaker">
+                    <div class="speaker_image"><img src="~/Assets/Client/images/speaker_3.jpg" alt=""></div>
+                    <div class="speaker_info d-flex flex-column align-items-start justify-content-center">
+                        <div class="speaker_name"><a href="#">Michael Parker</a></div>
+                        <div class="speaker_title">Marketing Guru</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Speaker -->
+            <div class="col-xl-4 col-md-6">
+                <div class="speaker">
+                    <div class="speaker_image"><img src="~/Assets/Client/images/speaker_4.jpg" alt=""></div>
+                    <div class="speaker_info d-flex flex-column align-items-start justify-content-center">
+                        <div class="speaker_name"><a href="#">Gabriel Kim</a></div>
+                        <div class="speaker_title">Marketing Guru</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Speaker -->
+            <div class="col-xl-4 col-md-6">
+                <div class="speaker">
+                    <div class="speaker_image"><img src="~/Assets/Client/images/speaker_5.jpg" alt=""></div>
+                    <div class="speaker_info d-flex flex-column align-items-start justify-content-center">
+                        <div class="speaker_name"><a href="#">Christine Brown</a></div>
+                        <div class="speaker_title">Marketing Guru</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Speaker -->
+            <div class="col-xl-4 col-md-6">
+                <div class="speaker">
+                    <div class="speaker_image"><img src="~/Assets/Client/images/speaker_6.jpg" alt=""></div>
+                    <div class="speaker_info d-flex flex-column align-items-start justify-content-center">
+                        <div class="speaker_name"><a href="#">Laura White</a></div>
+                        <div class="speaker_title">Marketing Guru</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- CTA -->
+
+<div class="cta">
+    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="~/Assets/Client/images/cta.jpg" data-speed="0.8"></div>
+    <div class="cta_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="cta_content text-center">
+                    <div class="cta_title text-center"><h1>Get your tickets now!</h1></div>
+                    <div class="cta_text text-center">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                    </div>
+                    <div class="button button_3 cta_button"><a href="#"><span>get tickets<img src="~/Assets/Client/images/arrow.png" alt=""></span></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

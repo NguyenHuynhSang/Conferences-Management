@@ -61,6 +61,7 @@
     <Compile Include="Framework\Slide.cs" />
     <Compile Include="Framework\TypeAccount.cs" />
     <Compile Include="Models\AccountDao.cs" />
+    <Compile Include="Models\MenuDao.cs" />
     <Compile Include="Models\TypeAccountDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
