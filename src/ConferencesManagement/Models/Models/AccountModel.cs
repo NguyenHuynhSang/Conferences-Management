@@ -29,12 +29,20 @@ namespace Models
         {
             return db.Accounts.SingleOrDefault(x => x.Username == userName);
         }
-        public bool Login (string userName,string passWord)
+        public int Login (string userName,string passWord)
         {
-            var result = db.Accounts.Count(x => x.Username == userName && x.Password == passWord);
-            if (result > 0)
-                return true;
-            else return false;
+            var result = db.Accounts.SingleOrDefault(x => x.Username == userName);
+            if (result==null)
+            {
+                return 0;
+
+            }
+            else 
+            {
+                if (result.Password == passWord) return 1;
+                else return 2;
+            }
+         
 
         }
 

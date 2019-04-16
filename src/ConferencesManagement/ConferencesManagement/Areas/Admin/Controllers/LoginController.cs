@@ -27,7 +27,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             {
                 var dao = new AccountModel();
                 var result = dao.Login(model.UserName, model.PassWord);
-                if (result)
+                if (result==1)
                 {
                     var user = dao.GetByName(model.UserName);
                     var userSession = new UserLogin();
@@ -36,9 +36,13 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     Session.Add(CommonConstants.USER_SESSION, userSession);
                     return RedirectToAction("Index", "Home");
                 }
+                else if (result == 0)
+                {
+                    ModelState.AddModelError("", "Tài khoản không tồn tại ");
+                }
                 else
                 {
-                    ModelState.AddModelError("", "Đăng nhập không đúng");
+                    ModelState.AddModelError("", "Sai mật khẩu ");
                 }
            
             }
