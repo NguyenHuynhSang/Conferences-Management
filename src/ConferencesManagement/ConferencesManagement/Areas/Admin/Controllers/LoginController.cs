@@ -19,10 +19,10 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         {
             return View();
         }
-
+        [HttpPost] // khong nhan URL
+        [ValidateAntiForgeryToken]// bảo mật, chi tiết google
         public ActionResult Login (LoginModel model)
-        {
-            
+        {          
             if (ModelState.IsValid)
             {
                 var dao = new AccountModel();

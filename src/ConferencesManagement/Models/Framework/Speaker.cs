@@ -35,6 +35,12 @@ namespace Models.Framework
         [StringLength(50)]
         public string SDT { get; set; }
 
+        [StringLength(50)]
+        public string Images { get; set; }
+
+        [Column(TypeName = "xml")]
+        public string MoreImages { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Topic> Topics { get; set; }
     }

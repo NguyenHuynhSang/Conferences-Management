@@ -56,7 +56,6 @@
     <Compile Include="Framework\HoiThao.cs" />
     <Compile Include="Framework\News.cs" />
     <Compile Include="Framework\Speaker.cs" />
-    <Compile Include="Framework\sysdiagram.cs" />
     <Compile Include="Framework\ThongTinUser.cs" />
     <Compile Include="Framework\Ticket.cs" />
     <Compile Include="Framework\Topic.cs" />

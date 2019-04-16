@@ -1,8 +1,7 @@
-﻿namespace Models.Framework
+namespace Models.Framework
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -22,18 +21,15 @@
         [Key]
         [Column(Order = 2)]
         [StringLength(50)]
-        [DisplayName("Họ Tên")]
         public string HoTen { get; set; }
 
         [Key]
         [Column(Order = 3)]
-        [DisplayName("Ngày sinh")]
         public DateTime NgaySinh { get; set; }
 
         [Key]
         [Column(Order = 4)]
         [StringLength(50)]
-        [DisplayName("Số Điện Thoại")]
         public string SDT { get; set; }
 
         [Key]
@@ -44,7 +40,6 @@
         [Key]
         [Column(Order = 6)]
         [StringLength(50)]
-        [DisplayName("Địa chỉ")]
         public string DiaChi { get; set; }
 
         public virtual Account Account { get; set; }

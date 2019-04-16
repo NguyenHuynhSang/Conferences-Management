@@ -35,7 +35,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    @using (Html.BeginForm())            // User form
+                                    @using (Html.BeginForm("Login","Login",FormMethod.Post))// User form
                                     {
                                         @Html.AntiForgeryToken()
                                         @Html.ValidationSummary(true, null, new {@class="alart alart-danger"})
