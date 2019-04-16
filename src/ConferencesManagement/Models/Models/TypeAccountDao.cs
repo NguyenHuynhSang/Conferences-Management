@@ -8,19 +8,23 @@ using System.Threading.Tasks;
 
 namespace Models.Models
 {
-    public class TypeAccountModel
+    public class TypeAccountDao
     {
         private ConferencesManagementDbContext context = null;
-        public TypeAccountModel()
+        public TypeAccountDao()
         {
             context = new ConferencesManagementDbContext();
         }
 
         public List<TypeAccount> ListAll()
         {
-            var list = context.Database.SqlQuery<TypeAccount>("SP_TypeAccount_ListAll").ToList();
-            return list;
+            return context.TypeAccounts.ToList();
         }
+
+
+
+
+       
 
         public int Create(string name,int? id) {
 

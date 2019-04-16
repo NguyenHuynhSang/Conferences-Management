@@ -25,7 +25,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         {          
             if (ModelState.IsValid)
             {
-                var dao = new AccountModel();
+                var dao = new AccountDao();
                 var result = dao.Login(model.UserName, model.PassWord);
                 if (result==1)
                 {

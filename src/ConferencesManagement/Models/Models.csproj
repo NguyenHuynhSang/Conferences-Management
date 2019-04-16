@@ -60,9 +60,9 @@
     <Compile Include="Framework\Ticket.cs" />
     <Compile Include="Framework\Topic.cs" />
     <Compile Include="Framework\TypeAccount.cs" />
-    <Compile Include="Models\AccountModel.cs" />
-    <Compile Include="Models\TypeAccountModel.cs" />
-    <Compile Include="Models\UserInfoModel.cs" />
+    <Compile Include="Models\AccountDao.cs" />
+    <Compile Include="Models\TypeAccountDao.cs" />
+    <Compile Include="Models\UserInfoDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +71,8 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\DAO\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

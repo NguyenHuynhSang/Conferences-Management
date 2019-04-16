@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class AccountModel
+    public class AccountDao
     {
 
         ConferencesManagementDbContext db = null;
-        public AccountModel()
+        public AccountDao()
         {
             db = new ConferencesManagementDbContext();
         }

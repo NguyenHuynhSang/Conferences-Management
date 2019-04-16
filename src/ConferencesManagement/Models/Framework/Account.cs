@@ -27,6 +27,18 @@ namespace Models.Framework
         [StringLength(50)]
         public string Password { get; set; }
 
+        [StringLength(20)]
+        public string SDT { get; set; }
+
+        [StringLength(50)]
+        public string HoTen { get; set; }
+
+        [StringLength(250)]
+        public string DiaChi { get; set; }
+
+        [StringLength(50)]
+        public string Email { get; set; }
+
         public int TypeAccount { get; set; }
 
         public virtual TypeAccount TypeAccount1 { get; set; }
