@@ -12,10 +12,11 @@ namespace ConferencesManagement.Areas.Admin.Controllers
     public class UserController : Controller
     {
         // GET: Admin/User
-        public ActionResult Index()
+        public ActionResult Index(int page =1 , int pageSize =10)
         {
-           
-            return View();
+            var dao = new AccountDao();
+            var result = dao.ListAllPaging(page, pageSize);
+            return View(result);
         }
 
         public ActionResult Create(Account account)
@@ -28,13 +29,13 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                 if (id > 0)
                 {
                     // chuyển hướng trang về admin/User/index
-                    RedirectToAction("Index", "User");
+                    RedirectToAction("Create", "User");
                 }
                 else {
                     ModelState.AddModelError("", "Them account loi");
                 }
             }
-            return View("Index");
+            return View("Create");
           
         }
 

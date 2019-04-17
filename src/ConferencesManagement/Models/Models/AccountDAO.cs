@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PagedList;
 
 namespace Models
 {
@@ -29,6 +30,12 @@ namespace Models
         {
             return db.Accounts.SingleOrDefault(x => x.UserName == userName);
         }
+
+        public IEnumerable<Account> ListAllPaging(int page, int pageSize)
+        {
+            return db.Accounts.OrderByDescending(x=>x.CreatedDate).ToPagedList(page, pageSize);
+        }
+
         public int Login (string userName,string passWord)
         {
             var result = db.Accounts.SingleOrDefault(x => x.UserName == userName);
