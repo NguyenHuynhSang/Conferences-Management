@@ -1,4 +1,4 @@
-﻿@model PagedList.IPagedList<Models.Framework.Account>
+﻿@model PagedList.IPagedList<Models.Framework.Speaker>
 @using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
@@ -11,40 +11,31 @@
             <thead>
                 <tr role="row">
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="UserName: activate to sort column ascending" style="width: 95.0062px;">
-                        UserName
+                        Họ tên
                     </th>
                     <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Password: activate to sort column descending" style="width: 149.006px;" aria-sort="ascending">
-                        Password
-                    </th>
-                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-                        Ho ten
+                        Chức vụ
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
                         Email
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-                        SDT
+                        SĐT
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-                        Type account
-                    </th>
-                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-                        isDeleted
-                    </th>
-                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-                        SEO title
-                    </th>
-                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-                        Created date
+                        Status
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
                         Created By
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-                        Modified Date
+                        Created date
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
                         Modified By
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
+                        Modified Date
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
 
@@ -61,53 +52,44 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                <tr role="row" class="odd">
-                    <td>
-                        @item.UserName
-                    </td>
-                    <td>
-                        @item.PassWord
-                    </td>
-                    <td>
-                        @item.HoTen
-                    </td>
-                    <td>
-                        @item.Email
-                    </td>
-                    <td>
-                        @item.SDT
-                    </td>
-                    <td>
-                        @item.TypeAccount
-                    </td>
-                    <td>
-                        @item.IsDelete
-                    </td>
-                    <td>
-                        @item.SeoTitle
-                    </td>
-                    <td>
-                        @item.CreatedDate
-                    </td>
-                    <td>
-                        @item.CreatedBy
-                    </td>
-                    <td>
-                        @item.ModifiedDate
-                    </td>
-                    <td>
-                        @item.ModifiedBy
-                    </td>
-                    <td>
-                        <a href="User/Create">Thêm</a>
-                    </td>
-                    <td>
-                        <a href="User/Edit/@item.IdAccount">Sửa</a>
-                    </td>
-                    <td>
-                        <a href="User/Delete/@item.IdAccount">Xóa</a>
-                    </td>
-                </tr>
+                    <tr role="row" class="odd">
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                            @item.ChucVu
+                        </td>
+                        <td>
+                            @item.Email
+                        </td>
+                        <td>
+                            @item.SDT
+                        </td>
+                        <td>
+                            @item.Status
+                        </td>
+                        <td>
+                            @item.CreatedBy
+                        </td>
+                        <td>
+                            @item.CreatedDate
+                        </td>
+                        <td>
+                            @item.ModifiedBy
+                        </td>
+                        <td>
+                            @item.ModifiedDate
+                        </td>
+                        <td>
+                            <a href="Speaker/Create">Thêm</a>
+                        </td>
+                        <td>
+                            <a href="Speaker/Edit/@item.ID">Sửa</a>
+                        </td>
+                        <td>
+                            <a href="Speaker/Delete/@item.ID">Xóa</a>
+                        </td>
+                    </tr>
                 }
 
             </tbody>

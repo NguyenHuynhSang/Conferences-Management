@@ -75,6 +75,7 @@
     <Compile Include="Models\AccountDao.cs" />
     <Compile Include="Models\ContactDao.cs" />
     <Compile Include="Models\MenuDao.cs" />
+    <Compile Include="Models\SpeakerDao.cs" />
     <Compile Include="Models\TypeAccountDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
