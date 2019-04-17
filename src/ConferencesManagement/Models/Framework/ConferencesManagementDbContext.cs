@@ -8,7 +8,7 @@ namespace Models.Framework
     public partial class ConferencesManagementDbContext : DbContext
     {
         public ConferencesManagementDbContext()
-            : base("name=ConferencesManagementDbContext1")
+            : base("name=ConferencesManagementDbContext")
         {
         }
 
@@ -16,9 +16,15 @@ namespace Models.Framework
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<FeedBack> FeedBacks { get; set; }
         public virtual DbSet<Footer> Footers { get; set; }
+        public virtual DbSet<HoiThao> HoiThaos { get; set; }
+        public virtual DbSet<HoiThaoDetail> HoiThaoDetails { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<MenuType> MenuTypes { get; set; }
         public virtual DbSet<Slide> Slides { get; set; }
+        public virtual DbSet<Speaker> Speakers { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Topic> Topics { get; set; }
+        public virtual DbSet<TopicDetail> TopicDetails { get; set; }
         public virtual DbSet<TypeAccount> TypeAccounts { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
 
@@ -44,12 +50,28 @@ namespace Models.Framework
                 .Property(e => e.ID)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<HoiThao>()
+                .Property(e => e.CreatedBy)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Slide>()
                 .Property(e => e.CreatedBy)
                 .IsUnicode(false);
 
             modelBuilder.Entity<Slide>()
                 .Property(e => e.MetaDescriptions)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Speaker>()
+                .Property(e => e.CreatedBy)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Topic>()
+                .Property(e => e.CreatedBy)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<TopicDetail>()
+                .Property(e => e.ChuDe)
                 .IsFixedLength();
 
             modelBuilder.Entity<TypeAccount>()

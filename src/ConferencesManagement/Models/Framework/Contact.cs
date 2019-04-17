@@ -15,5 +15,14 @@ namespace Models.Framework
         public string Content { get; set; }
 
         public bool? Status { get; set; }
+
+        [StringLength(250)]
+        public string DiaChi { get; set; }
+
+        [StringLength(50)]
+        public string SDT { get; set; }
+
+        [StringLength(50)]
+        public string Email { get; set; }
     }
 }

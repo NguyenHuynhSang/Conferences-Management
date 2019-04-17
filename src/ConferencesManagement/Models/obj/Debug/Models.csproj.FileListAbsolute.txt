@@ -62,3 +62,7 @@ D:\hoc\ASP.net\BaoTriPhanMem\3\Conferences-Management\src\ConferencesManagement\
 D:\hoc\ASP.net\BaoTriPhanMem\3\Conferences-Management\src\ConferencesManagement\Models\bin\Debug\PagedList.Mvc.dll
 D:\hoc\ASP.net\BaoTriPhanMem\3\Conferences-Management\src\ConferencesManagement\Models\bin\Debug\PagedList.xml
 D:\hoc\ASP.net\BaoTriPhanMem\3\Conferences-Management\src\ConferencesManagement\Models\bin\Debug\PagedList.Mvc.xml
+D:\Git\Conferences-Management\src\ConferencesManagement\Models\bin\Debug\PagedList.dll
+D:\Git\Conferences-Management\src\ConferencesManagement\Models\bin\Debug\PagedList.Mvc.dll
+D:\Git\Conferences-Management\src\ConferencesManagement\Models\bin\Debug\PagedList.xml
+D:\Git\Conferences-Management\src\ConferencesManagement\Models\bin\Debug\PagedList.Mvc.xml

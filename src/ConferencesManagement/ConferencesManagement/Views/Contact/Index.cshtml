@@ -1,0 +1,92 @@
+﻿@model Models.Framework.Contact
+@{
+    ViewBag.Title = "LienHe";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="super_container">
+
+
+
+    <!-- Home -->
+
+    <div class="home">
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="/Assets/Client/images/contact_page.jpg" data-speed="0.8"></div>
+        <div class="home_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_content">
+                            <div class="home_title"><h1>Contact</h1></div>
+                            <div class="breadcrumbs">
+                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li>Contact</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+
+    <div class="contact container_wrapper">
+        <div class="container">
+            <div class="row row-eq-height">
+                <!-- Contact Content -->
+                <div class="col-xl-6 order-xl-2 order-1">
+                    <div class="contact_content">
+                        <div class="contact_title">Get in touch</div>
+                        <div class="contact_text">
+                            <p>@Html.Raw(Model.Content)</p>
+                        </div>
+                        <div class="contact_list">
+                            <ul>
+                                <li>@Html.Raw(Model.DiaChi)</li>
+                                <li>@Html.Raw(Model.SDT)</li>
+                                <li>@Html.Raw(Model.Email)</li>
+                            </ul>
+                        </div>
+                        <div class="contact_form_container">
+                            <form action="#" class="contact_form" id="contact_form">
+                                <div class="d-flex flex-md-row flex-column align-items-start justify-content-between">
+                                    <div><input type="text" class="contact_input" placeholder="Your name" required="required"></div>
+                                    <div><input type="email" class="contact_input" placeholder="Your email" required="required"></div>
+                                </div>
+                                <input type="text" class="contact_input" placeholder="Subject">
+                                <textarea class="contact_textarea contact_input" placeholder="Message"></textarea>
+                                <button class="contact_button"><span>send<img src="images/arrow.png" alt=""></span></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+
+    <div class="cta">
+        <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="images/cta.jpg" data-speed="0.8"></div>
+        <div class="cta_overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="cta_content text-center">
+                        <div class="cta_title text-center"><h1>Get your tickets now!</h1></div>
+                        <div class="cta_text text-center">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                        </div>
+                        <div class="button button_3 cta_button"><a href="#"><span>get tickets<img src="images/arrow.png" alt=""></span></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
