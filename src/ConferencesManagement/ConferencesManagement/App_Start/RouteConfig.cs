@@ -11,7 +11,7 @@ namespace ConferencesManagement
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-        
+
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(
                 name: "Default",
@@ -29,11 +29,11 @@ namespace ConferencesManagement
 
 
             routes.MapRoute(
-  name: "Contact",
-  url: "lien-he",
-  defaults: new { controller = "Contact", action = "Index", id = UrlParameter.Optional },
-  namespaces: new[] { "ConferencesManagement.Controllers" }
-);
+              name: "Contact",
+              url: "lien-he",
+              defaults: new { controller = "Contact", action = "Index", id = UrlParameter.Optional },
+              namespaces: new[] { "ConferencesManagement.Controllers" }
+            );
 
 
 

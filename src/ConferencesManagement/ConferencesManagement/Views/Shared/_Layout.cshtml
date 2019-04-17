@@ -35,7 +35,7 @@
 
                 <!-- Main Navigation -->
                 <nav class="main_nav">
-                 @{Html.RenderAction("MainMenu", "Home");}
+                    @{Html.RenderAction("MainMenu", "Home");}
                 </nav>
 
                 <div class="header_right ml-auto d-flex flex-row align-items-center justify-content-start">
@@ -94,12 +94,27 @@
             </div>
         </div>
 
+         @RenderBody()
 
-        <div class="main">
-            @RenderBody()
+        <!-- CTA -->
 
+        <div class="cta">
+            <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="~/Assets/Client/images/cta.jpg" data-speed="0.8"></div>
+            <div class="cta_overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="cta_content text-center">
+                            <div class="cta_title text-center"><h1>Get your tickets now!</h1></div>
+                            <div class="cta_text text-center">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                            </div>
+                            <div class="button button_3 cta_button"><a href="#"><span>get tickets<img src="~/Assets/Client/images/arrow.png" alt=""></span></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
         <!-- Footer -->
 
         <footer class="footer">
