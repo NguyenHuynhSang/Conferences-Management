@@ -21,5 +21,16 @@ namespace ConferencesManagement.Controllers
             var model = new MenuDao().ListByGroupId(1);
             return PartialView(model);
         }
+
+        //get list topic
+
+        public ActionResult TopicMenu()
+        {
+            return PartialView();
+        
+
+        }
+
+
     }
 }

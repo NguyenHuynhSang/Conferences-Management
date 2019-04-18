@@ -1748,6 +1748,7 @@
     <Content Include="Assets\Client\js\about.js" />
     <Content Include="Assets\Client\js\blog.js" />
     <Content Include="Assets\Client\js\contact.js" />
+    <Content Include="Assets\Client\js\Controller\ContactController.js" />
     <Content Include="Assets\Client\js\custom.js" />
     <Content Include="Assets\Client\js\elements.js" />
     <Content Include="Assets\Client\js\jquery-3.3.1.min.js" />
@@ -2044,6 +2045,7 @@
     <Content Include="Views\Shared\TopMenu.cshtml" />
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Home\TopicMenu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
