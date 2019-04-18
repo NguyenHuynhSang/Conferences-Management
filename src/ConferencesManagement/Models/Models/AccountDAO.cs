@@ -36,6 +36,32 @@ namespace Models
             return db.Accounts.OrderByDescending(x=>x.CreatedDate).ToPagedList(page, pageSize);
         }
 
+        public bool Update(Account entity)
+        {
+            try
+            {
+                var account = db.Accounts.Find(entity.IdAccount);
+                account.UserName = entity.UserName;
+                account.PassWord = entity.PassWord;
+                account.Email = entity.Email;
+                account.DiaChi = entity.DiaChi;
+                account.SDT = entity.SDT;
+                account.ModifiedBy = entity.ModifiedBy;
+                account.ModifiedDate = DateTime.Now;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public Account AccountDetail(int id)
+        {
+            return db.Accounts.Find(id);
+        }
+
         public int Login (string userName,string passWord)
         {
             var result = db.Accounts.SingleOrDefault(x => x.UserName == userName);
@@ -51,6 +77,21 @@ namespace Models
             }
          
 
+        }
+
+        public bool Delete(int id)
+        {
+            try
+            {
+                var account = db.Accounts.Find(id);
+                db.Accounts.Remove(account);
+                db.SaveChanges();
+                return true;
+            }
+            catch(Exception)
+            {
+                return false;
+            }
         }
 
     }

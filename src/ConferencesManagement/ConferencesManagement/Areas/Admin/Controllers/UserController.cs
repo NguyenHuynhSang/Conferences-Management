@@ -18,7 +18,12 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             var result = dao.ListAllPaging(page, pageSize);
             return View(result);
         }
-
+        //[HttpGet]
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
         public ActionResult Create(Account account)
         {
             SetViewBack();
@@ -38,13 +43,44 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             return View("Create");
           
         }
-
+        public ActionResult Edit(int id)
+        {
+            var account = new AccountDao().AccountDetail(id);
+            return View(account);
+        }
+        [HttpPost]
+        public ActionResult Edit(Account account)
+        {
+            SetViewBack();
+            if (ModelState.IsValid)
+            {
+                var dao = new AccountDao();
+                var result = dao.Update(account);
+                if (result)
+                {
+                    return RedirectToAction("Index", "User");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Cập nhật thành công");
+                }
+            }
+            return View("Index");
+        }
 
         // lấy danh sách typeaccount hiện thị vào dropdownlist
         public void SetViewBack(long? selectedid=null)
         {
+
             var dao = new TypeAccountDao();
             ViewBag.TypeAccount = new SelectList(dao.ListAll(), "IdTypeAccount", "TypeName", selectedid );
         }
+        [HttpDelete]
+        public ActionResult Delete(int id)
+        {
+            new AccountDao().Delete(id);
+            return RedirectToAction("Index");
+        }
+
     }
 }

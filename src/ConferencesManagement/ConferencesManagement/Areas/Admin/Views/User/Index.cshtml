@@ -99,13 +99,18 @@
                         @item.ModifiedBy
                     </td>
                     <td>
-                        <a href="User/Create">Thêm</a>
+                        <a href="Create">Thêm</a>
                     </td>
                     <td>
                         <a href="User/Edit/@item.IdAccount">Sửa</a>
                     </td>
                     <td>
-                        <a href="User/Delete/@item.IdAccount">Xóa</a>
+                        @Ajax.ActionLink("Xóa", "Delete",new { @id = item.IdAccount }, new AjaxOptions
+                   {
+                       Confirm = "bạn có muốn xóa không",
+                       OnComplete="$('row_"+@item.IdAccount+"').remove()",
+                       HttpMethod="Delete"
+                        })
                     </td>
                 </tr>
                 }
