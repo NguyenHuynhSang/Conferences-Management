@@ -2052,6 +2052,8 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Home\TopicMenu.cshtml" />
+    <Content Include="Views\Home\TitleInfo.cshtml" />
+    <Content Include="Views\Home\HomeContent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

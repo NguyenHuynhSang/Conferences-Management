@@ -14,6 +14,9 @@ namespace Models.Framework
         [StringLength(50)]
         public string TenHoiThao { get; set; }
 
+        [Column(TypeName = "ntext")]
+        public string Content { get; set; }
+
         public DateTime? NgayDienRa { get; set; }
 
         [StringLength(50)]

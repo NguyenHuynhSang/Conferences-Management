@@ -1,0 +1,18 @@
+﻿@model Models.Framework.HoiThao
+
+
+<div class="intro">
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <div class="section_title_container text-center">
+                    <div class="section_title"><h1>@Model.TenHoiThao</h1></div>
+                </div>
+                <div class="intro_text text-center">
+                    <p>@Html.Raw(@Model.Content)</p>
+                </div>
+                <div class="button button_2 intro_button"><a href="#"><span>get tickets<img src="~/Assets/Client/images/arrow.png" alt=""></span></a></div>
+            </div>
+        </div>
+    </div>
+</div>

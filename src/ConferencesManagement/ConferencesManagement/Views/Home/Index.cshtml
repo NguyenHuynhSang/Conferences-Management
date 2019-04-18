@@ -4,128 +4,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <!-- Home -->
+@{Html.RenderAction("HomeContent", "Home");}
 
-<div class="home">
-
-    <!-- Home Slider -->
-    <div class="home_slider_container">
-        <div class="owl-carousel owl-theme home_slider">
-
-            <!-- Slide -->
-            <div class="slide">
-                <div class="background_image" style="background-image:url(~/Assets/Client/images/index.jpg)"></div>
-                <div class="home_container">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="home_content">
-                                    <div class="home_title">
-                                        <h1>
-                                            <span>2019</span>
-                                            <span>Marketing</span>
-                                            <span>Conference</span>
-                                        </h1>
-                                    </div>
-                                    <div class="home_info_container">
-                                        <div class="home_info">
-                                            <ul class="d-flex flex-row align-items-center justify-content-start">
-                                                <li>12-16 February 2019</li>
-                                                <li>Miami , FL</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="button button_1 home_button"><a href="#"><span>get tickets<img src="~/Assets/Client/images/arrow_2.png" alt=""></span></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide -->
-            <div class="slide">
-                <div class="background_image" style="background-image:url(https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjv6Z-l29XhAhUI_GEKHaBvDKMQjRx6BAgBEAU&url=http%3A%2F%2Fthuthuatphanmem.vn%2Fanh-dep-tong-hop-nhung-hinh-anh-dep-nhat%2F&psig=AOvVaw0g_LW6mkhdI2hGN90bglc1&ust=1555541900174496)"></div>
-                <div class="home_container">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="home_content">
-                                    <div class="home_title">
-                                        <h1>
-                                            <span>2019</span>
-                                            <span>Marketing</span>
-                                            <span>Conference</span>
-                                        </h1>
-                                    </div>
-                                    <div class="home_info_container">
-                                        <div class="home_info">
-                                            <ul class="d-flex flex-row align-items-center justify-content-start">
-                                                <li>12-16 February 2019</li>
-                                                <li>Miami , FL</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="button button_1 home_button"><a href="#"><span>get tickets<img src="~/Assets/Client/images/arrow_2.png" alt=""></span></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Slide -->
-            <div class="slide">
-                <div class="background_image" style="background-image:url(~/Assets/Client/images/index.jpg)"></div>
-                <div class="home_container">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="home_content">
-                                    <div class="home_title">
-                                        <h1>
-                                            <span>2019</span>
-                                            <span>Marketing</span>
-                                            <span>Conference</span>
-                                        </h1>
-                                    </div>
-                                    <div class="home_info_container">
-                                        <div class="home_info">
-                                            <ul class="d-flex flex-row align-items-center justify-content-start">
-                                                <li>12-16 February 2019</li>
-                                                <li>Miami , FL</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="button button_1 home_button"><a href="#"><span>get tickets<img src="~/Assets/Client/images/arrow_2.png" alt=""></span></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- Home Slider Dots -->
-        <div class="home_slider_dots_container">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="home_slider_dots">
-                            <ul id="home_slider_custom_dots" class="home_slider_custom_dots d-flex flex-row align-items-start justify-content-start">
-                                <li class="home_slider_custom_dot active">01.</li>
-                                <li class="home_slider_custom_dot">02.</li>
-                                <li class="home_slider_custom_dot">03.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</div>
 
 <!-- Timer -->
 
@@ -161,26 +43,10 @@
 </div>
 
 <!-- Intro -->
-
-<div class="intro">
-    <div class="container">
-        <div class="row">
-            <div class="col text-center">
-                <div class="section_title_container text-center">
-                    <div class="section_title"><h1>The Best Marketing Conference</h1></div>
-                </div>
-                <div class="intro_text text-center">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
-                </div>
-                <div class="button button_2 intro_button"><a href="#"><span>get tickets<img src="~/Assets/Client/images/arrow.png" alt=""></span></a></div>
-            </div>
-        </div>
-    </div>
-</div>
+@{Html.RenderAction("TitleInfo", "Home");}
 
 
 @{Html.RenderAction("TopicMenu", "Home");}
-
 
 
 

@@ -33,11 +33,21 @@ namespace ConferencesManagement.Controllers
 
         }
 
-        public ActionResult TitleMenu()
+        public ActionResult TitleInfo()
         {
-            return PartialView();
+
+            var model = new HoiNghiDao().GetActiveHoiThao();
+            return PartialView(model);
 
         }
+
+        public ActionResult HomeContent()
+        {
+            var model = new HoiNghiDao().GetActiveHoiThao();
+            return PartialView(model);
+
+        }
+
 
     }
 }

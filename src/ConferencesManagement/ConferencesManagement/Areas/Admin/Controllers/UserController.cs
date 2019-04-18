@@ -34,7 +34,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                 if (id > 0)
                 {
                     // chuyển hướng trang về admin/User/index
-                    RedirectToAction("Create", "User");
+                    RedirectToAction("Index", "User");
                 }
                 else {
                     ModelState.AddModelError("", "Them account loi");
