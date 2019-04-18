@@ -1,4 +1,5 @@
-﻿using Models.Models;
+﻿using ConferencesManagement.Common;
+using Models.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,15 +23,21 @@ namespace ConferencesManagement.Controllers
             return PartialView(model);
         }
 
-        //get list topic
-
+        // lấy ra ds topic của hội thảo hiện tại hiển thị lên client
+        //PartialView là 1 phần trong trang, nhưng k phải là trang
         public ActionResult TopicMenu()
         {
-            return PartialView();
+            var model = new TopicDao().ListByGroupId(CommonConstants.CURRENT_HOITHAO);
+            return PartialView(model);
         
 
         }
 
+        public ActionResult TitleMenu()
+        {
+            return PartialView();
+
+        }
 
     }
 }

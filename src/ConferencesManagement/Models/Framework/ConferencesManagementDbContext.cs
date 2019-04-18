@@ -24,7 +24,6 @@ namespace Models.Framework
         public virtual DbSet<Speaker> Speakers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Topic> Topics { get; set; }
-        public virtual DbSet<TopicDetail> TopicDetails { get; set; }
         public virtual DbSet<TypeAccount> TypeAccounts { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
 
@@ -69,10 +68,6 @@ namespace Models.Framework
             modelBuilder.Entity<Topic>()
                 .Property(e => e.CreatedBy)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<TopicDetail>()
-                .Property(e => e.ChuDe)
-                .IsFixedLength();
 
             modelBuilder.Entity<TypeAccount>()
                 .Property(e => e.CreatedBy)

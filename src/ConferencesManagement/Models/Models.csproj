@@ -70,12 +70,12 @@
     <Compile Include="Framework\Speaker.cs" />
     <Compile Include="Framework\sysdiagram.cs" />
     <Compile Include="Framework\Topic.cs" />
-    <Compile Include="Framework\TopicDetail.cs" />
     <Compile Include="Framework\TypeAccount.cs" />
     <Compile Include="Models\AccountDao.cs" />
     <Compile Include="Models\ContactDao.cs" />
     <Compile Include="Models\MenuDao.cs" />
     <Compile Include="Models\SpeakerDao.cs" />
+    <Compile Include="Models\TopicDao.cs" />
     <Compile Include="Models\TypeAccountDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

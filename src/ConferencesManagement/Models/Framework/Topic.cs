@@ -11,8 +11,16 @@ namespace Models.Framework
     {
         public int ID { get; set; }
 
+        public long IDTopic { get; set; }
+
         [StringLength(50)]
-        public string MoTa { get; set; }
+        public string TopicMenu { get; set; }
+
+        [StringLength(50)]
+        public string ChuDe { get; set; }
+
+        [Column(TypeName = "ntext")]
+        public string Content { get; set; }
 
         public DateTime? CreatedDate { get; set; }
 

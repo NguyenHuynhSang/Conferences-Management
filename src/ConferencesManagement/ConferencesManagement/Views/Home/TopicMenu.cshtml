@@ -1,19 +1,120 @@
-﻿
-@{
-    Layout = null;
-}
+﻿@model List<Models.Framework.Topic>
 
-<div class="intro">
+<!-- Tabs Section -->
+
+<div class="tabs_section">
     <div class="container">
         <div class="row">
-            <div class="col text-center">
+            <div class="col">
                 <div class="section_title_container text-center">
-                    <div class="section_title"><h1>The Best Marketing Conference</h1></div>
+                    <div class="section_subtitle">see what's all about</div>
+                    <div class="section_title"><h1>The Topics</h1></div>
                 </div>
-                <div class="intro_text text-center">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                <div class="tabs_container">
+                    <div class="tabs d-flex flex-row align-items-center justify-content-start flex-wrap">
+
+                       <div class="tab active">Danh sách Topic:</div>
+                        @foreach (var item in Model)
+                        {
+                              @*<div class="tab active">  01. Marketing Intro</div>*@
+
+                            <div class="tab">@item.ID .  @item.TopicMenu </div>
+                        }
+                    </div>
+
+                    <div class="tab_panels">
+                        <div class="tab_panel active">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="tab_panel_content">
+                        <div class="tab_title"><h3>Danh sách Topic</h3></div>
+                        <div class="tab_text">
+                            <p>"Theo dõi tại đây"</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="button button_2 intro_button"><a href="#"><span>get tickets<img src="~/Assets/Client/images/arrow.png" alt=""></span></a></div>
+                <div class="col-lg-5 tab_col">
+                    <div class="tab_panel_image"><img src="~/Assets/Client/images/tabs.jpg" alt=""></div>
+                </div>
+            </div>
+        </div>
+                        @foreach (var item in Model)
+                        {
+                            <div class="tab_panel">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="tab_panel_content">
+                                            <div class="tab_title"><h3>@item.ID @item.ChuDe</h3></div>
+                                            <div class="tab_text">
+                                                <p>@item.Content</p>
+                                            </div>
+                                            <div class="tab_link"><a href="#">Read More</a></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 tab_col">
+                                        <div class="tab_panel_image"><img src="~/Assets/Client/images/tabs.jpg" alt=""></div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                        @*<div class="tab_panel">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="tab_panel_content">
+                        <div class="tab_title"><h3>03. Cyber Marketing</h3></div>
+                        <div class="tab_text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Etiam pretium, nibh vitae varius ultricies, tellus diam gravida elit, vel rhoncus eros eros sit amet ipsum. Cras cursus pellentesque tortor, vitae efficitur nisi laoreet in. Suspendisse libero erat, aliquet eu maximus ac, dignissim vitae ex. Nam vel euismod risus, tempor venenatis nunc.</p>
+                        </div>
+                        <div class="tab_link"><a href="#">Read More</a></div>
+                    </div>
+                </div>
+                <div class="col-lg-5 tab_col">
+                    <div class="tab_panel_image"><img src="~/Assets/Client/images/tabs.jpg" alt=""></div>
+                </div>
+            </div>
+        </div>
+        <div class="tab_panel">
+            <div class="row">
+                <div class="col">
+                    <div class="tab_panel_content">
+                        <div class="tab_title"><h3>04. Online Stategy</h3></div>
+                        <div class="tab_text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Etiam pretium, nibh vitae varius ultricies, tellus diam gravida elit, vel rhoncus eros eros sit amet ipsum. Cras cursus pellentesque tortor, vitae efficitur nisi laoreet in. Suspendisse libero erat, aliquet eu maximus ac, dignissim vitae ex. Nam vel euismod risus, tempor venenatis nunc.</p>
+                        </div>
+                        <div class="tab_link"><a href="#">Read More</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab_panel">
+            <div class="row">
+                <div class="col">
+                    <div class="tab_panel_content">
+                        <div class="tab_title"><h3>05. Stories</h3></div>
+                        <div class="tab_text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Etiam pretium, nibh vitae varius ultricies, tellus diam gravida elit, vel rhoncus eros eros sit amet ipsum. Cras cursus pellentesque tortor, vitae efficitur nisi laoreet in. Suspendisse libero erat, aliquet eu maximus ac, dignissim vitae ex. Nam vel euismod risus, tempor venenatis nunc.</p>
+                        </div>
+                        <div class="tab_link"><a href="#">Read More</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab_panel">
+            <div class="row">
+                <div class="col">
+                    <div class="tab_panel_content">
+                        <div class="tab_title"><h3>06. Special Guest</h3></div>
+                        <div class="tab_text">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Etiam pretium, nibh vitae varius ultricies, tellus diam gravida elit, vel rhoncus eros eros sit amet ipsum. Cras cursus pellentesque tortor, vitae efficitur nisi laoreet in. Suspendisse libero erat, aliquet eu maximus ac, dignissim vitae ex. Nam vel euismod risus, tempor venenatis nunc.</p>
+                        </div>
+                        <div class="tab_link"><a href="#">Read More</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+                    </div>
+                </div>
             </div>
         </div>
     </div>
