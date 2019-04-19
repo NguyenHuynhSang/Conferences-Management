@@ -1,4 +1,5 @@
 ﻿using ConferencesManagement.Common;
+using Models;
 using Models.Models;
 using System;
 using System.Collections.Generic;
@@ -11,14 +12,20 @@ namespace ConferencesManagement.Controllers
     public class HomeController : Controller
     {
         // GET: Home
+        
         public ActionResult Index()
         {
+            CommonConstants.CURRENT_HOITHAO = (new HoiNghiDao().GetActiveHoiThao()).ID;
+
             return View();
         }
 
         [ChildActionOnly]
         public ActionResult MainMenu()
         {
+
+
+
             var model = new MenuDao().ListByGroupId(1);
             return PartialView(model);
         }
@@ -27,6 +34,7 @@ namespace ConferencesManagement.Controllers
         //PartialView là 1 phần trong trang, nhưng k phải là trang
         public ActionResult TopicMenu()
         {
+            var currentHoiThao = (new HoiNghiDao().GetActiveHoiThao()).ID;
             var model = new TopicDao().ListByGroupId(CommonConstants.CURRENT_HOITHAO);
             return PartialView(model);
         
@@ -44,6 +52,13 @@ namespace ConferencesManagement.Controllers
         public ActionResult HomeContent()
         {
             var model = new HoiNghiDao().GetActiveHoiThao();
+            return PartialView(model);
+
+        }
+
+        public ActionResult SpeakerMenu()
+        {
+            var model = new SpeakerDao().GetSpeakersJoinConference(CommonConstants.CURRENT_HOITHAO);
             return PartialView(model);
 
         }

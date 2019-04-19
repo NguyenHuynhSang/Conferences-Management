@@ -23,7 +23,21 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         //{
         //    return View();
         //}
-        //[HttpPost]
+
+        [HttpGet]
+       
+       public ActionResult Create()
+        {
+            SetViewBack();
+            return View();
+        }
+        public ActionResult Edit(int id)
+        {
+            var account = new AccountDao().AccountDetail(id);
+            return View(account);
+        }
+
+        [HttpPost]
         public ActionResult Create(Account account)
         {
             SetViewBack();
@@ -40,14 +54,10 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Them account loi");
                 }
             }
-            return View("Create");
+            return View("Index");
           
         }
-        public ActionResult Edit(int id)
-        {
-            var account = new AccountDao().AccountDetail(id);
-            return View(account);
-        }
+      
         [HttpPost]
         public ActionResult Edit(Account account)
         {

@@ -21,21 +21,10 @@ namespace ConferencesManagement
             );
 
 
-            routes.MapRoute(
-        name: "Edit",
-        url: "sua",
-        defaults: new { controller = "User", action = "Edit", id = UrlParameter.Optional },
-        namespaces: new[] { "ConferencesManagement.Controllers" }
-    );
+         
 
 
-
-            routes.MapRoute(
-              name: "Register",
-              url: "dang-ky",
-              defaults: new { controller = "User", action = "Register", id = UrlParameter.Optional },
-              namespaces: new[] { "ConferencesManagement.Controllers" }
-          );
+        
 
 
             routes.MapRoute(

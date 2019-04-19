@@ -28,14 +28,14 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                 if (id > 0)
                 {
                     // chuyển hướng trang về admin/speaker/create
-                    RedirectToAction("Create", "Speker");
+                    RedirectToAction("Index", "Speaker");
                 }
                 else
                 {
                     ModelState.AddModelError("", "Them speaker loi");
                 }
             }
-            return View("Create");
+            return View("Index");
 
         }
 

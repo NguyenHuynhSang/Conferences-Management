@@ -98,11 +98,9 @@
                     <td>
                         @item.ModifiedBy
                     </td>
+                
                     <td>
-                        <a href="Create">Thêm</a>
-                    </td>
-                    <td>
-                        <a href="User/Edit/@item.IdAccount">Sửa</a>
+                        <a href="Edit/@item.IdAccount">Sửa</a>
                     </td>
                     <td>
                         @Ajax.ActionLink("Xóa", "Delete",new { @id = item.IdAccount }, new AjaxOptions

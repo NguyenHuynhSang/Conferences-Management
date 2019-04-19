@@ -2054,6 +2054,7 @@
     <Content Include="Views\Home\TopicMenu.cshtml" />
     <Content Include="Views\Home\TitleInfo.cshtml" />
     <Content Include="Views\Home\HomeContent.cshtml" />
+    <Content Include="Views\Home\SpeakerMenu.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

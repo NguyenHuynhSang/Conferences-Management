@@ -13,30 +13,44 @@ namespace Models
 {
     public class SpeakerDao
     {
-            ConferencesManagementDbContext db = null;
-            public SpeakerDao()
-            {
-                db = new ConferencesManagementDbContext();
-            }
+        ConferencesManagementDbContext db = null;
+        public SpeakerDao()
+        {
+            db = new ConferencesManagementDbContext();
+        }
 
-            public long Insert(Speaker entity)
-            {
-                db.Speakers.Add(entity);
-                db.SaveChanges();
-                return entity.ID;
-            }
+        public long Insert(Speaker entity)
+        {
+            db.Speakers.Add(entity);
+            db.SaveChanges();
+            return entity.ID;
+        }
 
-            public Speaker GetByName(string Name)
-            {
-                return db.Speakers.SingleOrDefault(x => x.Name == Name);
-            }
+        public Speaker GetByName(string Name)
+        {
+            return db.Speakers.SingleOrDefault(x => x.Name == Name);
+        }
 
-            public IEnumerable<Speaker> ListAllPaging(int page, int pageSize)
-            {
-                return db.Speakers.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
-            }
+        public IEnumerable<Speaker> ListAllPaging(int page, int pageSize)
+        {
+            return db.Speakers.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+        }
 
 
+        public List<Speaker> GetSpeakersJoinConference(long currentConference = 1)
+        {
+
+            var model = from d in db.HoiThaoDetails
+                        join h in db.HoiThaos
+                        on d.IDHoiThao equals h.ID
+                        where h.ID == currentConference
+                        join s in db.Speakers
+                        on d.IDSpeaker equals s.ID
+                        select s;
+                      
+            return model.ToList();
+                       
+        }
     }
 }
 
