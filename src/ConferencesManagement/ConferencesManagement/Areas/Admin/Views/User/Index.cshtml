@@ -35,6 +35,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>#</th>
                                             <th>Trạng Thái</th>
                                             <th>Tên Tài Khoản</th>
                                             <th>Mật Khẩu</th>
@@ -50,6 +51,7 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
+                                            <th>#</th>
                                             <th>#</th>
                                             <th>Trạng Thái</th>
                                             <th>Tên Tài Khoản</th>
@@ -70,11 +72,16 @@
                                             <tr>
                                                 <td>
                                                     <a href="/Admin/User/Edit/@item.IdAccount" class="btn btn-success btn-circle btn-sm">Sửa </a>
-                                                    <a href="/Admin/User/Delete/@item.IdAccount" calss="btn btn-danger btn-circle btn-sm">
-                                                        <i class="fas fa-trash"></i>
-                                                    </a>
+                                                  
                                                 </td>
-                                                <td>@item.Status</td>
+                                                <td>
+                                                    @Ajax.ActionLink("Xóa", "Delete",new { @id = item.IdAccount }, new AjaxOptions
+                                                        {
+                                                          Confirm = "bạn có muốn xóa không",
+                                                          OnComplete="$('row_"+@item.IdAccount+"').remove()",
+                                                          HttpMethod="Delete"
+                                                          })
+                                                </td>
                                                 <td>@item.UserName</td>
                                                 <td>@item.PassWord</td>
                                                 <td>@item.TypeAccount</td>

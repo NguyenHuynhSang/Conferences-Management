@@ -37,6 +37,31 @@ namespace Models
         }
 
 
+        public bool Update(Speaker entity)
+        {
+            try
+            {
+                var account = db.Speakers.Find(entity.ID);
+                account.Name = entity.Name;
+                account.ChucVu = entity.ChucVu;
+                account.Email = entity.Email;
+                account.SDT = entity.SDT;
+                account.Status = entity.Status;
+                account.ModifiedBy = entity.ModifiedBy;
+                account.ModifiedDate = DateTime.Now;
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception )
+            {
+                return false;
+            }
+        }
+
+        public Speaker SpeakerDetail(int ID)
+        {
+            return db.Speakers.Find(ID);
+        }
         public List<Speaker> GetSpeakersJoinConference(long currentConference = 1)
         {
 
@@ -50,6 +75,21 @@ namespace Models
                       
             return model.ToList();
                        
+        }
+
+        public bool Delete(int id)
+        {
+            try
+            {
+                var speaker = db.Speakers.Find(id);
+                db.Speakers.Remove(speaker);
+                db.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

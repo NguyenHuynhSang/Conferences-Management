@@ -1,4 +1,4 @@
-﻿@model PagedList.IPagedList<Models.Framework.Speaker>
+﻿@model PagedList.IPagedList<Models.Framework.Topic>
 @using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
@@ -11,31 +11,25 @@
             <thead>
                 <tr role="row">
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="UserName: activate to sort column ascending" style="width: 95.0062px;">
-                        Họ tên
+                        Topic menu
                     </th>
                     <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Password: activate to sort column descending" style="width: 149.006px;" aria-sort="ascending">
-                        Chức vụ
+                        Chủ đề
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-                        Email
+                        Nội dung
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-                        SĐT
+                        Ngày tạo
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-                        Status
+                        Người tạo
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-                        Created By
+                        Ngày cập nhật
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-                        Created date
-                    </th>
-                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-                        Modified By
-                    </th>
-                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-                        Modified Date
+                        Người cập nhật
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
 
@@ -54,25 +48,19 @@
                 {
                     <tr role="row" class="odd">
                         <td>
-                            @item.Name
+                            @item.TopicMenu
                         </td>
                         <td>
-                            @item.ChucVu
+                            @item.ChuDe
                         </td>
                         <td>
-                            @item.Email
-                        </td>
-                        <td>
-                            @item.SDT
-                        </td>
-                        <td>
-                            @item.Status
-                        </td>
-                        <td>
-                            @item.CreatedBy
+                            @item.Content
                         </td>
                         <td>
                             @item.CreatedDate
+                        </td>
+                        <td>
+                            @item.CreatedBy
                         </td>
                         <td>
                             @item.ModifiedBy
@@ -81,16 +69,16 @@
                             @item.ModifiedDate
                         </td>
                         <td>
-                            <a href="Speaker/Create">Thêm</a>
+                            <a href="Create">Thêm</a>
                         </td>
                         <td>
-                            <a href="Speaker/Edit/@item.ID">Sửa</a>
+                            <a href="Edit/@item.ID">Sửa</a>
                         </td>
                         <td>
-                            @Ajax.ActionLink("Xóa", "Delete",new { @id = item.ID }, new AjaxOptions
+                            @Ajax.ActionLink("Xóa", "Delete",new { @id = item.IDTopic }, new AjaxOptions
                                              {
                                                Confirm = "bạn có muốn xóa không",
-                                               OnComplete="$('row_"+@item.ID+"').remove()",
+                                               OnComplete="$('row_"+@item.IDTopic+"').remove()",
                                                HttpMethod="Delete"
                                                })
                         </td>
