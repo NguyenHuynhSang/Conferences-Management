@@ -9,8 +9,10 @@ using System.Web.Mvc;
 
 namespace ConferencesManagement.Areas.Admin.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
+
+        private static long getIDforEdit;
         // GET: Admin/User
         public ActionResult Index(int page =1 , int pageSize =10)
         {
@@ -25,7 +27,6 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         //}
 
         [HttpGet]
-       
        public ActionResult Create()
         {
             SetViewBack();
@@ -36,6 +37,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
         public ActionResult Edit(int id)
         {
+            getIDforEdit = id;
             var account = new AccountDao().AccountDetail(id);
             return View(account);
         }
@@ -43,31 +45,34 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(Account account)
         {
-            var dao = new AccountDao();
-            var result = dao.ListAllPaging(1, 10);
+        
             SetViewBack();
+            var dao = new AccountDao();
             if (ModelState.IsValid)
             {
-               
+             
                 long id = dao.Insert(account);
                 if (id > 0)
                 {
-
-                    // chuyển hướng trang về admin/User/index
                   
-                    RedirectToAction("Index", "User", result);
+                    var result = dao.ListAllPaging(1, 10);
+                    // chuyển hướng trang về admin/User/index
+
+                    RedirectToAction("Index","User", result);
                 }
                 else {
                     ModelState.AddModelError("", "Them account loi");
                 }
             }
-            return View("Index", result);
+            var model= dao.ListAllPaging(1, 10);
+            return View("Index",model);
           
         }
       
         [HttpPost]
         public ActionResult Edit(Account account)
         {
+          account.IdAccount = getIDforEdit;
             SetViewBack();
             var dao = new AccountDao();
             var model = dao.ListAllPaging(1, 10);
