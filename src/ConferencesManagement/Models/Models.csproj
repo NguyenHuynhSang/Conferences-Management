@@ -66,6 +66,8 @@
     <Compile Include="Framework\HoiThaoDetail.cs" />
     <Compile Include="Framework\Menu.cs" />
     <Compile Include="Framework\MenuType.cs" />
+    <Compile Include="Framework\Schedule.cs" />
+    <Compile Include="Framework\ScheduleDetail.cs" />
     <Compile Include="Framework\Slide.cs" />
     <Compile Include="Framework\Speaker.cs" />
     <Compile Include="Framework\sysdiagram.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="Models\HoiNghiDao.cs" />
     <Compile Include="Models\HoiThaoDetailDao.cs" />
     <Compile Include="Models\MenuDao.cs" />
+    <Compile Include="Models\ScheduleDao.cs" />
     <Compile Include="Models\SpeakerDao.cs" />
     <Compile Include="Models\TopicDao.cs" />
     <Compile Include="Models\TypeAccountDao.cs" />

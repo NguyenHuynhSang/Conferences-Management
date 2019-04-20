@@ -36,6 +36,11 @@ namespace Models
             return db.Accounts.OrderByDescending(x=>x.CreatedDate).ToPagedList(page, pageSize);
         }
 
+        //public List<Account> ListAllAccounts()
+        //{
+        //    return db.Accounts.all
+        //}
+
         public bool Update(Account entity)
         {
             try

@@ -31,6 +31,9 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             SetViewBack();
             return View();
         }
+
+        [HttpGet]
+
         public ActionResult Edit(int id)
         {
             var account = new AccountDao().AccountDetail(id);
@@ -40,21 +43,25 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(Account account)
         {
+            var dao = new AccountDao();
+            var result = dao.ListAllPaging(1, 10);
             SetViewBack();
             if (ModelState.IsValid)
             {
-                var dao = new AccountDao();
+               
                 long id = dao.Insert(account);
                 if (id > 0)
                 {
+
                     // chuyển hướng trang về admin/User/index
-                    RedirectToAction("Index", "User");
+                  
+                    RedirectToAction("Index", "User", result);
                 }
                 else {
                     ModelState.AddModelError("", "Them account loi");
                 }
             }
-            return View("Index");
+            return View("Index", result);
           
         }
       
@@ -62,20 +69,24 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         public ActionResult Edit(Account account)
         {
             SetViewBack();
+            var dao = new AccountDao();
+            var model = dao.ListAllPaging(1, 10);
             if (ModelState.IsValid)
             {
-                var dao = new AccountDao();
+
                 var result = dao.Update(account);
+
                 if (result)
                 {
-                    return RedirectToAction("Index", "User");
+
+                    RedirectToAction("Index", "User",model);
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Cập nhật thành công");
+                    ModelState.AddModelError("", "Cập nhật Không thành công");
                 }
             }
-            return View("Index");
+            return View("Index",model);
         }
 
         // lấy danh sách typeaccount hiện thị vào dropdownlist

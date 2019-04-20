@@ -7,7 +7,7 @@
 
 <h2>Index</h2>
 
-@using (Html.BeginForm("Edit", "User", FormMethod.Post))
+@using (Html.BeginForm("Create", "User", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
@@ -70,7 +70,7 @@
                 @* @Html.ValidationMessageFor(model => model.TypeAccount, "", new { @class = "text-danger" })*@
             </div>
         </div>
-        
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -82,4 +82,3 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-

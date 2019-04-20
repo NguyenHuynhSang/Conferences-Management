@@ -1,0 +1,101 @@
+﻿@model List<Models.Framework.Schedule>
+
+<div class="schedule">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section_title_container text-center">
+                    <div class="section_subtitle">see what's all about</div>
+                    <div class="section_title"><h1>Schedule</h1></div>
+                </div>
+            </div>
+        </div>
+        <div class="row schedule_row">
+
+            @foreach (var item in Model)
+            {
+
+                <!-- Schedule Column -->
+                <div class="col-lg-6 schedule_col">
+                    <div class="schedule_container">
+                        <div class="schedule_title_bar schedule_title_bar_1 text-center">@item.MainTitle <span>@item.Date</span></div>
+                        <div class="schedule_list">
+                            <ul>
+                                <li class="d-flex flex-row align-items-center justify-content-start">
+                                    <div class="schedule_image"><img src="~/Assets/Client/images/schedule_1.jpg" alt=""></div>
+                                    <div class="schedule_content">
+                                        <div class="schedule_time">08:00 AM - 09:00 AM</div>
+                                        <div class="schedule_title">Grand Opening</div>
+                                        <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
+                                    </div>
+                                </li>
+                             
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+            <!-- Schedule Column -->
+            @*<div class="col-lg-6 schedule_col">
+                <div class="schedule_container">
+                    <div class="schedule_title_bar schedule_title_bar_2 text-center">Day 2. <span>February 13, 2019</span></div>
+                    <div class="schedule_list">
+                        <ul>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="schedule_image"><img src="~/Assets/Client/images/schedule_6.jpg" alt=""></div>
+                                <div class="schedule_content">
+                                    <div class="schedule_time">08:00 AM - 09:00 AM</div>
+                                    <div class="schedule_title">Grand Opening</div>
+                                    <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
+                                </div>
+                            </li>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="schedule_image"><img src="~/Assets/Client/images/schedule_7.jpg" alt=""></div>
+                                <div class="schedule_content">
+                                    <div class="schedule_time">09:00 AM - 10:00 AM</div>
+                                    <div class="schedule_title">Marketing 101</div>
+                                    <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
+                                </div>
+                            </li>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="schedule_image"><img src="~/Assets/Client/images/schedule_8.jpg" alt=""></div>
+                                <div class="schedule_content">
+                                    <div class="schedule_time">10:00 AM - 11:00 AM</div>
+                                    <div class="schedule_title">Big Marketing Strategy</div>
+                                    <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
+                                </div>
+                            </li>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="schedule_image"><img src="~/Assets/Client/images/schedule_9.jpg" alt=""></div>
+                                <div class="schedule_content">
+                                    <div class="schedule_time">11:00 AM - 12:00 AM</div>
+                                    <div class="schedule_title">Coffe Break</div>
+                                    <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
+                                </div>
+                            </li>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="schedule_image"><img src="~/Assets/Client/images/schedule_10.jpg" alt=""></div>
+                                <div class="schedule_content">
+                                    <div class="schedule_time">12:00 AM - 13:00 PM</div>
+                                    <div class="schedule_title">Online Strategy</div>
+                                    <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
+                                </div>
+                            </li>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="schedule_image"><img src="~/Assets/Client/images/schedule_11.jpg" alt=""></div>
+                                <div class="schedule_content">
+                                    <div class="schedule_time">13:00 PM - 14:00 PM</div>
+                                    <div class="schedule_title">Online Strategy</div>
+                                    <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>*@
+
+        </div>
+    </div>
+</div>

@@ -63,6 +63,14 @@ namespace ConferencesManagement.Controllers
 
         }
 
+        public ActionResult ScheduleMainMenu()
+        {
+            var model = new ScheduleDao().GetScheduleByCurrentHoiThao(CommonConstants.CURRENT_HOITHAO);
+            return PartialView(model);
+        }
+
+
+
 
     }
 }

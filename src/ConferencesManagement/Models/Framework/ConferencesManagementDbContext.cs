@@ -20,6 +20,8 @@ namespace Models.Framework
         public virtual DbSet<HoiThaoDetail> HoiThaoDetails { get; set; }
         public virtual DbSet<Menu> Menus { get; set; }
         public virtual DbSet<MenuType> MenuTypes { get; set; }
+        public virtual DbSet<Schedule> Schedules { get; set; }
+        public virtual DbSet<ScheduleDetail> ScheduleDetails { get; set; }
         public virtual DbSet<Slide> Slides { get; set; }
         public virtual DbSet<Speaker> Speakers { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
@@ -50,6 +52,10 @@ namespace Models.Framework
                 .IsUnicode(false);
 
             modelBuilder.Entity<HoiThao>()
+                .Property(e => e.CreatedBy)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Schedule>()
                 .Property(e => e.CreatedBy)
                 .IsUnicode(false);
 

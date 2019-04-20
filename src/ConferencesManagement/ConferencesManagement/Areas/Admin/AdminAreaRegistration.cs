@@ -20,19 +20,8 @@ namespace ConferencesManagement.Areas.Admin
                 new { action = "Index", controller = "Home", id = UrlParameter.Optional },
                 namespaces: new string[] { "ConferencesManagement.Areas.Admin.Controllers" }
             );
-            context.MapRoute(
-             name: "Edit",
-             url: "Edit",
-             defaults: new { controller = "User", action = "Edit", id = UrlParameter.Optional },
-             namespaces: new[] { "ConferencesManagement.Areas.Admin.Controllers" }
-             );
-
-               context.MapRoute(
-              name: "Create",
-              url: "Create",
-              defaults: new { controller = "User", action = "Create", id = UrlParameter.Optional },
-              namespaces: new[] { "ConferencesManagement.Areas.Admin.Controllers" }
-      );
+        
+      
         }
     }
 }
