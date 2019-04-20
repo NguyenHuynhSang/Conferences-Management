@@ -7,9 +7,9 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here. For example:
 	config.language = 'vi';
     // config.uiColor = '#AADC6E';
-    config.extraPlugins = 'syntaxhighlight';
-    config.syntaxhighlight_lang = 'csharp';
-    config.syntaxhighlight_hideControls = true;
+    //config.extraPlugins = 'syntaxhighlight';
+    ////config.syntaxhighlight_lang = 'csharp';
+    ////config.syntaxhighlight_hideControls = true;
     config.filebrowserBrowseUrl = '/Assets/Admin/js/Plugins/ckfinder/ckfinder.html';
     config.filebrowserImageBrowseUrl = '/Assets/Admin/js/Plugins/ckfinder/ckfinder.html?Type=Images';
     config.filebrowserFlashBrowseUrl = '/Assets/Admin/js/Plugins/ckfinder/ckfinder.html?Type=Flash';
