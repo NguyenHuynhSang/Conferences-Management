@@ -51,7 +51,7 @@ namespace Models
                 account.Email = entity.Email;
                 account.DiaChi = entity.DiaChi;
                 account.SDT = entity.SDT;
-                account.ModifiedBy = entity.ModifiedBy;
+             //   account.ModifiedBy =USER_SEASON;
                 account.ModifiedDate = DateTime.Now;
                 db.SaveChanges();
                 return true;
