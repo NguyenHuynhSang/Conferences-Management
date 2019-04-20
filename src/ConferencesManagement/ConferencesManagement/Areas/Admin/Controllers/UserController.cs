@@ -16,6 +16,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         // GET: Admin/User
         public ActionResult Index(int page =1 , int pageSize =10)
         {
+            SetAlert("Load tài khoản thành công", "success");
             var dao = new AccountDao();
             var result = dao.ListAllPaging(page, pageSize);
             return View(result);
@@ -57,7 +58,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                   
                     var result = dao.ListAllPaging(1, 10);
                     // chuyển hướng trang về admin/User/index
-
+                    SetAlert("Tạo tài khoản thành công", "success");
                     RedirectToAction("Index","User", result);
                 }
                 else {
@@ -83,12 +84,12 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
                 if (result)
                 {
-
+                    SetAlert("Sửa tài khoản thành công", "success");
                     RedirectToAction("Index", "User",model);
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Cập nhật Không thành công");
+                    ModelState.AddModelError("", "Cập nhật không thành công");
                 }
             }
             return View("Index",model);

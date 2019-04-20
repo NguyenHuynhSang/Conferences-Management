@@ -9,11 +9,12 @@ using System.Web.Mvc;
 
 namespace ConferencesManagement.Areas.Admin.Controllers
 {
-    public class TopicController : Controller
+    public class TopicController : BaseController
     {
         // GET: Admin/News
         public ActionResult Index(int page = 1 , int pageSize=10)
         {
+            SetAlert("Load chủ đề thành công", "success");
             var dao = new TopicDao();
             var result = dao.ListAllPaging(page, pageSize);
             return View(result);
@@ -40,12 +41,12 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                 {
 
                     // chuyển hướng trang về admin/User/index
-
+                    SetAlert("Tạo chủ đề thành công", "success");
                     RedirectToAction("Index", "Topic", result);
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Them Speaker loi");
+                    ModelState.AddModelError("", "Thêm chủ đề không thành công");
                 }
             }
             return View("Index", result);
@@ -71,12 +72,12 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
                 if (result)
                 {
-
+                    SetAlert("Cập nhật chủ đề thành công", "success");
                     RedirectToAction("Index", "Topic", model);
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Cập nhật Không thành công");
+                    ModelState.AddModelError("", "Cập nhật không thành công");
                 }
             }
             return View("Index", model);
