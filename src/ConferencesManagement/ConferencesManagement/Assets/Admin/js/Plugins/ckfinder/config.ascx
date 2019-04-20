@@ -8,8 +8,16 @@
 	 */
 	public override bool CheckAuthentication()
 	{
+		// WARNING : DO NOT simply return "true". By doing so, you are allowing
+		// "anyone" to upload and list the files in your server. You must implement
+		// some kind of session validation here. Even something very simple as...
+		//
+		//		return ( Session[ "IsAuthorized" ] != null && (bool)Session[ "IsAuthorized" ] == true );
+		//
+		// ... where Session[ "IsAuthorized" ] is set to "true" as soon as the
+		// user logs on your system.
 
-        return HttpContext.Current.User.Identity.IsAuthenticated;
+		return true;
 	}
 
 	/**
@@ -23,7 +31,7 @@
 		LicenseKey = "";
 
 		// The base URL used to reach files in CKFinder through the browser.
-        BaseUrl = "/Data/";
+		BaseUrl = "/Data/";
 
 		// The phisical directory in the server where the file will end up. If
 		// blank, CKFinder attempts to resolve BaseUrl.
@@ -71,6 +79,17 @@
 		// after scaling them. Otherwise, it is checked right after uploading.
 		CheckSizeAfterScaling = true;
 
+		// Increases the security on an IIS web server.
+		// If enabled, CKFinder will disallow creating folders and uploading files whose names contain characters
+		// that are not safe under an IIS 6.0 web server.
+		DisallowUnsafeCharacters = true;
+
+		// If CheckDoubleExtension is enabled, each part of the file name after a dot is
+		// checked, not only the last part. In this way, uploading foo.php.rar would be
+		// denied, because "php" is on the denied extensions list.
+		// This option is used only if ForceSingleExtension is set to false.
+		CheckDoubleExtension = true;
+
 		// Due to security issues with Apache modules, it is recommended to leave the
 		// following setting enabled. It can be safely disabled on IIS.
 		ForceSingleExtension = true;
@@ -82,7 +101,8 @@
 		// Folders to not display in CKFinder, no matter their location. No
 		// paths are accepted, only the folder name.
 		// The * and ? wildcards are accepted.
-		HideFolders = new string[] { ".svn", "CVS" };
+		// By default folders starting with a dot character are disallowed.
+		HideFolders = new string[] { ".*", "CVS" };
 
 		// Files to not display in CKFinder, no matter their location. No
 		// paths are accepted, only the file name, including extension.
@@ -91,6 +111,14 @@
 
 		// Perform additional checks for image files.
 		SecureImageUploads = true;
+
+		// Enables protection in the connector.
+		// The default CSRF protection mechanism is based on double submit cookies, where
+		// connector checks if the request contains a valid token that matches the token
+		// sent in the cookie
+		//
+		// https://www.owasp.org/index.php/Cross-Site_Request_Forgery_%28CSRF%29_Prevention_Cheat_Sheet#Double_Submit_Cookies
+		EnableCsrfProtection = true;
 
 		// The session variable name that CKFinder must use to retrieve the
 		// "role" of the current user. The "role" is optional and can be used
@@ -132,6 +160,12 @@
 		// the "DefaultResourceTypes" settings is used (may contain the
 		// resource type names separated by a comma). If left empty, all types
 		// are loaded.
+
+		// ==============================================================================
+		// ATTENTION: Flash files with `swf' extension, just like HTML files, can be used
+		// to execute JavaScript code and to e.g. perform an XSS attack. Grant permission
+		// to upload `.swf` files only if you understand and can accept this risk.
+		// ==============================================================================
 
 		DefaultResourceTypes = "";
 

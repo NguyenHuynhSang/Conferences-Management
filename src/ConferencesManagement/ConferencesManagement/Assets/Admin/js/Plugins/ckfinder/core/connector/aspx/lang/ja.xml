@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!--
-Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
+Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckfinder.com/license
 
- Defines the object, for the English language. This is the base file for all translations.
+ Defines the object for the Japanese language.
 -->
 <messages>
 	<errorUnknown>リクエストの処理に失敗しました。 (Error %1)</errorUnknown>
@@ -17,6 +17,7 @@ For licensing, see LICENSE.html or http://ckfinder.com/license
 		<error number="105">拡張子が正しくありません。</error>
 		<error number="109">不正なリクエストです。</error>
 		<error number="110">不明なエラーが発生しました。</error>
+		<error number="111">It was not possible to complete the request due to resulting file size.</error>
 		<error number="115">同じ名前のファイル/フォルダがすでに存在しています。</error>
 		<error number="116">フォルダが見つかりませんでした。ページを更新して再度お試し下さい。</error>
 		<error number="117">ファイルが見つかりませんでした。ページを更新して再度お試し下さい。</error>

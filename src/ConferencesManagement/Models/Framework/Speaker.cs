@@ -34,5 +34,7 @@ namespace Models.Framework
         public string ModifiedBy { get; set; }
 
         public bool? Status { get; set; }
+
+        public string Image { get; set; }
     }
 }
