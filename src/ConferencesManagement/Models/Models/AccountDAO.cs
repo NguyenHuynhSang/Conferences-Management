@@ -21,10 +21,14 @@ namespace Models
 
         public long Insert(Account entity)
         {
+            entity.CreatedDate = DateTime.Now;
+
             db.Accounts.Add(entity);
             db.SaveChanges();
             return entity.IdAccount;
         }
+
+
 
         public Account GetByName(string userName)
         {
@@ -51,6 +55,7 @@ namespace Models
                 account.Email = entity.Email;
                 account.DiaChi = entity.DiaChi;
                 account.SDT = entity.SDT;
+                account.ModifiedDate = DateTime.Now;
              //   account.ModifiedBy =USER_SEASON;
                 account.ModifiedDate = DateTime.Now;
                 db.SaveChanges();

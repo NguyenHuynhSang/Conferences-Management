@@ -1,9 +1,16 @@
-﻿@model PagedList.IPagedList<Models.Framework.Topic>
+﻿@model List<Models.Entities.TopicForIndex>
 @using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+
+<a href="/Admin/Topic/Create" class="btn btn-light btn-icon-split">
+    <span class="icon text-gray-600">
+        <i class="fas fa-arrow-right"></i>
+    </span>
+    <span class="text">Tạo mới Topic</span>
+</a>
 
 <div class="row">
     <div class="col-sm-12">
@@ -15,6 +22,9 @@
                     </th>
                     <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Password: activate to sort column descending" style="width: 149.006px;" aria-sort="ascending">
                         Chủ đề
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
+                        Hội Thảo
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
                         Nội dung
@@ -32,8 +42,9 @@
                         Người cập nhật
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-
+                        Trạng thái
                     </th>
+
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
 
                     </th>
@@ -54,6 +65,9 @@
                             @item.ChuDe
                         </td>
                         <td>
+                            @item.TenHoiThao
+                        </td>
+                        <td>
                             @item.Content
                         </td>
                         <td>
@@ -69,24 +83,25 @@
                             @item.ModifiedDate
                         </td>
                         <td>
-                            <a href="Create">Thêm</a>
+                            @item.Status
                         </td>
                         <td>
-                            <a href="Edit/@item.ID">Sửa</a>
+                            <a href="/Admin/Topic/Edit/@item.ID">Sửa</a>
                         </td>
                         <td>
-                            @Ajax.ActionLink("Xóa", "Delete",new { @id = item.IDTopic }, new AjaxOptions
-                                             {
-                                               Confirm = "bạn có muốn xóa không",
-                                               OnComplete="$('row_"+@item.IDTopic+"').remove()",
-                                               HttpMethod="Delete"
-                                               })
+                            @Ajax.ActionLink("Xóa", "Delete",new { @id = item.ID }, new AjaxOptions
+                           {
+                           Confirm = "bạn có muốn xóa không",
+                           OnComplete="$('row_"+@item.ID+"').remove()",
+                           HttpMethod="Delete",
+                             })
+
                         </td>
                     </tr>
                 }
 
             </tbody>
         </table>
-        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        @*   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
     </div>
 </div>

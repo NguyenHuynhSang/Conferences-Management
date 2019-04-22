@@ -72,7 +72,7 @@
                             @item.CreatedBy
                         </td>
                         <td>
-                            @item.CreatedDate
+                            @item.CreatedDate   
                         </td>
                         <td>
                             @item.ModifiedBy
@@ -81,10 +81,7 @@
                             @item.ModifiedDate
                         </td>
                         <td>
-                            <a href="Speaker/Create">Thêm</a>
-                        </td>
-                        <td>
-                            <a href="Speaker/Edit/@item.ID">Sửa</a>
+                            <a href="/Admin/Speaker/Edit/@item.ID">Sửa</a>
                         </td>
                         <td>
                             @Ajax.ActionLink("Xóa", "Delete",new { @id = item.ID }, new AjaxOptions

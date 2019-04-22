@@ -98,7 +98,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         // lấy danh sách typeaccount hiện thị vào dropdownlist
         public void SetViewBack(long? selectedid=null)
         {
-
+        
             var dao = new TypeAccountDao();
             ViewBag.TypeAccount = new SelectList(dao.ListAll(), "IdTypeAccount", "TypeName", selectedid );
         }

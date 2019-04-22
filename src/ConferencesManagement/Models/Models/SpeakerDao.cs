@@ -21,6 +21,7 @@ namespace Models
 
         public long Insert(Speaker entity)
         {
+            entity.CreatedDate = DateTime.Now;
             db.Speakers.Add(entity);
             db.SaveChanges();
             return entity.ID;

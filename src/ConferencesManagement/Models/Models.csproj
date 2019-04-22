@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\TopicForIndex.cs" />
     <Compile Include="Framework\About.cs" />
     <Compile Include="Framework\Account.cs" />
     <Compile Include="Framework\ConferencesManagementDbContext.cs" />
@@ -91,9 +92,7 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\DAO\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Content\PagedList.css" />
   </ItemGroup>

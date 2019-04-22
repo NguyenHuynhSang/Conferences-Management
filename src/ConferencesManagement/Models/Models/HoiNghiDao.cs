@@ -20,5 +20,13 @@ namespace Models.Models
 
             return db.HoiThaos.Single(x => x.Status == true);
         }
+
+
+        public List<HoiThao> GetHoiThaos()
+        {
+            return db.HoiThaos.ToList();
+
+
+        }
     }
 }

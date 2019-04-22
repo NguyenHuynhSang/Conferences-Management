@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PagedList;
+using Models.Entities;
+
 namespace Models.Models
 {
     public class TopicDao
@@ -35,6 +37,29 @@ namespace Models.Models
             return db.Topics.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         
          }
+
+        public List<TopicForIndex> GetTopicForIndex(int page, int pageSize)
+        {
+            var model = from a in db.Topics
+                        join ht in db.HoiThaos
+                        on a.IDTopic equals ht.ID
+                        select new TopicForIndex()
+                        {
+                            ID = a.ID,
+                            TenHoiThao = ht.TenHoiThao,
+                            TopicMenu = a.TopicMenu,
+                            ChuDe = a.ChuDe,
+                            Content = a.Content,
+                            CreatedDate = a.CreatedDate,
+                            CreatedBy = a.CreatedBy,
+                            ModifiedDate = a.ModifiedDate,
+                            ModifiedBy = a.ModifiedBy,
+                            Status=a.Status
+                        };
+                   model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+                return model.ToList();
+           }
+
 
 
 

@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using ConferencesManagement.Common;
+using Models;
 using Models.Framework;
 using Models.Models;
 using System;
@@ -12,18 +13,19 @@ namespace ConferencesManagement.Areas.Admin.Controllers
     public class TopicController : BaseController
     {
         // GET: Admin/News
-        public ActionResult Index(int page = 1 , int pageSize=10)
+        public ActionResult Index(int page = 1, int pageSize = 10)
         {
             SetAlert("Load chủ đề thành công", "success");
             var dao = new TopicDao();
-            var result = dao.ListAllPaging(page, pageSize);
-            return View(result);
+            var model = dao.GetTopicForIndex(page, pageSize);
+            return View(model);
         }
 
         [HttpGet]
 
         public ActionResult Create()
         {
+            SetViewBag();
             return View();
         }
 
@@ -31,8 +33,9 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(Topic topic)
         {
+            SetViewBag();
             var dao = new TopicDao();
-            var result = dao.ListAllPaging(1, 10);
+            var result = dao.GetTopicForIndex(1, 10);
             if (ModelState.IsValid)
             {
 
@@ -64,7 +67,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         public ActionResult Edit(Topic topic)
         {
             var dao = new TopicDao();
-            var model = dao.ListAllPaging(1, 10);
+            var model = dao.GetTopicForIndex(1, 10);
             if (ModelState.IsValid)
             {
 
@@ -91,7 +94,12 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        public void SetViewBag(long? selectedid = null)
+        {
+            selectedid = CommonConstants.CURRENT_HOITHAO;
+            var dao = new HoiNghiDao();
+            ViewBag.IDTopic = new SelectList(dao.GetHoiThaos(), "ID", "TenHoiThao", selectedid);
 
-
+        }
     }
 }

@@ -21,8 +21,8 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Thông tin User</h1>
-                    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below. For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
+                    <h1 class="h3 mb-2 text-gray-800">Thông tin Account</h1>
+                    <p class="mb-4">Thông tin Account</p>
                     <a href="/Admin/User/Create" class="btn btn-light btn-icon-split">
                         <span class="icon text-gray-600">
                             <i class="fas fa-arrow-right"></i>
@@ -41,7 +41,6 @@
                                         <tr>
                                             <th>#</th>
                                             <th>#</th>
-                                            <th>Trạng Thái</th>
                                             <th>Tên Tài Khoản</th>
                                             <th>Mật Khẩu</th>
                                             <th>LoạiTK</th>
@@ -58,7 +57,6 @@
                                         <tr>
                                             <th>#</th>
                                             <th>#</th>
-                                            <th>Trạng Thái</th>
                                             <th>Tên Tài Khoản</th>
                                             <th>Mật Khẩu</th>
                                             <th>LoạiTK</th>
@@ -74,29 +72,30 @@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
-                                            <tr>
-                                                <td>
-                                                    <a href="/Admin/User/Edit/@item.IdAccount" class="btn btn-success btn-circle btn-sm">Sửa </a>
-                                                  
-                                                </td>
-                                                <td>
-                                                    @Ajax.ActionLink("Xóa", "Delete",new { @id = item.IdAccount }, new AjaxOptions
-                                                        {
-                                                          Confirm = "bạn có muốn xóa không",
-                                                          OnComplete="$('row_"+@item.IdAccount+"').remove()",
-                                                          HttpMethod="Delete"
-                                                          })
-                                                </td>
-                                                <td>@item.UserName</td>
-                                                <td>@item.PassWord</td>
-                                                <td>@item.TypeAccount</td>
-                                                <td>@item.HoTen</td>
-                                                <td>@item.DiaChi</td>
-                                                <td>@item.CreatedBy</td>
-                                                <td>@item.CreatedDate</td>
-                                                <td>@item.ModifiedBy</td>
-                                                <td>@item.ModifiedDate</td>
-                                            </tr>
+                                        <tr>
+                                            <td>
+                                                <a href="/Admin/User/Edit/@item.IdAccount" class="btn btn-success btn-circle btn-sm">Sửa </a>
+
+                                            </td>
+                                            <td>
+                                                @Ajax.ActionLink("Xóa", "Delete",new { @id = item.IdAccount }, new AjaxOptions
+                                                    {
+                                                      Confirm = "bạn có muốn xóa không",
+                                                      OnComplete="$('row_"+@item.IdAccount+"').remove()",
+                                                      HttpMethod="Delete"
+                                                      })
+                                            </td>
+                                            <td>@item.UserName</td>
+                                            <td>@item.PassWord</td>
+                                            <td>@item.TypeAccount</td>
+                                            <td>@item.HoTen</td>
+                                            <td>@item.DiaChi</td>
+                                            <td>@item.Email</td>
+                                            <td>@item.CreatedBy</td>
+                                            <td>@item.CreatedDate</td>
+                                            <td>@item.ModifiedBy</td>
+                                            <td>@item.ModifiedDate</td>
+                                        </tr>
                                         }
                                     </tbody>
                                 </table>
