@@ -1,0 +1,161 @@
+﻿@model PagedList.IPagedList<Models.Framework.HoiThao>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Thông tin Hội thảo</h1>
+                    <p class="mb-4">Thông tin Hội thảo</p>
+                    <a href="/Admin/HoiThao/Create" class="btn btn-light btn-icon-split">
+                        <span class="icon text-gray-600">
+                            <i class="fas fa-arrow-right"></i>
+                        </span>
+                        <span class="text">Tạo mới User</span>
+                    </a>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Account</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>#</th>
+                                            <th>ID</th>
+                                            <th>Tên Hội thảo</th>
+                                            <th>Ngày diễn ra </th>
+                                            <th>Nơi diễn ra</th>
+                                            <th>Created by</th>
+                                            <th>Created date</th>
+                                            <th>Modified By</th>
+                                            <th>Modified Date</th>
+                                            <th>Status</th>
+                                        
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>#</th>
+                                            <th>ID</th>
+                                            <th>Tên Hội thảo</th>
+                                            <th>Ngày diễn ra </th>
+                                            <th>Nơi diễn ra</th>
+                                            <th>Created by</th>
+                                            <th>Created date</th>
+                                            <th>Modified By</th>
+                                            <th>Modified Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <a href="/Admin/HoiThao/Edit/@item.ID" class="btn btn-success btn-circle btn-sm">Sửa </a>
+
+                                                </td>
+                                                <td>
+                                                    @Ajax.ActionLink("Xóa", "Delete",new { @id = item.ID }, new AjaxOptions
+                                                        {
+                                                          Confirm = "bạn có muốn xóa không",
+                                                          OnComplete="$('row_"+@item.ID+"').remove()",
+                                                          HttpMethod="Delete"
+                                                          })
+                                                </td>
+                                                <td>@item.ID</td>
+                                                <td>@item.TenHoiThao</td>
+                                                <td>@item.NgayDienRa</td>
+                                                <td>@item.NoiDienRa</td>
+                                                <td>@item.CreatedBy</td>
+                                                <td>@item.CreatedDate</td>
+                                                <td>@item.ModifiedBy</td>
+                                                <td>@item.ModifiedDate</td>
+                                                <td>@item.Status</td>
+ 
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    @*<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="/Assets/Admin/vendor/jquery/jquery.min.js"></script>
+    <script src="/Assets/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="/Assets/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="/Assets/Admin/js/sb-admin-2.min.js"></script>
+
+    <!-- Page level plugins -->
+    <script src="/Assets/Admin/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/Assets/Admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="/Assets/Admin/js/demo/datatables-demo.js"></script>
+
+</body>

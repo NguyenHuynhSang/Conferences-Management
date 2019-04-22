@@ -37,7 +37,10 @@ namespace Models
             return db.Speakers.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
 
-
+        public List<Speaker> ListAll()
+        {
+            return db.Speakers.ToList();
+        }
         public bool Update(Speaker entity)
         {
             try

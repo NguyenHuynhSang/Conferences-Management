@@ -16,5 +16,9 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             CommonConstants.CURRENT_HOITHAO = (new HoiNghiDao().GetActiveHoiThao()).ID;
             return View();
         }
+
+
+
+
     }
 }

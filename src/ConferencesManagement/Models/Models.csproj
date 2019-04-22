@@ -56,6 +56,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\HoiThaoDetailForIndex.cs" />
     <Compile Include="Entities\TopicForIndex.cs" />
     <Compile Include="Framework\About.cs" />
     <Compile Include="Framework\Account.cs" />
