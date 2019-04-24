@@ -44,17 +44,17 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                 if (id > 0)
                 {
 
-                    var result = dao.ListAllPaging(1, 10);
+                    var result = dao.GetHTDetailForIndex();
                     // chuyển hướng trang về admin/User/index
-                    SetAlert("Tạo tài khoản thành công", "success");
-                    RedirectToAction("Index", "User", result);
+                    SetAlert("Tạo chi tiet hoi thao thành công", "success");
+                    RedirectToAction("Index", "HoiThaoDeTail", result);
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Them account loi");
+                    ModelState.AddModelError("", "Them hoi thao loi");
                 }
             }
-            var model = dao.ListAllPaging(1, 10);
+            var model = dao.GetHTDetailForIndex();
             return View("Index", model);
 
         }
@@ -93,7 +93,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             SetViewBackHoiNghi();
             SetViewBagSpeaker();
             var dao = new HoiThaoDetailDao();
-            var model = dao.ListAllPaging(1, 10);
+            var model = dao.GetHTDetailForIndex();
             if (ModelState.IsValid)
             {
 
