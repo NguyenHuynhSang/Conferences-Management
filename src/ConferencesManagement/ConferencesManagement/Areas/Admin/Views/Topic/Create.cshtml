@@ -2,23 +2,25 @@
 
 @{
     ViewBag.Title = "Create";
-    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml"; 
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Create Topic</h2>
 @section jsFooter{
     <script>
         var editor = CKEDITOR.replace('txtTopic', {
-           customConfig: '/Assets/Admin/js/Plugins/ckeditor/config.js',
+            customConfig: '/Assets/Admin/js/Plugins/ckeditor/config.js',
         });
-            
-    </script>    
+
+      
+
+    </script>
 }
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Topic</h4>
         <hr />
@@ -51,7 +53,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.Content, new { htmlAttributes = new { @class = "form-control" }, id = "txtTopic" })
                 @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
             </div>
         </div>

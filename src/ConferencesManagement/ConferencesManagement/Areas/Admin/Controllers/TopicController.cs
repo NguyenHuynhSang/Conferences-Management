@@ -12,7 +12,9 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 {
     public class TopicController : BaseController
     {
+
         // GET: Admin/News
+        [ValidateInput(false)]
         public ActionResult Index(int page = 1, int pageSize = 10)
         {
             SetAlert("Load chủ đề thành công", "success");
@@ -20,16 +22,15 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             var model = dao.GetTopicForIndex(page, pageSize);
             return View(model);
         }
-
+        [ValidateInput(false)]
         [HttpGet]
-
         public ActionResult Create()
         {
             SetViewBag();
             return View();
         }
 
-
+        [ValidateInput(false)]
         [HttpPost]
         public ActionResult Create(Topic topic)
         {
@@ -55,6 +56,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             return View("Index", result);
 
         }
+        [ValidateInput(false)]
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -62,7 +64,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             return View(account);
         }
 
-
+        [ValidateInput(false)]
         [HttpPost]
         public ActionResult Edit(Topic topic)
         {
