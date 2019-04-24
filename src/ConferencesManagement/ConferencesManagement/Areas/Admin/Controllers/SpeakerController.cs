@@ -42,7 +42,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
                     // chuyển hướng trang về admin/User/index
                     SetAlert("Tạo diễn giả thành công", "success");
-                    RedirectToAction("Index", "Speaker", result);
+                   return RedirectToAction("Index", "Speaker", result);
                 }
                 else
                 {
@@ -73,7 +73,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                 if (result)
                 {
                     SetAlert("Cập nhật diễn giả thành công", "success");
-                    RedirectToAction("Index", "Speaker", model);
+                    return RedirectToAction("Index", "Speaker", model);
                 }
                 else
                 {

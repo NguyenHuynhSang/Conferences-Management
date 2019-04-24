@@ -59,7 +59,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     var result = dao.ListAllPaging(1, 10);
                     // chuyển hướng trang về admin/User/index
                     SetAlert("Tạo tài khoản thành công", "success");
-                    RedirectToAction("Index","User", result);
+                    return RedirectToAction("Index","User", result);
                 }
                 else {
                     ModelState.AddModelError("", "Them account loi");
@@ -85,7 +85,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                 if (result)
                 {
                     SetAlert("Sửa tài khoản thành công", "success");
-                    RedirectToAction("Index", "User",model);
+                    return RedirectToAction("Index", "User",model);
                 }
                 else
                 {

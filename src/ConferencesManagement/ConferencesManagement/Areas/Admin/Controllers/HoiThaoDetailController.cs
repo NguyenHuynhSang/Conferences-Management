@@ -47,7 +47,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     var result = dao.GetHTDetailForIndex();
                     // chuyển hướng trang về admin/User/index
                     SetAlert("Tạo chi tiet hoi thao thành công", "success");
-                    RedirectToAction("Index", "HoiThaoDeTail", result);
+                    return RedirectToAction("Index", "HoiThaoDeTail", result);
                 }
                 else
                 {
@@ -102,7 +102,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                 if (result)
                 {
                     SetAlert("Sửa hoi thao thành công", "success");
-                    RedirectToAction("Index", "User", model);
+                    return RedirectToAction("Index", "HoiThaoDeTail", model);
                 }
                 else
                 {

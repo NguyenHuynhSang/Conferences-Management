@@ -45,7 +45,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
                     // chuyển hướng trang về admin/User/index
                     SetAlert("Tạo chủ đề thành công", "success");
-                    RedirectToAction("Index", "Topic", result);
+                    return RedirectToAction("Index", "Topic", result);
                 }
                 else
                 {
@@ -76,7 +76,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                 if (result)
                 {
                     SetAlert("Cập nhật chủ đề thành công", "success");
-                    RedirectToAction("Index", "Topic", model);
+                    return RedirectToAction("Index", "Topic", model);
                 }
                 else
                 {
