@@ -10,6 +10,7 @@
         <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
             <thead>
                 <tr role="row">
+                    <th>Hình ảnh</th>
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="UserName: activate to sort column ascending" style="width: 95.0062px;">
                         Họ tên
                     </th>
@@ -53,6 +54,10 @@
                 @foreach (var item in Model)
                 {
                     <tr role="row" class="odd">
+                
+                        <td>
+                            <img src="@item.Image" height="100" width=" 100"/>
+                        </td>
                         <td>
                             @item.Name
                         </td>

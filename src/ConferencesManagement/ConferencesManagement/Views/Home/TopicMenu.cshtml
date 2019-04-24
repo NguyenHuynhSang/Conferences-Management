@@ -13,12 +13,19 @@
                 <div class="tabs_container">
                     <div class="tabs d-flex flex-row align-items-center justify-content-start flex-wrap">
 
-                       <div class="tab active">Danh sách Topic:</div>
                         @foreach (var item in Model)
                         {
-                              @*<div class="tab active">  01. Marketing Intro</div>*@
+                            @*<div class="tab active">  01. Marketing Intro</div>*@
+                            if (@item.ID == Model.First().ID)
+                            {
+                                <div class="tab active">@item.TopicMenu</div>
+                            }
+                            else
+                            {
+                                <div class="tab"> @item.TopicMenu </div>
+                            }
 
-                            <div class="tab"> @item.TopicMenu </div>
+
                         }
                     </div>
 
@@ -33,9 +40,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5 tab_col">
+                @*<div class="col-lg-5 tab_col">
                     <div class="tab_panel_image"><img src="~/Assets/Client/images/tabs.jpg" alt=""></div>
-                </div>
+                </div>*@
             </div>
         </div>
                         @foreach (var item in Model)
@@ -46,14 +53,13 @@
                                         <div class="tab_panel_content">
                                             <div class="tab_title"><h3>@item.ID @item.ChuDe</h3></div>
                                             <div class="tab_text">
-                                                <p>@item.Content</p>
-                                            </div>
-                                            <div class="tab_link"><a href="#">Read More</a></div>
+                                                <p>@Html.Raw(@item.Content)</p>
+                                            </div>  
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 tab_col">
+                                    @*<div class="col-lg-6 tab_col">
                                         <div class="tab_panel_image"><img src="~/Assets/Client/images/tabs.jpg" alt=""></div>
-                                    </div>
+                                    </div>*@
                                 </div>
                             </div>
                         }
