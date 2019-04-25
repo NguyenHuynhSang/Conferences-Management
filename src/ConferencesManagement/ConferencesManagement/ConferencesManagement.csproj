@@ -3288,6 +3288,12 @@
     <Content Include="Areas\Admin\Views\HoiThaoDetail\Create.cshtml" />
     <Content Include="Areas\Admin\Views\HoiThaoDetail\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\HoiThaoDetail\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Schedule\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Schedule\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Schedule\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ScheduleDetail\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ScheduleDetail\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ScheduleDetail\Edit.cshtml" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
@@ -3307,6 +3313,8 @@
     <Compile Include="Areas\Admin\Controllers\HoiThaoDetailController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ScheduleController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ScheduleDetailController.cs" />
     <Compile Include="Areas\Admin\Controllers\TopicController.cs" />
     <Compile Include="Areas\Admin\Controllers\SpeakerController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />

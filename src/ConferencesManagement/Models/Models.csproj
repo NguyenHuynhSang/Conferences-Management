@@ -57,6 +57,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\HoiThaoDetailForIndex.cs" />
+    <Compile Include="Entities\ScheduleDetailForIndex.cs" />
+    <Compile Include="Entities\ScheduleForIndex.cs" />
     <Compile Include="Entities\TopicForIndex.cs" />
     <Compile Include="Framework\About.cs" />
     <Compile Include="Framework\Account.cs" />
@@ -72,7 +74,6 @@
     <Compile Include="Framework\ScheduleDetail.cs" />
     <Compile Include="Framework\Slide.cs" />
     <Compile Include="Framework\Speaker.cs" />
-    <Compile Include="Framework\sysdiagram.cs" />
     <Compile Include="Framework\Topic.cs" />
     <Compile Include="Framework\TypeAccount.cs" />
     <Compile Include="Models\AccountDao.cs" />

@@ -1,4 +1,5 @@
-﻿using Models.Framework;
+﻿using Models.Entities;
+using Models.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,5 +21,69 @@ namespace Models.Models
             return context.ScheduleDetails.ToList();
         }
 
+        public List<ScheduleDetailForIndex> GetScheduleDetailForIndex()
+        {
+            var model = from d in context.ScheduleDetails
+                        join h in context.Speakers
+                        on d.IDSpeaker equals h.ID
+                        select new ScheduleDetailForIndex
+                        {
+                            ID = d.ID,
+                            IDSchedule = d.IDSchedule,
+                            TieuDe = d.TieuDe,
+                            Content = d.Content,
+                            SpeakerName=h.Name,
+                            Image=d.Image,
+                            StartHour=d.StartHour,
+                            EndHour=d.EndHour
+                        };
+            return model.ToList();
+        }
+
+        public long Insert(ScheduleDetail entity)
+        {
+            context.ScheduleDetails.Add(entity);
+            context.SaveChanges();
+            return entity.ID;
+        }
+
+        public bool Update(ScheduleDetail entity)
+        {
+            try
+            {
+                var schedule = context.ScheduleDetails.Find(entity.ID);
+
+                //   account.ModifiedBy =USER_SEASON;
+                schedule.IDSchedule = entity.IDSchedule;
+                schedule.TieuDe = entity.TieuDe;
+                schedule.IDSpeaker = entity.IDSpeaker;
+                schedule.Content = entity.Content;
+                schedule.Image = entity.Image;
+                schedule.StartHour = entity.StartHour;
+                schedule.EndHour = entity.EndHour;
+
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool Delete(int id)
+        {
+            try
+            {
+                var speaker = context.ScheduleDetails.Find(id);
+                context.ScheduleDetails.Remove(speaker);
+                context.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }
