@@ -14,11 +14,12 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
         private static long getIDforEdit;
         // GET: Admin/User
-        public ActionResult Index(int page =1 , int pageSize =10)
+        public ActionResult Index(string searchingString, int page =1 , int pageSize =10)
         {
             SetAlert("Load tài khoản thành công", "success");
             var dao = new AccountDao();
-            var result = dao.ListAllPaging(page, pageSize);
+            var result = dao.ListAllPaging(page, pageSize, searchingString);
+            ViewBag.Searching = searchingString;
             return View(result);
         }
         //[HttpGet]

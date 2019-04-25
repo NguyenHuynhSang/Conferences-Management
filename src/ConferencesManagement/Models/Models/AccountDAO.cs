@@ -35,15 +35,20 @@ namespace Models
             return db.Accounts.SingleOrDefault(x => x.UserName == userName);
         }
 
-        public IEnumerable<Account> ListAllPaging(int page, int pageSize)
+        public IEnumerable<Account> ListAllPaging( int page, int pageSize,string searchingString = null)
         {
-            return db.Accounts.OrderByDescending(x=>x.CreatedDate).ToPagedList(page, pageSize);
+            IOrderedQueryable<Account> account = db.Accounts;
+            if (!string.IsNullOrEmpty(searchingString))
+            {
+                account=account.Where(x=>x.UserName.Contains(searchingString)||x.HoTen.Contains(searchingString)).OrderByDescending(x=>x.CreatedDate);
+
+            }
+            //return db.Accounts.OrderByDescending(x=>x.CreatedDate).ToPagedList(page, pageSize);
+            return account.OrderByDescending(x=>x.CreatedDate).ToPagedList(page, pageSize);
         }
 
-        //public List<Account> ListAllAccounts()
-        //{
-        //    return db.Accounts.all
-        //}
+
+        
 
         public bool Update(Account entity)
         {
