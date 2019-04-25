@@ -1,4 +1,4 @@
-﻿@model List<Models.Framework.Schedule>
+﻿@model List<Models.Framework.ScheduleDetail>
 
 <div class="schedule">
     <div class="container">
@@ -11,27 +11,35 @@
             </div>
         </div>
         <div class="row schedule_row">
-
-            @foreach (var item in Model)
+            @{ int i=1;}
+            @foreach (var item in ViewBag.Schedules)
             {
 
                 <!-- Schedule Column -->
                 <div class="col-lg-6 schedule_col">
                     <div class="schedule_container">
-                        <div class="schedule_title_bar schedule_title_bar_1 text-center">@item.MainTitle <span>@item.Date</span></div>
-                        <div class="schedule_list">
-                            <ul>
-                                <li class="d-flex flex-row align-items-center justify-content-start">
-                                    <div class="schedule_image"><img src="~/Assets/Client/images/schedule_1.jpg" alt=""></div>
-                                    <div class="schedule_content">
-                                        <div class="schedule_time">08:00 AM - 09:00 AM</div>
-                                        <div class="schedule_title">Grand Opening</div>
-                                        <div class="schedule_info">Host: <a href="#">Michael Smith</a> - Marketing ING CEO</div>
-                                    </div>
-                                </li>
-                             
-                            </ul>
-                        </div>
+                        <div class="schedule_title_bar schedule_title_bar_1 text-center">Day @i :<span>@item.NgayDienRa</span></div>
+                        @{ i++;}
+                        @foreach (var childItem in Model)
+                        {
+                            if (childItem.IDSchedule == item.ID)
+                            {
+                                <div class="schedule_list">
+                                    <ul>
+                                        <li class="d-flex flex-row align-items-center justify-content-start">
+                                            <div class="schedule_image"><img src="@childItem.Image" alt=""></div>
+                                            <div class="schedule_content">
+                                                <div class="schedule_time">@childItem.StartHour - @childItem.EndHour</div>
+                                                <div class="schedule_title">@childItem.TieuDe</div>
+                                                <div class="schedule_info">Host: <a href="#">@childItem.IDSpeaker</a> - Marketing ING CEO</div>
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            }
+                        }
+
                     </div>
                 </div>
 

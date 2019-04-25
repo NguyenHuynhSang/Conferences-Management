@@ -16,15 +16,13 @@ namespace ConferencesManagement.Controllers
         public ActionResult Index()
         {
             CommonConstants.CURRENT_HOITHAO = (new HoiNghiDao().GetActiveHoiThao()).ID;
-
+           
             return View();
         }
 
         [ChildActionOnly]
         public ActionResult MainMenu()
         {
-
-
 
             var model = new MenuDao().ListByGroupId(1);
             return PartialView(model);
@@ -63,13 +61,19 @@ namespace ConferencesManagement.Controllers
 
         }
 
-        //public ActionResult ScheduleMainMenu()
-        //{
-        //    var model = new ScheduleDao().GetScheduleByCurrentHoiThao(CommonConstants.CURRENT_HOITHAO);
-        //    return PartialView(model);
-        //}
+        public ActionResult ScheduleMainMenu()
+        {
+            var model = new ScheduleDetailDao().ListAll();
+            SetViewBack();
+            return PartialView(model);
+        }
 
+        public void SetViewBack(long? selectedid = null)
+        {
 
+            var dao = new ScheduleDao();
+            ViewBag.Schedules = (dao.GetScheduleByCurrentHoiThao(CommonConstants.CURRENT_HOITHAO)).ToList();
+        }
 
 
     }

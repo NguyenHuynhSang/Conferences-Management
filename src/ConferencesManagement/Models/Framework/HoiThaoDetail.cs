@@ -14,7 +14,5 @@ namespace Models.Framework
         public long IDHoiThao { get; set; }
 
         public int IDSpeaker { get; set; }
-
-        public long IDAccount { get; set; }
     }
 }

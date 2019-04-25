@@ -11,6 +11,9 @@ namespace Models.Framework
     {
         public int ID { get; set; }
 
+        [StringLength(250)]
+        public string Image { get; set; }
+
         public long IDTopic { get; set; }
 
         [StringLength(50)]

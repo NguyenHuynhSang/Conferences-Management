@@ -11,24 +11,8 @@ namespace Models.Framework
     {
         public long ID { get; set; }
 
-        [StringLength(50)]
-        public string MainTitle { get; set; }
+        public long? IDHoiThao { get; set; }
 
-        public int? IDHoiThao { get; set; }
-
-        [Column(TypeName = "date")]
-        public DateTime? Date { get; set; }
-
-        public DateTime? CreatedDate { get; set; }
-
-        [StringLength(50)]
-        public string CreatedBy { get; set; }
-
-        public DateTime? ModifiedDate { get; set; }
-
-        [StringLength(50)]
-        public string ModifiedBy { get; set; }
-
-        public bool? Status { get; set; }
+        public DateTime? NgayDienRa { get; set; }
     }
 }

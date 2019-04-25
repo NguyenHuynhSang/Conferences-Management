@@ -35,6 +35,7 @@ namespace Models.Framework
 
         public bool? Status { get; set; }
 
+        [StringLength(250)]
         public string Image { get; set; }
     }
 }

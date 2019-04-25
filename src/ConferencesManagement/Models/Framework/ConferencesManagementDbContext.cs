@@ -55,10 +55,6 @@ namespace Models.Framework
                 .Property(e => e.CreatedBy)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<Schedule>()
-                .Property(e => e.CreatedBy)
-                .IsUnicode(false);
-
             modelBuilder.Entity<Slide>()
                 .Property(e => e.CreatedBy)
                 .IsUnicode(false);
