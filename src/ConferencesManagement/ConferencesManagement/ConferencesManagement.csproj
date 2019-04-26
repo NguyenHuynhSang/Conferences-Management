@@ -3324,6 +3324,7 @@
     <Compile Include="Common\UserLogin.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -3560,6 +3561,7 @@
     <Content Include="Views\Home\HomeContent.cshtml" />
     <Content Include="Views\Home\SpeakerMenu.cshtml" />
     <Content Include="Views\Home\ScheduleMainMenu.cshtml" />
+    <Content Include="Views\Schedule\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
