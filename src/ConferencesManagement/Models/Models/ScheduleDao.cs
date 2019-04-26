@@ -9,7 +9,7 @@ using Models.Entities;
 
 namespace Models.Models
 {
-    public class ScheduleDao 
+    public class ScheduleDao
     {
 
         ConferencesManagementDbContext db = null;
@@ -18,7 +18,7 @@ namespace Models.Models
             db = new ConferencesManagementDbContext();
         }
 
-        public List<Schedule> GetScheduleByCurrentHoiThao(long curentHoiThao=1)
+        public List<Schedule> GetScheduleByCurrentHoiThao(long curentHoiThao = 1)
         {
             return db.Schedules.Where(x => x.IDHoiThao == curentHoiThao).ToList();
 
@@ -37,7 +37,7 @@ namespace Models.Models
         }
 
 
-        public List<ScheduleForIndex> GetScheduleForIndex()
+        public List<ScheduleForIndex> GetScheduleForIndex(string searchingString = null)
         {
             var model = from d in db.Schedules
                         join h in db.HoiThaos
@@ -49,6 +49,11 @@ namespace Models.Models
                             NgayDienRa = d.NgayDienRa
 
                         };
+            if (!string.IsNullOrEmpty(searchingString))
+            {
+                model = model.Where(x => x.TenHoiThao.Contains(searchingString));
+
+            }
             return model.ToList();
         }
 

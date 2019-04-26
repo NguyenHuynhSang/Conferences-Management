@@ -29,12 +29,19 @@ namespace Models
 
         public Speaker GetByName(string Name)
         {
+           
             return db.Speakers.SingleOrDefault(x => x.Name == Name);
         }
 
-        public IEnumerable<Speaker> ListAllPaging(int page, int pageSize)
+        public IEnumerable<Speaker> ListAllPaging(int page, int pageSize, string searchingString = null)
         {
-            return db.Speakers.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+            IOrderedQueryable<Speaker> speaker = db.Speakers;
+            if (!string.IsNullOrEmpty(searchingString))
+            {
+                speaker = speaker.Where(x => x.Name.Contains(searchingString) || x.ChucVu.Contains(searchingString) || x.SDT.Contains(searchingString) || x.Email.Contains(searchingString)).OrderByDescending(x => x.CreatedDate);
+
+            }
+            return speaker.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
 
         public List<Speaker> ListAll()

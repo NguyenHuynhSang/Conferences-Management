@@ -13,11 +13,12 @@ namespace ConferencesManagement.Areas.Admin.Controllers
     {
         // GET: Admin/HoiThaoDetail
         private static long getIDforEdit;
-        public ActionResult Index(int page = 1, int pageSize = 10)
+        public ActionResult Index(string searchingString, int page = 1, int pageSize = 10)
         {
             SetAlert("Load chi tiet hoi thao thành công", "success");
             var dao = new HoiThaoDetailDao();
-            var result = dao.GetHTDetailForIndex();
+            var result = dao.GetHTDetailForIndex(searchingString);
+            ViewBag.Searching = searchingString;
             return View(result);
         }
 

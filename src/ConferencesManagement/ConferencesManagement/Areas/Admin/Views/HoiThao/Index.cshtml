@@ -24,6 +24,18 @@
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Thông tin Hội thảo</h1>
                     <p class="mb-4">Thông tin Hội thảo</p>
+                    @using (Html.BeginForm("Index", "HoiThao", FormMethod.Get))
+                    {
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="col-lg-4">
+                                    <input type="text" value="@ViewBag.SearchingString" name="searchingString" ; />
+                                    <button type="submit">Tìm kiếm</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
                     <a href="/Admin/HoiThao/Create" class="btn btn-light btn-icon-split">
                         <span class="icon text-gray-600">
                             <i class="fas fa-arrow-right"></i>
@@ -51,7 +63,7 @@
                                             <th>Modified By</th>
                                             <th>Modified Date</th>
                                             <th>Status</th>
-                                        
+
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -94,12 +106,12 @@
                                                 <td>@item.ModifiedBy</td>
                                                 <td>@item.ModifiedDate</td>
                                                 <td>@item.Status</td>
- 
+
                                             </tr>
                                         }
                                     </tbody>
                                 </table>
-                                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+                                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchingString = ViewBag.SearchingString }))
                             </div>
                         </div>
                     </div>

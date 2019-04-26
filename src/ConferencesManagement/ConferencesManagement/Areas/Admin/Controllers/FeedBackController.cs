@@ -12,11 +12,12 @@ namespace ConferencesManagement.Areas.Admin.Controllers
     public class FeedBackController : BaseController
     {
         // GET: Admin/FeedBack
-        public ActionResult Index(int page = 1, int pageSize = 10)
+        public ActionResult Index(string searchingString, int page = 1, int pageSize = 10)
         {
             SetAlert("Load thông tin thành công", "success");
             var dao = new FeedBackDao();
-            var result = dao.ListAllPaging(page, pageSize);
+            var result = dao.ListAllPaging(page, pageSize, searchingString);
+            ViewBag.Searching = searchingString;
             return View(result);
         }
 

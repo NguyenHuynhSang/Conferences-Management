@@ -21,9 +21,16 @@ namespace Models.Models
             return db.FeedBacks.SingleOrDefault(x => x.ID == id);
 
         }
-        public IEnumerable<FeedBack> ListAllPaging(int page, int pageSize)
+        public IEnumerable<FeedBack> ListAllPaging(int page, int pageSize, string searchingString = null)
         {
-            return db.FeedBacks.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+            IOrderedQueryable<FeedBack> feedBacks = db.FeedBacks;
+            if (!string.IsNullOrEmpty(searchingString))
+            {
+                feedBacks = feedBacks.Where(x => x.Name.Contains(searchingString) || x.Content.Contains(searchingString) || x.SDT.Contains(searchingString)).OrderByDescending(x => x.CreatedDate);
+
+            }
+
+            return feedBacks.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
     }
 }

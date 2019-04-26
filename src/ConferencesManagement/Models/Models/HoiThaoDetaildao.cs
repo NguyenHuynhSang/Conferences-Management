@@ -35,8 +35,9 @@ namespace Models.Models
 
 
 
-        public List<HoiThaoDetailForIndex> GetHTDetailForIndex()
+        public List<HoiThaoDetailForIndex> GetHTDetailForIndex(string searchingString=null)
         {
+            
             var model = from d in db.HoiThaoDetails
                         join h in db.HoiThaos
                         on d.IDHoiThao equals h.ID
@@ -49,6 +50,11 @@ namespace Models.Models
                             TenSpeaker=s.Name
 
                         };
+            if (!string.IsNullOrEmpty(searchingString))
+            {
+                model = model.Where(x => x.TenHoiThao.Contains(searchingString) || x.TenSpeaker.Contains(searchingString));
+
+            }
             return model.ToList();
 
 

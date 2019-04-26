@@ -15,11 +15,12 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
         // GET: Admin/News
         [ValidateInput(false)]
-        public ActionResult Index(int page = 1, int pageSize = 10)
+        public ActionResult Index(string searchingString, int page = 1, int pageSize = 10)
         {
             SetAlert("Load chủ đề thành công", "success");
             var dao = new TopicDao();
-            var model = dao.GetTopicForIndex(page, pageSize);
+            var model = dao.GetTopicForIndex(page, pageSize, searchingString);
+            ViewBag.Searching = searchingString;
             return View(model);
         }
         [ValidateInput(false)]

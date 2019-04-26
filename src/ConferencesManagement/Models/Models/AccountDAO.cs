@@ -40,10 +40,10 @@ namespace Models
             IOrderedQueryable<Account> account = db.Accounts;
             if (!string.IsNullOrEmpty(searchingString))
             {
-                account=account.Where(x=>x.UserName.Contains(searchingString)||x.HoTen.Contains(searchingString)).OrderByDescending(x=>x.CreatedDate);
+                account=account.Where(x=>x.UserName.Contains(searchingString)||x.HoTen.Contains(searchingString)||x.SDT.Contains(searchingString)||x.Email.Contains(searchingString)).OrderByDescending(x=>x.CreatedDate);
 
             }
-            //return db.Accounts.OrderByDescending(x=>x.CreatedDate).ToPagedList(page, pageSize);
+            
             return account.OrderByDescending(x=>x.CreatedDate).ToPagedList(page, pageSize);
         }
 

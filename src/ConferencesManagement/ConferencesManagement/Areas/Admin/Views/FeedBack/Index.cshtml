@@ -4,7 +4,18 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+@using (Html.BeginForm("Index", "FeedBack", FormMethod.Get))
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="col-lg-4">
+                <input type="text" value="@ViewBag.SearchingString" name="searchingString" ; />
+                <button type="submit">Tìm kiếm</button>
+            </div>
+        </div>
+    </div>
 
+}
 <div class="row">
     <div class="col-sm-12">
         <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
@@ -35,41 +46,41 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                <tr role="row" class="odd">
-                    <td>
-                        @item.CreatedDate
-                    </td>
-                    <td>
-                        @item.ID
-                    </td>
-                    <td>
-                        @item.Name
-                    </td>
-                    <td>
-                        @item.SDT
-                    </td>
-                    <td>
-                        @item.DiaChi
-                    </td>
-                    <td>
-                        @item.Status
-                    </td>
-                    <td>
-                        @item.Content
-                    </td>
-                    <td>
-                        <a href="Create">Thêm</a>
-                    </td>
-                    <td>
-                        <a href="FeedBack/Edit/@item.ID">Sửa</a>
-                    </td>
-                    <td>
-                        <a href="FeedBack/Delete/@item.ID">Xóa</a>
-                    </td>
-                </tr>
+                    <tr role="row" class="odd">
+                        <td>
+                            @item.CreatedDate
+                        </td>
+                        <td>
+                            @item.ID
+                        </td>
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                            @item.SDT
+                        </td>
+                        <td>
+                            @item.DiaChi
+                        </td>
+                        <td>
+                            @item.Status
+                        </td>
+                        <td>
+                            @item.Content
+                        </td>
+                        <td>
+                            <a href="Create">Thêm</a>
+                        </td>
+                        <td>
+                            <a href="FeedBack/Edit/@item.ID">Sửa</a>
+                        </td>
+                        <td>
+                            <a href="FeedBack/Delete/@item.ID">Xóa</a>
+                        </td>
+                    </tr>
                 }
             </tbody>
         </table>
-        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchingString = ViewBag.SearchingString }))
     </div>
 </div>

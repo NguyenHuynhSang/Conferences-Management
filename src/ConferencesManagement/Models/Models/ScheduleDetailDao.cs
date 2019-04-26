@@ -21,7 +21,7 @@ namespace Models.Models
             return context.ScheduleDetails.ToList();
         }
 
-        public List<ScheduleDetailForIndex> GetScheduleDetailForIndex()
+        public List<ScheduleDetailForIndex> GetScheduleDetailForIndex(string searchingString = null)
         {
             var model = from d in context.ScheduleDetails
                         join h in context.Speakers
@@ -32,11 +32,16 @@ namespace Models.Models
                             IDSchedule = d.IDSchedule,
                             TieuDe = d.TieuDe,
                             Content = d.Content,
-                            SpeakerName=h.Name,
-                            Image=d.Image,
-                            StartHour=d.StartHour,
-                            EndHour=d.EndHour
+                            SpeakerName = h.Name,
+                            Image = d.Image,
+                            StartHour = d.StartHour,
+                            EndHour = d.EndHour
                         };
+            if (!string.IsNullOrEmpty(searchingString))
+            {
+                model = model.Where(x => x.TieuDe.Contains(searchingString)|| x.SpeakerName.Contains(searchingString) || x.Content.Contains(searchingString));
+
+            }
             return model.ToList();
         }
 

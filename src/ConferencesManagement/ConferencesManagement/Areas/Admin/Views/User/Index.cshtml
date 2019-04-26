@@ -24,105 +24,105 @@
 
                     <h1 class="h3 mb-2 text-gray-800">Thông tin Account</h1>
                     <p class="mb-4">Thông tin Account</p>
-                    <div class="m-4">
-                        @using (Html.BeginForm("Index", "User", FormMethod.Get))
-                        {
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="col-lg-4">
-                                        <input type="text" value="@ViewBag.SearchingString" name="searchingString" ; />
-                                        <button type="submit">Tìm kiếm</button>
-                                    </div>
-                                </div>
-                            </div>
 
-                        }
-
-
-
-                        <a href="/Admin/User/Create" class="btn btn-light btn-icon-split">
-                            <span class="icon text-gray-600">
-                                <i class="fas fa-arrow-right"></i>
-                            </span>
-                            <span class="text">Tạo mới User</span>
-                        </a>
-
-                        <!-- DataTales Example -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">Account</h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>#</th>
-                                                <th>Tên Tài Khoản</th>
-                                                <th>Mật Khẩu</th>
-                                                <th>LoạiTK</th>
-                                                <th>Họ Tên</th>
-                                                <th>Địa Chỉ</th>
-                                                <th>Email</th>
-                                                <th>Người tạo</th>
-                                                <th>Ngày tạo</th>
-                                                <th>Người sửa</th>
-                                                <th>Ngày sửa</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>#</th>
-                                                <th>Tên Tài Khoản</th>
-                                                <th>Mật Khẩu</th>
-                                                <th>LoạiTK</th>
-                                                <th>Họ Tên</th>
-                                                <th>Địa Chỉ</th>
-                                                <th>Email</th>
-                                                <th>Người tạo</th>
-                                                <th>Ngày tạo</th>
-                                                <th>Người sửa</th>
-                                                <th>Ngày sửa</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-                                            @foreach (var item in Model)
-                                            {
-                                                <tr>
-                                                    <td>
-                                                        <a href="/Admin/User/Edit/@item.IdAccount" class="btn btn-success btn-circle btn-sm">Sửa </a>
-
-                                                    </td>
-                                                    <td>
-                                                        @Ajax.ActionLink("Xóa", "Delete",new { @id = item.IdAccount }, new AjaxOptions
-                                                            {
-                                                              Confirm = "bạn có muốn xóa không",
-                                                              OnComplete="$('row_"+@item.IdAccount+"').remove()",
-                                                              HttpMethod="Delete"
-                                                              })
-                                                    </td>
-                                                    <td>@item.UserName</td>
-                                                    <td>@item.PassWord</td>
-                                                    <td>@item.TypeAccount</td>
-                                                    <td>@item.HoTen</td>
-                                                    <td>@item.DiaChi</td>
-                                                    <td>@item.Email</td>
-                                                    <td>@item.CreatedBy</td>
-                                                    <td>@item.CreatedDate</td>
-                                                    <td>@item.ModifiedBy</td>
-                                                    <td>@item.ModifiedDate</td>
-                                                </tr>
-                                            }
-                                        </tbody>
-                                    </table>
-                                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchingString=ViewBag.SearchingString }))
+                    @using (Html.BeginForm("Index", "User", FormMethod.Get))
+                    {
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="col-lg-4">
+                                    <input type="text" value="@ViewBag.SearchingString" name="searchingString" ; />
+                                    <button type="submit">Tìm kiếm</button>
                                 </div>
                             </div>
                         </div>
 
+                    }
+
+
+
+                    <a href="/Admin/User/Create" class="btn btn-light btn-icon-split">
+                        <span class="icon text-gray-600">
+                            <i class="fas fa-arrow-right"></i>
+                        </span>
+                        <span class="text">Tạo mới User</span>
+                    </a>
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Account</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>#</th>
+                                            <th>Tên Tài Khoản</th>
+                                            <th>Mật Khẩu</th>
+                                            <th>LoạiTK</th>
+                                            <th>Họ Tên</th>
+                                            <th>Địa Chỉ</th>
+                                            <th>Email</th>
+                                            <th>Người tạo</th>
+                                            <th>Ngày tạo</th>
+                                            <th>Người sửa</th>
+                                            <th>Ngày sửa</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>#</th>
+                                            <th>Tên Tài Khoản</th>
+                                            <th>Mật Khẩu</th>
+                                            <th>LoạiTK</th>
+                                            <th>Họ Tên</th>
+                                            <th>Địa Chỉ</th>
+                                            <th>Email</th>
+                                            <th>Người tạo</th>
+                                            <th>Ngày tạo</th>
+                                            <th>Người sửa</th>
+                                            <th>Ngày sửa</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    <a href="/Admin/User/Edit/@item.IdAccount" class="btn btn-success btn-circle btn-sm">Sửa </a>
+
+                                                </td>
+                                                <td>
+                                                    @Ajax.ActionLink("Xóa", "Delete",new { @id = item.IdAccount }, new AjaxOptions
+                                                        {
+                                                          Confirm = "bạn có muốn xóa không",
+                                                          OnComplete="$('row_"+@item.IdAccount+"').remove()",
+                                                          HttpMethod="Delete"
+                                                          })
+                                                </td>
+                                                <td>@item.UserName</td>
+                                                <td>@item.PassWord</td>
+                                                <td>@item.TypeAccount</td>
+                                                <td>@item.HoTen</td>
+                                                <td>@item.DiaChi</td>
+                                                <td>@item.Email</td>
+                                                <td>@item.CreatedBy</td>
+                                                <td>@item.CreatedDate</td>
+                                                <td>@item.ModifiedBy</td>
+                                                <td>@item.ModifiedDate</td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchingString = ViewBag.SearchingString }))
+                            </div>
+                        </div>
                     </div>
+
+
                     <!-- /.container-fluid -->
 
                 </div>

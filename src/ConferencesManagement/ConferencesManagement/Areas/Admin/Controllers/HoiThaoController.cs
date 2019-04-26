@@ -10,10 +10,11 @@ namespace ConferencesManagement.Areas.Admin.Controllers
     public class HoiThaoController : BaseController
     {
         // GET: Admin/HoiThao
-        public ActionResult Index(int page = 1,int pageSize=10)
+        public ActionResult Index(string searchingString, int page = 1,int pageSize=10)
         {
             var db = new HoiNghiDao();
-            var model = db.ListAllPaging(page, pageSize);
+            var model = db.ListAllPaging(page, pageSize, searchingString);
+            ViewBag.Searching = searchingString;
             return View(model);
         }
 

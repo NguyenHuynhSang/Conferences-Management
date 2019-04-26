@@ -13,11 +13,12 @@ namespace ConferencesManagement.Areas.Admin.Controllers
     {
         private static long getIDforEdit;
         // GET: Admin/ScheduleDetail
-        public ActionResult Index(int page = 1, int pageSize = 10)
+        public ActionResult Index(string searchingString, int page = 1, int pageSize = 10)
         {
             SetAlert("Load chi tiet lich trinh thành công", "success");
             var dao = new ScheduleDetailDao();
-            var result = dao.GetScheduleDetailForIndex();
+            var result = dao.GetScheduleDetailForIndex(searchingString);
+            ViewBag.Searching = searchingString;
             return View(result);
         }
 
