@@ -28,9 +28,14 @@ namespace Models.Models
             db.SaveChanges();
             return entity.ID;
         }
+        public HoiThaoDetail Detail(int id)
+        {
+            return db.HoiThaoDetails.Find(id);
+        }
 
-        
-        public  List<HoiThaoDetailForIndex> GetHTDetailForIndex()
+
+
+        public List<HoiThaoDetailForIndex> GetHTDetailForIndex()
         {
             var model = from d in db.HoiThaoDetails
                         join h in db.HoiThaos

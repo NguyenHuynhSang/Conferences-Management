@@ -21,15 +21,15 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             return View(result);
         }
 
+        [ValidateInput(false)]
         [HttpGet]
-
         public ActionResult Create()
         {
             SetViewBagSpeaker();
             return View();
         }
 
-
+        [ValidateInput(false)]
         [HttpPost]
         public ActionResult Create(ScheduleDetail speaker)
         {
@@ -45,7 +45,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     var result = dao.GetScheduleDetailForIndex();
                     // chuyển hướng trang về admin/User/index
                     SetAlert("Tạo chi tiet lich thành công", "success");
-                    return RedirectToAction("Index", "Schedule", result);
+                    return RedirectToAction("Index", "ScheduleDetail", result);
                 }
                 else
                 {
@@ -63,16 +63,18 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             ViewBag.IDSpeaker = new SelectList(dao1.ListAll(), "ID", "Name", selectedid);
         }
 
+        [ValidateInput(false)]
         [HttpGet]
 
         public ActionResult Edit(int id)
         {
             getIDforEdit = id;
             SetViewBagSpeaker();
-            var account = new AccountDao().AccountDetail(id);
+            var account = new ScheduleDetailDao().Detail(id);
             return View(account);
         }
 
+        [ValidateInput(false)]
         [HttpPost]
         public ActionResult Edit(ScheduleDetail account)
         {

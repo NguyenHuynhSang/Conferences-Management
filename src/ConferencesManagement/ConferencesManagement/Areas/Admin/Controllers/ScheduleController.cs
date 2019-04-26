@@ -70,7 +70,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         {
             getIDforEdit = id;
             SetViewBackHoiNghi();
-            var account = new AccountDao().AccountDetail(id);
+            var account = new ScheduleDao().Detail(id);
             return View(account);
         }
 

@@ -84,6 +84,11 @@ namespace Models.Models
             {
                 return false;
             }
+
+        }
+        public ScheduleDetail Detail(int id)
+        {
+            return context.ScheduleDetails.Find(id);
         }
     }
 }

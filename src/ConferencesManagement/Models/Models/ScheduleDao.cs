@@ -84,5 +84,12 @@ namespace Models.Models
                 return false;
             }
         }
+
+        public Schedule Detail(int id)
+        {
+            return db.Schedules.Find(id);
+        }
+
     }
+
 }

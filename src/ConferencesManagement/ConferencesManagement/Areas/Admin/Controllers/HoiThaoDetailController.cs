@@ -82,7 +82,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             getIDforEdit = id;
             SetViewBackHoiNghi();
             SetViewBagSpeaker();
-            var account = new AccountDao().AccountDetail(id);
+            var account = new HoiThaoDetailDao().Detail(id);
             return View(account);
         }
 
