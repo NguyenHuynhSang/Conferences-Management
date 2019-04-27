@@ -27,6 +27,7 @@ namespace Models.Models
 
         public long Insert(Topic entity)
         {
+            entity.CreatedDate = DateTime.Now;
             db.Topics.Add(entity);
             db.SaveChanges();
             return entity.ID;
@@ -46,6 +47,7 @@ namespace Models.Models
                         select new TopicForIndex()
                         {
                             ID = a.ID,
+                            Image=a.Image,
                             TenHoiThao = ht.TenHoiThao,
                             TopicMenu = a.TopicMenu,
                             ChuDe = a.ChuDe,

@@ -29,6 +29,12 @@
             <thead>
                 <tr role="row">
                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="UserName: activate to sort column ascending" style="width: 95.0062px;">
+                        STT
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="UserName: activate to sort column ascending" style="width: 95.0062px;">
+                        Hình ảnh
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="UserName: activate to sort column ascending" style="width: 95.0062px;">
                         Topic menu
                     </th>
                     <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Password: activate to sort column descending" style="width: 149.006px;" aria-sort="ascending">
@@ -66,49 +72,57 @@
                 </tr>
             </thead>
             <tbody>
+                @{ int stt = 0;}
                 @foreach (var item in Model)
                 {
-                    <tr role="row" class="odd">
-                        <td>
-                            @item.TopicMenu
-                        </td>
-                        <td>
-                            @item.ChuDe
-                        </td>
-                        <td>
-                            @item.TenHoiThao
-                        </td>
-                        <td>
-                            @item.Content
-                        </td>
-                        <td>
-                            @item.CreatedDate
-                        </td>
-                        <td>
-                            @item.CreatedBy
-                        </td>
-                        <td>
-                            @item.ModifiedBy
-                        </td>
-                        <td>
-                            @item.ModifiedDate
-                        </td>
-                        <td>
-                            @item.Status
-                        </td>
-                        <td>
-                            <a href="/Admin/Topic/Edit/@item.ID">Sửa</a>
-                        </td>
-                        <td>
-                            @Ajax.ActionLink("Xóa", "Delete",new { @id = item.ID }, new AjaxOptions
-                           {
-                           Confirm = "bạn có muốn xóa không",
-                           OnComplete="$('row_"+@item.ID+"').remove()",
-                           HttpMethod="Delete",
-                             })
+                    stt++;
+                <tr role="row" class="odd">
+                    <td>
+                        @stt
+                    </td>
+                    <td>
+                        <img src="@item.Image" height="100" width=" 100" />
+                    </td>
+                    <td>
+                        @item.TopicMenu
+                    </td>
+                    <td>
+                        @item.ChuDe
+                    </td>
+                    <td>
+                        @item.TenHoiThao
+                    </td>
+                    <td>
+                        @Html.Raw(item.Content)
+                    </td>
+                    <td>
+                        @item.CreatedDate
+                    </td>
+                    <td>
+                        @item.CreatedBy
+                    </td>
+                    <td>
+                        @item.ModifiedBy
+                    </td>
+                    <td>
+                        @item.ModifiedDate
+                    </td>
+                    <td>
+                        @item.Status
+                    </td>
+                    <td>
+                        <a href="/Admin/Topic/Edit/@item.ID">Sửa</a>
+                    </td>
+                    <td>
+                        @Ajax.ActionLink("Xóa", "Delete",new { @id = item.ID }, new AjaxOptions
+                       {
+                       Confirm = "bạn có muốn xóa không",
+                       OnComplete="$('row_"+@item.ID+"').remove()",
+                       HttpMethod="Delete",
+                         })
 
-                        </td>
-                    </tr>
+                    </td>
+                </tr>
                 }
 
             </tbody>

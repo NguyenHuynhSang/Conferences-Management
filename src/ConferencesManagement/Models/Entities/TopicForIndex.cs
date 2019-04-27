@@ -9,7 +9,7 @@ namespace Models.Entities
    public class TopicForIndex
     {
         public int ID { get; set; }
-
+        public string Image { get; set; }
         public string TenHoiThao { get; set; }
 
         public string TopicMenu { get; set; }

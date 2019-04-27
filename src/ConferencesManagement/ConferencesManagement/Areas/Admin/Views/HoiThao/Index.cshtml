@@ -54,6 +54,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>#</th>
+                                            <th>STT</th>
                                             <th>ID</th>
                                             <th>Tên Hội thảo</th>
                                             <th>Ngày diễn ra </th>
@@ -70,6 +71,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>#</th>
+                                            <th>STT</th>
                                             <th>ID</th>
                                             <th>Tên Hội thảo</th>
                                             <th>Ngày diễn ra </th>
@@ -82,6 +84,7 @@
                                         </tr>
                                     </tfoot>
                                     <tbody>
+                                        @{ int Stt = 1;}
                                         @foreach (var item in Model)
                                         {
                                             <tr>
@@ -97,6 +100,7 @@
                                                           HttpMethod="Delete"
                                                           })
                                                 </td>
+                                                <td>@Stt</td>
                                                 <td>@item.ID</td>
                                                 <td>@item.TenHoiThao</td>
                                                 <td>@item.NgayDienRa</td>
@@ -108,6 +112,7 @@
                                                 <td>@item.Status</td>
 
                                             </tr>
+                                            Stt++;
                                         }
                                     </tbody>
                                 </table>
