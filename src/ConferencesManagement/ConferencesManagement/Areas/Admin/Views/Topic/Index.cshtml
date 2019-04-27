@@ -1,4 +1,4 @@
-﻿@model List<Models.Entities.TopicForIndex>
+﻿@model PagedList.IPagedList<Models.Entities.TopicForIndex>
 @using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
@@ -9,7 +9,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="col-lg-4">
-                <input type="text" value="@ViewBag.SearchingString" name="searchingString" ; />
+                <input type="text" value="@ViewBag.SearchingString" name="searchingString" placeholder="Tìm kiếm bằng tên"; />
                 <button type="submit">Tìm kiếm</button>
             </div>
         </div>
@@ -127,6 +127,6 @@
 
             </tbody>
         </table>
-        @*   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))*@
+          @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
     </div>
 </div>

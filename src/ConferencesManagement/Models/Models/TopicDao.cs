@@ -39,7 +39,7 @@ namespace Models.Models
         
          }
 
-        public List<TopicForIndex> GetTopicForIndex(int page, int pageSize, string searchingString=null)
+        public IEnumerable<TopicForIndex> GetTopicForIndex(int page, int pageSize, string searchingString=null)
         {
             var model = from a in db.Topics
                         join ht in db.HoiThaos
@@ -58,14 +58,14 @@ namespace Models.Models
                             ModifiedBy = a.ModifiedBy,
                             Status=a.Status
                         };
-                   model.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+              
             
             if (!string.IsNullOrEmpty(searchingString))
             {
                 model = model.Where(x => x.TenHoiThao.Contains(searchingString) || x.ChuDe.Contains(searchingString) || x.Content.Contains(searchingString) || x.TopicMenu.Contains(searchingString)).OrderByDescending(x => x.CreatedDate);
 
             }
-            return model.ToList();
+            return model.OrderByDescending(x => x.TenHoiThao).ThenBy(x=>x.CreatedDate).ToPagedList(page, pageSize);
            }
 
 

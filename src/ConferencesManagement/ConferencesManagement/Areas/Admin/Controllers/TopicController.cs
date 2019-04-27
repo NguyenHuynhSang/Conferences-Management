@@ -15,7 +15,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
         // GET: Admin/News
         [ValidateInput(false)]
-        public ActionResult Index(string searchingString, int page = 1, int pageSize = 10)
+        public ActionResult Index(string searchingString, int page = 1, int pageSize = 5)
         {
             SetAlert("Load chủ đề thành công", "success");
             var dao = new TopicDao();

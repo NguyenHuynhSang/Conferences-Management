@@ -106,8 +106,10 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         [HttpDelete]
         public ActionResult Delete(int id)
         {
-            new AccountDao().Delete(id);
-            return RedirectToAction("Index");
+            var dao = new AccountDao();
+            dao.Delete(id);
+            var model = dao.ListAllPaging(1, 10);
+            return View("Index", model);
         }
 
     }
