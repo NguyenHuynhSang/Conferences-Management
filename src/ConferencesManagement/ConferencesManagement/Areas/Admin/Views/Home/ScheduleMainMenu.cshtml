@@ -1,0 +1,59 @@
+﻿@model  List<Models.Entities.ScheduleDetailForIndex>
+<h1>Danh sach chi tiet lich trinh</h1>
+
+<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>#</th>
+            <th>Id Schedule</th>
+            <th>Tieu de</th>
+            <th>Content </th>
+            <th>Ten Speaker</th>
+            <th>Image</th>
+            <th>Gio bat dau </th>
+            <th>Gio ket thuc</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>#</th>
+            <th>#</th>
+            <th>Id Schedule</th>
+            <th>Tieu de</th>
+            <th>Content </th>
+            <th>Ten Speaker</th>
+            <th>Image</th>
+            <th>Gio bat dau </th>
+            <th>Gio ket thuc</th>
+
+        </tr>
+    </tfoot>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a href="/Admin/ScheduleDetail/Edit/@item.ID" class="btn btn-success btn-circle btn-sm">Sửa </a>
+
+                </td>
+                <td>
+                    @Ajax.ActionLink("Xóa", "Delete",new { @id = item.ID }, new AjaxOptions
+                        {
+                          Confirm = "bạn có muốn xóa không",
+                          OnComplete="$('row_"+@item.ID+"').remove()",
+                          HttpMethod="Delete"
+                          })
+                </td>
+                <td>@item.IDSchedule</td>
+                <td>@item.TieuDe</td>
+                <td>@item.Content</td>
+                <td>@item.SpeakerName</td>
+                <td>@item.Image</td>
+                <td>@item.StartHour</td>
+                <td>@item.EndHour</td>
+
+            </tr>
+        }
+    </tbody>
+</table>

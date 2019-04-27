@@ -32,6 +32,7 @@ namespace ConferencesManagement.Controllers
         //PartialView là 1 phần trong trang, nhưng k phải là trang
         public ActionResult TopicMenu()
         {
+            var dao = new TopicDao();
             var currentHoiThao = (new HoiNghiDao().GetActiveHoiThao()).ID;
             var model = new TopicDao().ListByGroupId(CommonConstants.CURRENT_HOITHAO);
             return PartialView(model);

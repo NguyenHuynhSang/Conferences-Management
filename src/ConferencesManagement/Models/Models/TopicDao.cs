@@ -39,6 +39,36 @@ namespace Models.Models
         
          }
 
+        public IEnumerable<TopicForIndex> GetTopicForIndexMenu(int page, int pageSize, string searchingString = null, long group = 1)
+        {
+            var model = from a in db.Topics.Where(x=>x.IDTopic == @group).ToList()
+                        join ht in db.HoiThaos
+                        on a.IDTopic equals ht.ID
+                        select new TopicForIndex()
+                        {
+                            ID = a.ID,
+                            Image = a.Image,
+                            TenHoiThao = ht.TenHoiThao,
+                            TopicMenu = a.TopicMenu,
+                            ChuDe = a.ChuDe,
+                            Content = a.Content,
+                            CreatedDate = a.CreatedDate,
+                            CreatedBy = a.CreatedBy,
+                            ModifiedDate = a.ModifiedDate,
+                            ModifiedBy = a.ModifiedBy,
+                            Status = a.Status
+                        };
+
+
+            if (!string.IsNullOrEmpty(searchingString))
+            {
+                model = model.Where(x => x.TenHoiThao.Contains(searchingString) || x.ChuDe.Contains(searchingString) || x.Content.Contains(searchingString) || x.TopicMenu.Contains(searchingString)).OrderByDescending(x => x.CreatedDate);
+
+            }
+            return model.OrderByDescending(x => x.TenHoiThao).ThenBy(x => x.CreatedDate).ToPagedList(page, pageSize);
+        }
+
+
         public IEnumerable<TopicForIndex> GetTopicForIndex(int page, int pageSize, string searchingString=null)
         {
             var model = from a in db.Topics
@@ -67,9 +97,6 @@ namespace Models.Models
             }
             return model.OrderByDescending(x => x.TenHoiThao).ThenBy(x=>x.CreatedDate).ToPagedList(page, pageSize);
            }
-
-
-
 
         public bool Update(Topic entity)
         {

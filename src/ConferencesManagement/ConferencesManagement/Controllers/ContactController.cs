@@ -13,6 +13,7 @@ namespace ConferencesManagement.Controllers
         public ActionResult Index()
         {
             var model = new ContactDao().GetActiveContact();
+            
             return View(model);
         }
     }

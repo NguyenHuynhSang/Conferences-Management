@@ -45,6 +45,32 @@ namespace Models.Models
             return model.ToList();
         }
 
+
+        public List<ScheduleDetailForIndex> GetScheduleDetailForIndexMenu(string searchingString = null,long group = 1)
+        {
+            var model = from d in context.ScheduleDetails
+                        join h in context.Speakers
+                        on d.IDSpeaker equals h.ID
+                        select new ScheduleDetailForIndex
+                        {
+                            ID = d.ID,
+                            IDSchedule = d.IDSchedule,
+                            TieuDe = d.TieuDe,
+                            Content = d.Content,
+                            SpeakerName = h.Name,
+                            Image = d.Image,
+                            StartHour = d.StartHour,
+                            EndHour = d.EndHour
+                        };
+            if (!string.IsNullOrEmpty(searchingString))
+            {
+                model = model.Where(x => x.TieuDe.Contains(searchingString) || x.SpeakerName.Contains(searchingString) || x.Content.Contains(searchingString));
+
+            }
+            return model.ToList();
+        }
+
+
         public long Insert(ScheduleDetail entity)
         {
             context.ScheduleDetails.Add(entity);

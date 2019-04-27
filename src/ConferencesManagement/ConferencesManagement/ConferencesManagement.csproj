@@ -3294,6 +3294,9 @@
     <Content Include="Areas\Admin\Views\ScheduleDetail\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ScheduleDetail\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ScheduleDetail\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\SpeakerMenu.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\ScheduleMainMenu.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\TopicMenu.cshtml" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
