@@ -38,6 +38,7 @@
         [EmailAddress]
         public string Email { get; set; }
 
+        [DisplayName("Loại tài khoản")]
         public int TypeAccount { get; set; }
 
         public bool? IsDelete { get; set; }

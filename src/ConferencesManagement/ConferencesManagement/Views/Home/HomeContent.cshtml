@@ -8,7 +8,7 @@
     <div class="home_slider_container">
         <div class="owl-carousel owl-theme home_slider">
 
-
+            
             @foreach (var item in Model)
             {
                 <!-- Slide -->
@@ -58,16 +58,17 @@
                 <div class="col">
                     <div class="home_slider_dots">
                         <ul id="home_slider_custom_dots" class="home_slider_custom_dots d-flex flex-row align-items-start justify-content-start">
-
+                            @{ int countValue = 0;}
                             @foreach (var item in Model)
                             {
+                                countValue++;
                                 if (item.ID == Model.First().ID)
                                 {
-                                    <li class="home_slider_custom_dot active">01.</li>
+                                    <li class="home_slider_custom_dot active">0 @countValue.</li>
                                 }
                                 else
                                 {
-                                    <li class="home_slider_custom_dot">02.</li>
+                                    <li class="home_slider_custom_dot">0 @countValue.</li>
                                 }
                             }
                         </ul>

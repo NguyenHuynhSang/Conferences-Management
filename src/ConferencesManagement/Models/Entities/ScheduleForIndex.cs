@@ -11,5 +11,7 @@ namespace Models.Entities
         public long ID { set; get; }
         public string TenHoiThao { set; get; }
         public DateTime? NgayDienRa { set; get; }
+
+        public string ChiTiet { set; get; }
     }
 }

@@ -31,6 +31,7 @@ namespace Models.Models
 
         public long Insert(Schedule entity)
         {
+            entity.ChiTiet = db.HoiThaos.SingleOrDefault(x=>x.ID==entity.IDHoiThao).TenHoiThao+entity.NgayDienRa.Value.ToString(string.Format("dd/MMM/yyyy"));
             db.Schedules.Add(entity);
             db.SaveChanges();
             return entity.ID;
@@ -46,8 +47,8 @@ namespace Models.Models
                         {
                             ID = d.ID,
                             TenHoiThao = h.TenHoiThao,
-                            NgayDienRa = d.NgayDienRa
-
+                            NgayDienRa = d.NgayDienRa,
+                            ChiTiet = d.ChiTiet
                         };
             if (!string.IsNullOrEmpty(searchingString))
             {

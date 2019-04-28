@@ -27,6 +27,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         public ActionResult Create()
         {
             SetViewBagSpeaker();
+            SetViewBag();
             return View();
         }
 
@@ -35,6 +36,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         public ActionResult Create(ScheduleDetail speaker)
         {
             SetViewBagSpeaker();
+            SetViewBag();
             var dao = new ScheduleDetailDao();
             if (ModelState.IsValid)
             {
@@ -107,6 +109,20 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             var dao = new ScheduleDetailDao();
             var model = dao.GetScheduleDetailForIndex();
             return RedirectToAction("Index", "ScheduleDetail", model);
+        }
+
+
+
+
+
+
+
+
+        public void SetViewBag(long? selectedid = null)
+        {
+            var dao = new ScheduleDao();
+            ViewBag.IDSchedule = new SelectList(dao.GetScheduleForIndex(), "ID", "ChiTiet");
+
         }
     }
 }
