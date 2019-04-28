@@ -1,7 +1,8 @@
-namespace Models.Framework
+﻿namespace Models.Framework
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -11,15 +12,21 @@ namespace Models.Framework
     {
         public int ID { get; set; }
 
+        [Required]
         [StringLength(500)]
         public string TenHoiThao { get; set; }
 
         [Column(TypeName = "ntext")]
         public string Content { get; set; }
 
+        [Required]
+        [DisplayName("Ngày diễn ra")]
+        [DataType(DataType.Date)]
+        
         public DateTime? NgayDienRa { get; set; }
 
         [StringLength(250)]
+        [Required]
         public string NoiDienRa { get; set; }
 
         public DateTime? CreatedDate { get; set; }
@@ -32,6 +39,7 @@ namespace Models.Framework
         [StringLength(50)]
         public string ModifiedBy { get; set; }
 
+        [Required]
         public bool? Status { get; set; }
     }
 }

@@ -1,0 +1,32 @@
+﻿@model TimeSpan
+<div class="timer_section">
+    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="~/Assets/Client/images/timer.jpg" data-speed="0.8"></div>
+    <div class="timer_overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="timer_container">
+                    <ul class="timer d-flex flex-row align-items-center justify-content-start">
+                        <li class="d-flex flex-column justify-content-start align-items-center">
+                            <div id="dayy" class="timer_num">@Model.Days</div>
+                            <div class="timer_unit">Days</div>
+                        </li>
+                        <li class="d-flex flex-column justify-content-start align-items-center">
+                            <div id="hourr" class="timer_num">@Model.Hours</div>
+                            <div class="timer_unit">Hours</div>
+                        </li>
+                        <li class="d-flex flex-column justify-content-start align-items-center">
+                            <div id="minute" class="timer_num">00</div>
+                            <div class="timer_unit">Minutes</div>
+                        </li>
+                        <li class="d-flex flex-column justify-content-start align-items-center">
+                            <div id="second" class="timer_num">00</div>
+                            <div class="timer_unit">Seconds</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

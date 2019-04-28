@@ -3568,6 +3568,7 @@
     <Content Include="Views\Home\SpeakerMenu.cshtml" />
     <Content Include="Views\Home\ScheduleMainMenu.cshtml" />
     <Content Include="Views\Schedule\Index.cshtml" />
+    <Content Include="Views\Home\TimerCount.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,5 +1,4 @@
-﻿@model List<Models.Framework.ScheduleDetail>
-
+﻿@model List<Models.Entities.ScheduleDetailForIndex>
 <div class="schedule">
     <div class="container">
         <div class="row">
@@ -40,7 +39,10 @@
                                             <div class="schedule_content">
                                                 <div class="schedule_time">@childItem.StartHour - @childItem.EndHour</div>
                                                 <div class="schedule_title">@childItem.TieuDe</div>
-                                                <div class="schedule_info">Host: <a href="#">@childItem.IDSpeaker</a> - Marketing ING CEO</div>
+                                                <div class="schedule_info">Host:<a href="#">@childItem.SpeakerName</a> - @childItem.ChucVu</div>
+                                                <div class="schedule_text">
+                                                    <p>@Html.Raw(childItem.Content)</p>
+                                                </div>
                                             </div>
                                         </li>
 

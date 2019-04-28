@@ -11,6 +11,10 @@ namespace Models.Entities
         public long ID { get; set; }
         public long? IDSchedule { get; set; }
         public string TieuDe { get; set; }
+        public string TenHoiThao { get; set; }
+
+        public DateTime? NgayDienRa { get; set; }
+        public string ChucVu { get; set; }
         public string Content { get; set; }
         public string SpeakerName { get; set; }
         public string Image { get; set; }

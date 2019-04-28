@@ -66,10 +66,24 @@ namespace ConferencesManagement.Controllers
 
         public ActionResult ScheduleMainMenu()
         {
-            var model = new ScheduleDetailDao().ListAll();
+            var model = new ScheduleDetailDao().GetScheduleDetailForIndex();
             SetViewBack();
             return PartialView(model);
         }
+
+        public ActionResult TimerCount()
+        {
+         
+            var dao = new HoiNghiDao();
+           
+
+            var model = new TimeSpan();
+            model = dao.GetActiveHoiThao().NgayDienRa.Value-DateTime.Now ;
+
+
+            return PartialView(model);
+        }
+
 
         public void SetViewBack(long? selectedid = null)
         {

@@ -13,6 +13,8 @@ namespace Models.Framework
 
         public long? IDHoiThao { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime? NgayDienRa { get; set; }
 
         [StringLength(500)]
