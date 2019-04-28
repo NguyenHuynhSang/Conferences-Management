@@ -28,9 +28,15 @@ namespace Models.Models
             return hoiThao.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
 
+
+
+        public IEnumerable<HoiThao> ListAllPagingforindex()
+        {
+            return db.HoiThaos.Where(x=>x.Status==true).ToList();
+        }
+
         public HoiThao GetActiveHoiThao()
         {
-
             return db.HoiThaos.Single(x => x.Status == true);
         }
 

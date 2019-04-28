@@ -46,11 +46,16 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             return PartialView(model);
 
         }
-        
+
+        public ActionResult HoiThaoDetail()
+        {
+            var db = new HoiNghiDao();
+            var model = db.ListAllPagingforindex();
+
+            return PartialView(model);
 
 
 
-
-
+        }
     }
 }

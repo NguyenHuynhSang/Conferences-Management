@@ -1,0 +1,58 @@
+﻿@model List<Models.Framework.HoiThao>
+
+<h1>Chi tiet hoi thao</h1>
+
+  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+
+                  
+                                            <th>STT</th>
+                                            <th>ID</th>
+                                            <th>Tên Hội thảo</th>
+                                            <th>Ngày diễn ra </th>
+                                            <th>Nơi diễn ra</th>
+                                            <th>Created by</th>
+                                            <th>Created date</th>
+                                            <th>Modified By</th>
+                                            <th>Modified Date</th>
+                                            <th>Status</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+
+                                            <th>STT</th>
+                                            <th>ID</th>
+                                            <th>Tên Hội thảo</th>
+                                            <th>Ngày diễn ra </th>
+                                            <th>Nơi diễn ra</th>
+                                            <th>Created by</th>
+                                            <th>Created date</th>
+                                            <th>Modified By</th>
+                                            <th>Modified Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        @{ int Stt = 1;}
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>             
+                                                <td>@Stt</td>
+                                                <td>@item.ID</td>
+                                                <td>@item.TenHoiThao</td>
+                                                <td>@item.NgayDienRa</td>
+                                                <td>@item.NoiDienRa</td>
+                                                <td>@item.CreatedBy</td>
+                                                <td>@item.CreatedDate</td>
+                                                <td>@item.ModifiedBy</td>
+                                                <td>@item.ModifiedDate</td>
+                                                <td>@item.Status</td>
+
+                                            </tr>
+                                            Stt++;
+                                        }
+                                    </tbody>
+                                </table>
