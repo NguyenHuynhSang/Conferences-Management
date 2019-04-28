@@ -24,6 +24,7 @@ namespace Models.Framework
         public virtual DbSet<ScheduleDetail> ScheduleDetails { get; set; }
         public virtual DbSet<Slide> Slides { get; set; }
         public virtual DbSet<Speaker> Speakers { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Topic> Topics { get; set; }
         public virtual DbSet<TypeAccount> TypeAccounts { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }

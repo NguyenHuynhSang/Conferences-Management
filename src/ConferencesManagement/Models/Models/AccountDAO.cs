@@ -61,8 +61,6 @@ namespace Models
                 account.DiaChi = entity.DiaChi;
                 account.SDT = entity.SDT;
                 account.ModifiedDate = DateTime.Now;
-             //   account.ModifiedBy =USER_SEASON;
-                account.ModifiedDate = DateTime.Now;
                 db.SaveChanges();
                 return true;
             }

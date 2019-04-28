@@ -66,8 +66,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Them account loi");
                 }
             }
-            var model= dao.ListAllPaging(1, 10);
-            return View("Index",model);
+            return View("Create");
           
         }
       

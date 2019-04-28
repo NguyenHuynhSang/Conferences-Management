@@ -78,28 +78,30 @@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
-                                            <tr>
-                                                <td>
-                                                    <a href="/Admin/ScheduleDetail/Edit/@item.ID" class="btn btn-success btn-circle btn-sm">Sửa </a>
+                                        <tr>
+                                            <td>
+                                                <a href="/Admin/ScheduleDetail/Edit/@item.ID" class="btn btn-success btn-circle btn-sm">Sửa </a>
 
-                                                </td>
-                                                <td>
-                                                    @Ajax.ActionLink("Xóa", "Delete",new { @id = item.ID }, new AjaxOptions
-                                                        {
-                                                          Confirm = "bạn có muốn xóa không",
-                                                          OnComplete="$('row_"+@item.ID+"').remove()",
-                                                          HttpMethod="Delete"
-                                                          })
-                                                </td>
-                                                <td>@item.IDSchedule</td>
-                                                <td>@item.TieuDe</td>
-                                                <td>@item.Content</td>
-                                                <td>@item.SpeakerName</td>
-                                                <td>@item.Image</td>
-                                                <td>@item.StartHour</td>
-                                                <td>@item.EndHour</td>
+                                            </td>
+                                            <td>
+                                                @Ajax.ActionLink("Xóa", "Delete",new { @id = item.ID }, new AjaxOptions
+                                                    {
+                                                      Confirm = "bạn có muốn xóa không",
+                                                      OnComplete="$('row_"+@item.ID+"').remove()",
+                                                      HttpMethod="Delete"
+                                                      })
+                                            </td>
+                                            <td>@item.IDSchedule</td>
+                                            <td>@item.TieuDe</td>
+                                            <td>@item.Content</td>
+                                            <td>@item.SpeakerName</td>
+                                            <td>
+                                                <img src="@item.Image" height="50" width=" 50" />
+                                            </td>
+                                            <td>@item.StartHour</td>
+                                            <td>@item.EndHour</td>
 
-                                            </tr>
+                                        </tr>
                                         }
                                     </tbody>
                                 </table>

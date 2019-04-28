@@ -105,6 +105,7 @@ namespace Models.Models
                 var account = db.Topics.Find(entity.ID);
                 account.ChuDe = entity.ChuDe;
                 account.Content = entity.Content;
+                account.Image = entity.Image;
                 account.Status = entity.Status;
                 account.TopicMenu = entity.TopicMenu;
                 account.ModifiedBy = entity.ModifiedBy;

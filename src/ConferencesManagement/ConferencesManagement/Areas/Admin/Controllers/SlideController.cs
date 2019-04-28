@@ -1,5 +1,4 @@
 ﻿using ConferencesManagement.Common;
-using Models;
 using Models.Framework;
 using Models.Models;
 using System;
@@ -10,90 +9,89 @@ using System.Web.Mvc;
 
 namespace ConferencesManagement.Areas.Admin.Controllers
 {
-    public class TopicController : BaseController
+    public class SlideController : BaseController
     {
-
-        // GET: Admin/News
-        [ValidateInput(false)]
-        public ActionResult Index(string searchingString, int page = 1, int pageSize = 5)
+        // GET: Admin/Slide
+        public ActionResult Index(string searchingString, int page = 1, int pageSize = 10)
         {
-            SetAlert("Load chủ đề thành công", "success");
-            var dao = new TopicDao();
-            var model = dao.GetTopicForIndex(page, pageSize, searchingString);
+            SetAlert("Load diễn giả thành công", "success");
+            var dao = new SlideDao();
+            var result = dao.ListAllPaging(page, pageSize, searchingString);
             ViewBag.Searching = searchingString;
-            return View(model);
+            return View(result);
         }
-        [ValidateInput(false)]
         [HttpGet]
+
         public ActionResult Create()
         {
             SetViewBag();
             return View();
         }
 
-        [ValidateInput(false)]
+
         [HttpPost]
-        public ActionResult Create(Topic topic)
+        public ActionResult Create(Slide slide)
         {
             SetViewBag();
-            var dao = new TopicDao();
-            var result = dao.GetTopicForIndex(1, 10);
+            var dao = new SlideDao();
+            var result = dao.ListAllPaging(1, 10);
             if (ModelState.IsValid)
             {
 
-                long id = dao.Insert(topic);
+                long id = dao.Insert(slide);
                 if (id > 0)
                 {
 
                     // chuyển hướng trang về admin/User/index
-                    SetAlert("Tạo chủ đề thành công", "success");
-                    return RedirectToAction("Index", "Topic", result);
+                    SetAlert("Tạo Slide thành công", "success");
+                    return RedirectToAction("Index", "Slide", result);
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm chủ đề không thành công");
+                    ModelState.AddModelError("", "Thêm slide không thành công");
                 }
             }
             return View("Index", result);
 
         }
-        [ValidateInput(false)]
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var account = new TopicDao().TopicDetail(id);
+            SetViewBag();
+            var account = new SlideDao().SlideDetail(id);
             return View(account);
         }
 
-        [ValidateInput(false)]
+
         [HttpPost]
-        public ActionResult Edit(Topic topic)
+        public ActionResult Edit(Slide slide)
         {
-            var dao = new TopicDao();
-            var model = dao.GetTopicForIndex(1, 10);
+            SetViewBag();
+            var dao = new SlideDao();
+            var model = dao.ListAllPaging(1, 10);
             if (ModelState.IsValid)
             {
 
-                var result = dao.Update(topic);
+                var result = dao.Update(slide);
 
                 if (result)
                 {
-                    SetAlert("Cập nhật chủ đề thành công", "success");
-                    return RedirectToAction("Index", "Topic", model);
+                    SetAlert("Cập nhật Slide thành công", "success");
+                    return RedirectToAction("Index", "Slide", model);
                 }
                 else
                 {
                     ModelState.AddModelError("", "Cập nhật không thành công");
                 }
             }
-            return View("Edit","Topic");
+            return View("Index", model);
         }
 
 
         [HttpDelete]
         public ActionResult Delete(int id)
         {
-            new TopicDao().Delete(id);
+            new SlideDao().Delete(id);
             return RedirectToAction("Index");
         }
 
@@ -101,7 +99,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         {
             selectedid = CommonConstants.CURRENT_HOITHAO;
             var dao = new HoiNghiDao();
-            ViewBag.IDTopic = new SelectList(dao.GetHoiThaos(), "ID", "TenHoiThao", selectedid);
+            ViewBag.IDHoiThao = new SelectList(dao.GetHoiThaos(), "ID", "TenHoiThao", selectedid);
 
         }
     }

@@ -50,7 +50,9 @@ namespace ConferencesManagement.Controllers
 
         public ActionResult HomeContent()
         {
-            var model = new HoiNghiDao().GetActiveHoiThao();
+            var model = new SlideDao().GetCurrentSlideOfHoiThao((int)CommonConstants.CURRENT_HOITHAO);
+
+            
             return PartialView(model);
 
         }

@@ -1,4 +1,4 @@
-﻿@model Models.Framework.HoiThao
+﻿@model List<Models.Entities.SlideForIndex>
 
 <!-- Home -->
 
@@ -8,117 +8,74 @@
     <div class="home_slider_container">
         <div class="owl-carousel owl-theme home_slider">
 
-            <!-- Slide -->
-            <div class="slide">
-                <div class="background_image" style="background-image:url(/Assets/Client/images/bg1.jpg)"></div>
-                <div class="home_container">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="home_content">
-                                    <div class="home_title">
-                                        <h1>
-                                            <span>@Model.TenHoiThao</span>
-                                            @*<span>Marketing</span>
-                                            <span>Conference</span>*@
-                                        </h1>
-                                    </div>
-                                    <div class="home_info_container">
-                                        <div class="home_info">
-                                            <ul class="d-flex flex-row align-items-center justify-content-start">
-                                                <li>@Model.NgayDienRa</li>
-                                                <li>@Model.NoiDienRa</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="button button_1 home_button"><a href="#"><span>get tickets<img src="~/Assets/Client/images/arrow_2.png" alt=""></span></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Slide -->
-            <div class="slide">
-                <div class="background_image" style="background-image:url(https://miamidiario.com/wp-content/uploads/2018/11/technology-wallpapers-hd-20141.jpg)"></div>
-                <div class="home_container">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="home_content">
-                                    <div class="home_title">
-                                        <h1>
-                                            <span>@Model.TenHoiThao</span>
-                                            @*<span>Marketing</span>
+            @foreach (var item in Model)
+            {
+                <!-- Slide -->
+                <div class="slide">
+                    <div class="background_image" style="background-image:url(@item.Image)"></div>
+                    <div class="home_container">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="home_content">
+                                        <div class="home_title">
+                                            <h1>
+                                                <span>@item.TenHoiThao</span>
+                                                @*<span>Marketing</span>
                                             <span>Conference</span>*@
-                                        </h1>
-                                    </div>
-                                    <div class="home_info_container">
-                                        <div class="home_info">
-                                            <ul class="d-flex flex-row align-items-center justify-content-start">
-                                                <li>@Model.NgayDienRa</li>
-                                                <li>@Model.NoiDienRa</li>
-                                            </ul>
+                                            </h1>
                                         </div>
+                                        <div class="home_info_container">
+                                            <div class="home_info">
+                                                <ul class="d-flex flex-row align-items-center justify-content-start">
+                                                    <li>@item.NgayDienRa.Value.ToString(string.Format("dd/MMM/yyyy"))</li>
+                                                    <li>@item.NoiDienRa</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="button button_1 home_button"><a href="#"><span>get tickets<img src="~/Assets/Client/images/arrow_2.png" alt=""></span></a></div>
                                     </div>
-                                    <div class="button button_1 home_button"><a href="#"><span>get tickets<img src="~/Assets/Client/images/arrow_2.png" alt=""></span></a></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Slide -->
-            <div class="slide">
-                <div class="background_image" style="background-image:url(/Assets/Client/images/index.jpg)"></div>
-                <div class="home_container">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <div class="home_content">
-                                    <div class="home_title">
-                                        <h1>
-                                            <span>@Model.TenHoiThao</span>
-                                            @*<span>Marketing</span>
-                                            <span>Conference</span>*@
-                                        </h1>
-                                    </div>
-                                    <div class="home_info_container">
-                                        <div class="home_info">
-                                            <ul class="d-flex flex-row align-items-center justify-content-start">
-                                                <li>@Model.NgayDienRa</li>
-                                                <li>@Model.NoiDienRa , FL</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="button button_1 home_button"><a href="#"><span>get tickets<img src="~/Assets/Client/images/arrow_2.png" alt=""></span></a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+            }
+
 
         </div>
 
-        <!-- Home Slider Dots -->
-        <div class="home_slider_dots_container">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="home_slider_dots">
-                            <ul id="home_slider_custom_dots" class="home_slider_custom_dots d-flex flex-row align-items-start justify-content-start">
-                                <li class="home_slider_custom_dot active">01.</li>
-                                <li class="home_slider_custom_dot">02.</li>
-                                <li class="home_slider_custom_dot">03.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
     </div>
+
+    <!-- Home Slider Dots -->
+    <div class="home_slider_dots_container">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="home_slider_dots">
+                        <ul id="home_slider_custom_dots" class="home_slider_custom_dots d-flex flex-row align-items-start justify-content-start">
+
+                            @foreach (var item in Model)
+                            {
+                                if (item.ID == Model.First().ID)
+                                {
+                                    <li class="home_slider_custom_dot active">01.</li>
+                                }
+                                else
+                                {
+                                    <li class="home_slider_custom_dot">02.</li>
+                                }
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 </div>

@@ -11,14 +11,10 @@ namespace Models.Framework
     {
         public int ID { get; set; }
 
+        public int? IDHoiThao { get; set; }
+
         [StringLength(250)]
         public string Image { get; set; }
-
-        [StringLength(250)]
-        public string Link { get; set; }
-
-        [StringLength(50)]
-        public string Discription { get; set; }
 
         public DateTime? CreatedDate { get; set; }
 
