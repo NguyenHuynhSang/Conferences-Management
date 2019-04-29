@@ -1,7 +1,8 @@
-namespace Models.Framework
+﻿namespace Models.Framework
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -17,12 +18,15 @@ namespace Models.Framework
         public long IDTopic { get; set; }
 
         [StringLength(50)]
+        [DisplayName("Topic Menu")]
         public string TopicMenu { get; set; }
 
         [StringLength(50)]
+        [DisplayName("Chủ đề")]
         public string ChuDe { get; set; }
 
         [Column(TypeName = "ntext")]
+        [DisplayName("Nội dung")]
         public string Content { get; set; }
 
         public DateTime? CreatedDate { get; set; }

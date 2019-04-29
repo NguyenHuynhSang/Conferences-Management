@@ -50,7 +50,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Thêm thông tin liên hệ không thành công");
                 }
             }
-            return View("Index", result);
+            return View("Create");
 
         }
         [ValidateInput(false)]

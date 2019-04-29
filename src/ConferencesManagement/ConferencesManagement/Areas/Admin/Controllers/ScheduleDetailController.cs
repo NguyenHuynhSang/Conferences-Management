@@ -55,8 +55,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Them chi tiet lich loi");
                 }
             }
-            var model = dao.GetScheduleDetailForIndex();
-            return View("Index", model);
+            return View("Create");
 
         }
 
@@ -71,6 +70,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
         public ActionResult Edit(int id)
         {
+            SetViewBag();
             getIDforEdit = id;
             SetViewBagSpeaker();
             var account = new ScheduleDetailDao().Detail(id);
@@ -83,6 +83,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         {
             account.ID = getIDforEdit;
             SetViewBagSpeaker();
+            SetViewBag();
             var dao = new ScheduleDetailDao();
             var model = dao.GetScheduleDetailForIndex();
             if (ModelState.IsValid)
@@ -100,7 +101,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Cập nhật không thành công");
                 }
             }
-            return View("Index", model);
+            return View("Edit");
         }
         [HttpDelete]
         public ActionResult Delete(int id)

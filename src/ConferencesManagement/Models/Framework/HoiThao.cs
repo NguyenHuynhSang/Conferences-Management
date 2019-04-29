@@ -14,6 +14,8 @@
 
         [Required]
         [StringLength(500)]
+        [DisplayName("Tên Hội thảo")]
+        [MinLength(6,ErrorMessage ="Tên hội thảo ít nhất là 6 ký tự")]
         public string TenHoiThao { get; set; }
 
         [Column(TypeName = "ntext")]
@@ -27,6 +29,7 @@
 
         [StringLength(250)]
         [Required]
+        [DisplayName("Nơi diễn ra")]
         public string NoiDienRa { get; set; }
 
         public DateTime? CreatedDate { get; set; }
@@ -40,6 +43,7 @@
         public string ModifiedBy { get; set; }
 
         [Required]
+        [DisplayName("Trạng thái")]
         public bool? Status { get; set; }
     }
 }

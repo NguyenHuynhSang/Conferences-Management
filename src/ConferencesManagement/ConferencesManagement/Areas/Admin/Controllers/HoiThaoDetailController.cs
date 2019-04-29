@@ -55,8 +55,8 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Them hoi thao loi");
                 }
             }
-            var model = dao.GetHTDetailForIndex();
-            return View("Index", model);
+          //  var model = dao.GetHTDetailForIndex();
+            return View("Create");
 
         }
 
@@ -110,7 +110,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Cập nhật không thành công");
                 }
             }
-            return View("Index", model);
+            return View("Edit");
         }
         [HttpDelete]
         public ActionResult Delete(int id)

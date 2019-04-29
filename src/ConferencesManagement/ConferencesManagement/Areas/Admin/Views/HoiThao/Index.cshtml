@@ -53,7 +53,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>#</th>
+                                            @*<th>#</th>*@
                                             <th>STT</th>
                                             <th>ID</th>
                                             <th>Tên Hội thảo</th>
@@ -70,7 +70,7 @@
                                     <tfoot>
                                         <tr>
                                             <th>#</th>
-                                            <th>#</th>
+                                            @*<th>#</th>*@
                                             <th>STT</th>
                                             <th>ID</th>
                                             <th>Tên Hội thảo</th>
@@ -92,14 +92,14 @@
                                                     <a href="/Admin/HoiThao/Edit/@item.ID" class="btn btn-success btn-circle btn-sm">Sửa </a>
 
                                                 </td>
-                                                <td>
+                                                @*<td>
                                                     @Ajax.ActionLink("Xóa", "Delete",new { @id = item.ID }, new AjaxOptions
                                                         {
                                                           Confirm = "bạn có muốn xóa không",
                                                           OnComplete="$('row_"+@item.ID+"').remove()",
                                                           HttpMethod="Delete"
                                                           })
-                                                </td>
+                                                </td>*@
                                                 <td>@Stt</td>
                                                 <td>@item.ID</td>
                                                 <td>@item.TenHoiThao</td>

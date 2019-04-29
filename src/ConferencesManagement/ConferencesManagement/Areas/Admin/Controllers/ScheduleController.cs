@@ -53,8 +53,8 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Them lich loi");
                 }
             }
-            var model = dao.GetScheduleForIndex();
-            return View("Index", model);
+          
+            return View("Create");
 
         }
 
@@ -97,7 +97,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Cập nhật không thành công");
                 }
             }
-            return View("Index", model);
+            return View("Edit");
         }
         [HttpDelete]
         public ActionResult Delete(int id)

@@ -58,8 +58,8 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Them account loi");
                 }
             }
-            var model = dao.ListAllPaging(1, 10);
-            return View("Index", model);
+         
+            return View("Create");
 
         }
         public ActionResult Edit(HoiThao account)
@@ -82,7 +82,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Cập nhật không thành công");
                 }
             }
-            return View("Index", model);
+            return View("Edit");
         }
     }
 }
