@@ -22,16 +22,15 @@
 }
 
 @*<style>
-    #mapCanvas {
-        width: auto;
-        height: auto;
-    }
-</style>*@
+        #mapCanvas {
+            width: auto;
+            height: auto;
+        }
+    </style>*@
 
 @section    JsFooter{
 
-    <script 
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs-bLRiGtKORZUkEGwbQs5fjsUWIY4WO0">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs-bLRiGtKORZUkEGwbQs5fjsUWIY4WO0">
     </script>
 
     <script>
@@ -46,7 +45,7 @@
                 center: uluru
             });
 
-            var contentString ='Công ty';
+            var contentString = 'Công ty';
 
             var infowindow = new google.maps.InfoWindow({
                 content: contentString
@@ -60,12 +59,12 @@
             marker.addListener('click', function () {
                 infowindow.open(map, marker);
             });
-           
+
         }
         google.maps.event.addDomListener(window, 'load', initMap);
     </script>
-
     <script src="/Assets/Client/js/jquery-3.3.1.min.js"></script>
+    <script src="/Assets/Client/js/Controller/contactController.js"></script>
     <script src="/Assets/Client/styles/bootstrap-4.1.2/popper.js"></script>
     <script src="/Assets/Client/styles/bootstrap-4.1.2/bootstrap.min.js"></script>
     <script src="/Assets/Client/plugins/greensock/TweenMax.min.js"></script>
@@ -77,6 +76,7 @@
     <script src="/Assets/Client/plugins/easing/easing.js"></script>
     <script src="/Assets/Client/plugins/progressbar/progressbar.min.js"></script>
     <script src="/Assets/Client/plugins/parallax-js-master/parallax.min.js"></script>
+
 }
 
 
@@ -145,7 +145,7 @@
 
 
                         <!-- Map -->
-                        <div class="col-xl-6 order-xl-1 order-2">     
+                        <div class="col-xl-6 order-xl-1 order-2">
                             <div class="map" id="mapCanvas">
                             </div>
                         </div>
@@ -172,9 +172,9 @@
                                             <div><input type="text" id="txtName" class="contact_input" placeholder="Your name" required="required"></div>
                                             <div><input type="email" id="txtEmail" class="contact_input" placeholder="Your email" required="required"></div>
                                         </div>
-                                        <input type="text" class="contact_input" placeholder="Subject">
-                                        <textarea class="contact_textarea contact_input" placeholder="Message"></textarea>
-                                        <button class="contact_button"><span>send<img src="/Assets/Client/images/arrow.png" alt=""></span></button>
+                                        <input type="text" id="txtTieuDe" class="contact_input" placeholder="Subject">
+                                        <textarea class="contact_textarea" id="txtContent" placeholder="Message"></textarea>
+                                        <button id="btnSend" class="btn btn-success">send</button>
                                     </form>
                                 </div>
                             </div>

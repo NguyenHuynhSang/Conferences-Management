@@ -13,18 +13,18 @@ namespace Models.Framework
 
         public int ID { get; set; }
 
-        [StringLength(50)]
+        [StringLength(250)]
         public string Name { get; set; }
 
         [StringLength(50)]
-        public string SDT { get; set; }
+        public string Email { get; set; }
 
-        [StringLength(50)]
-        public string DiaChi { get; set; }
+        [StringLength(250)]
+        public string TieuDe { get; set; }
 
         public bool? Status { get; set; }
 
-        [StringLength(250)]
+        [Column(TypeName = "ntext")]
         public string Content { get; set; }
     }
 }

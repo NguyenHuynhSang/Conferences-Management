@@ -26,7 +26,7 @@ namespace Models.Models
             IOrderedQueryable<FeedBack> feedBacks = db.FeedBacks;
             if (!string.IsNullOrEmpty(searchingString))
             {
-                feedBacks = feedBacks.Where(x => x.Name.Contains(searchingString) || x.Content.Contains(searchingString) || x.SDT.Contains(searchingString)).OrderByDescending(x => x.CreatedDate);
+                feedBacks = feedBacks.Where(x => x.Name.Contains(searchingString) || x.Content.Contains(searchingString) || x.TieuDe.Contains(searchingString)).OrderByDescending(x => x.CreatedDate);
 
             }
 

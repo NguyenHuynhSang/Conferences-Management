@@ -2529,7 +2529,7 @@
     <Content Include="Assets\Client\images\timer.jpg" />
     <Content Include="Assets\Client\js\about.js" />
     <Content Include="Assets\Client\js\blog.js" />
-    <Content Include="Assets\Client\js\Controller\ContactController.js" />
+    <Content Include="Assets\Client\js\Controller\contactController.js" />
     <Content Include="Assets\Client\js\custom.js" />
     <Content Include="Assets\Client\js\elements.js" />
     <Content Include="Assets\Client\js\jquery-3.3.1.min.js" />

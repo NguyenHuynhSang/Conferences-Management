@@ -43,6 +43,16 @@ namespace Models.Models
             return entity.ID;
         }
 
+
+         public int InsertFeedBack(FeedBack fb)
+        {
+            db.FeedBacks.Add(fb);
+            db.SaveChanges();
+            return fb.ID;
+
+        }
+
+
         public Contact contactDetail(int id)
         {
             return db.Contacts.Find(id);
