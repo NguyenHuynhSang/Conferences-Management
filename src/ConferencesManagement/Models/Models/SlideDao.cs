@@ -82,7 +82,7 @@ namespace Models.Models
                             Status = b.Status
 
                         };
-            return (slide.Where(x => x.IDHoiThao.Equals(currentHoiThao)).OrderByDescending(x => x.CreatedDate)).ToList();
+            return (slide.Where(x => x.IDHoiThao.Equals(currentHoiThao)).OrderBy(x => x.CreatedDate)).ToList();
 
 
         }

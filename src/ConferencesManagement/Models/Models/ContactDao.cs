@@ -92,7 +92,20 @@ namespace Models.Models
             }
         }
 
-
+        public bool ChangeStatus(long id)
+        {
+            var ht = db.Contacts.Find(id);
+            ht.Status = true;
+            foreach (var item in db.Contacts)
+            {
+                if (item.ID != ht.ID)
+                {
+                    item.Status = false;
+                }
+            }
+            db.SaveChanges();
+            return ht.Status;
+        }
 
     }
 }

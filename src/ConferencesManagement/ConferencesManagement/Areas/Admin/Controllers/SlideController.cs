@@ -34,7 +34,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         {
             SetViewBag();
             var dao = new SlideDao();
-            var result = dao.ListAllPaging(1, 10);
+        //    var result = dao.ListAllPaging(1, 10);
             if (ModelState.IsValid)
             {
 
@@ -44,14 +44,14 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
                     // chuyển hướng trang về admin/User/index
                     SetAlert("Tạo Slide thành công", "success");
-                    return RedirectToAction("Index", "Slide", result);
+                    return RedirectToAction("Index");
                 }
                 else
                 {
                     ModelState.AddModelError("", "Thêm slide không thành công");
                 }
             }
-            return View("Index", result);
+            return View("Create");
 
         }
         [HttpGet]
@@ -91,8 +91,10 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         [HttpDelete]
         public ActionResult Delete(int id)
         {
-            new SlideDao().Delete(id);
-            return RedirectToAction("Index");
+            var dao = new SlideDao();
+            dao.Delete(id);
+            var result = dao.ListAllPaging(1, 10);
+            return RedirectToAction("Index",result);
         }
 
         public void SetViewBag(long? selectedid = null)

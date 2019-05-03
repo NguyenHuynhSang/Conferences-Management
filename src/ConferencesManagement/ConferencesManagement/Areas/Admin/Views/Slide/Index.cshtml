@@ -84,12 +84,15 @@
 
                                                     </td>
                                                     <td>
+
                                                         @Ajax.ActionLink("Xóa", "Delete",new { @id = item.ID }, new AjaxOptions
                                                             {
                                                               Confirm = "bạn có muốn xóa không",
-                                                              OnComplete="$('row_"+@item.ID+"').remove()",
-                                                              HttpMethod="Delete",
+                                                              OnComplete="$('#row_"+@item.ID+"').remove()",
+                                                              HttpMethod="Delete"
+                                                            
                                                               })
+
                                                     </td>
                                                     <td>@item.TenHoiThao</td>
 

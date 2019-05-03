@@ -62,6 +62,8 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             return View("Create");
 
         }
+
+        [HttpPost]
         public ActionResult Edit(HoiThao account)
         {
       
@@ -81,8 +83,20 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                 {
                     ModelState.AddModelError("", "Cập nhật không thành công");
                 }
+
             }
             return View("Edit");
+        }
+
+
+        [HttpPost]
+        public JsonResult ChangeStatus(long id)
+        {
+            var result = new HoiNghiDao().ChangeStatus(id);
+            return Json(new
+            {
+                status = result
+            });
         }
     }
 }

@@ -54,8 +54,7 @@ namespace Models
         {
             try
             {
-                var account = db.Accounts.Find(entity.IdAccount);
-                account.UserName = entity.UserName;
+                var account = db.Accounts.Find(entity.IdAccount);    
                 account.PassWord = entity.PassWord;
                 account.Email = entity.Email;
                 account.DiaChi = entity.DiaChi;

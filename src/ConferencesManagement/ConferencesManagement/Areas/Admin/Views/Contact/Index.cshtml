@@ -5,6 +5,11 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+@section jsFooter{
+
+    <script src="~/Assets/Admin/js/controller/contactController.js"></script>
+
+}
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -61,6 +66,7 @@
                                             <tr>
                                                 <th>#</th>
                                                 <th>#</th>
+                                                <th>#</th>
                                                 <th>Email</th>
                                                 <th>SĐT</th>
                                                 <th>Địa chỉ</th>
@@ -70,6 +76,7 @@
                                         </thead>
                                         <tfoot>
                                             <tr>
+                                                <th>#</th>
                                                 <th>#</th>
                                                 <th>#</th>
                                                 <th>Email</th>
@@ -87,14 +94,17 @@
                                                         <a href="/Admin/Contact/Edit/@item.ID" class="btn btn-success btn-circle btn-sm">Sửa </a>
 
                                                     </td>
+
                                                     <td>
                                                         @Ajax.ActionLink("Xóa", "Delete",new { @id = item.ID }, new AjaxOptions
                                                             {
                                                               Confirm = "bạn có muốn xóa không",
                                                               OnComplete="$('row_"+@item.ID+"').remove()",
                                                               HttpMethod="Delete",
+
                                                               })
                                                     </td>
+                                                    <td><a href="#" class="btn-active" data-id="@item.ID">@Html.Raw("<strong>set Contact</strong>")</a></td>
                                                     <td>@item.Email</td>
                                                     <td>@item.SDT</td>
                                                     <td>@item.DiaChi</td>

@@ -14,7 +14,7 @@ namespace Models.Framework
         [Column(TypeName = "ntext")]
         public string Content { get; set; }
 
-        public bool? Status { get; set; }
+        public bool Status { get; set; }
 
         [StringLength(250)]
         public string DiaChi { get; set; }

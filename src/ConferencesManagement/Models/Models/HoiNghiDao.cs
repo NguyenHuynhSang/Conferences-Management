@@ -85,5 +85,22 @@ namespace Models.Models
         {
             return db.HoiThaos.Find(id);
         }
+
+        public bool ChangeStatus(long id)
+        {
+            var ht = db.HoiThaos.Find(id);
+            ht.Status = true;
+            foreach (var item in db.HoiThaos)
+            {
+                if (item.ID != ht.ID)
+                {
+                    item.Status = false;
+                }
+            }
+            db.SaveChanges();
+            return ht.Status;
+        }
+
+
     }
 }
