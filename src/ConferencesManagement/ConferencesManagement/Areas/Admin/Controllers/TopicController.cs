@@ -54,7 +54,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Thêm chủ đề không thành công");
                 }
             }
-            return View("Index", result);
+            return View("Create");
 
         }
         [ValidateInput(false)]

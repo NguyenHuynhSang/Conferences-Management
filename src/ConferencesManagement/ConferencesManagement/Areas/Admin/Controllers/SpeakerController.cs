@@ -50,7 +50,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Thêm diễn giả không thành công");
                 }
             }
-            return View("Index", result);
+            return View("Create");
 
         }
         [HttpGet]
@@ -81,7 +81,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Cập nhật không thành công");
                 }
             }
-            return View("Index", model);
+            return View("Edit");
         }
 
 
