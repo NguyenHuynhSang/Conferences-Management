@@ -23,7 +23,6 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         {
             var model = new SpeakerDao().GetSpeakersJoinConference(CommonConstants.CURRENT_HOITHAO);
             return PartialView(model);
-
         }
         public ActionResult ScheduleMainMenu(string searchingString, int page = 1, int pageSize = 10)
         {
