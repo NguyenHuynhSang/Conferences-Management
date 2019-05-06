@@ -1,1 +1,1 @@
-sqlcmd -E -S EDWARD\JACK -i CEDb.sql
+sqlcmd -E -S DESKTOP-0B8181F\SQLEXPRESS -i CEDb.sql

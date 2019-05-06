@@ -17,14 +17,14 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             ViewBag.Searching = searchingString;
             return View(model);
         }
-
+        [ValidateInput(false)]
         [HttpGet]
         public ActionResult Create()
         {
         
             return View();
         }
-
+        [ValidateInput(false)]
         [HttpGet]
 
         public ActionResult Edit(int id)
@@ -34,7 +34,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         }
 
 
-
+        [ValidateInput(false)]
         [HttpPost]
         public ActionResult Create(HoiThao hoinghi)
         {
@@ -62,7 +62,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             return View("Create");
 
         }
-
+        [ValidateInput(false)]
         [HttpPost]
         public ActionResult Edit(HoiThao account)
         {
