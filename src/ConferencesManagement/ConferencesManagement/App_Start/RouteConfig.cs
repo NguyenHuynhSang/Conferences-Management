@@ -20,19 +20,19 @@ namespace ConferencesManagement
                 namespaces: new[] { "ConferencesManagement.Controllers" }
             );
 
-
-         
-
-
-        
-
-
             routes.MapRoute(
               name: "Contact",
               url: "lien-he",
               defaults: new { controller = "Contact", action = "Index", id = UrlParameter.Optional },
               namespaces: new[] { "ConferencesManagement.Controllers" }
             );
+
+            routes.MapRoute(
+            name: "DangKy",
+            url: "dang-ky",
+            defaults: new { controller = "DangKy", action = "Index", id = UrlParameter.Optional },
+            namespaces: new[] { "ConferencesManagement.Controllers" }
+          );
 
 
 

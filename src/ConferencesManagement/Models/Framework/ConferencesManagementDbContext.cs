@@ -79,5 +79,6 @@ namespace Models.Framework
                 .Property(e => e.MetaDescriptions)
                 .IsFixedLength();
         }
+
     }
 }
