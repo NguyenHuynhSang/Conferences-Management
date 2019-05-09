@@ -30,12 +30,25 @@
                 </nav>
 
                 <div class="header_right ml-auto d-flex flex-row align-items-center justify-content-start">
-                    <div class="log_reg">
-                        <ul class="d-flex flex-row align-items-start justify-content-start">
-                            <li><a href="#">Login</a></li>
-                            <li><a href="#">Register</a></li>
+                    @{ 
+                        var session =(ConferencesManagement.Common.UserLogin)Session[ConferencesManagement.Common.CommonConstants.USER_SESSION];
+                    }
+                    @if (session == null)
+                    {
+                        <div class="log_reg">
+                            <ul class="d-flex flex-row align-items-start justify-content-start">
+                              <li><a href="login">Login</a></li>
+                             <li><a href="user/register">Register</a></li>
+                            </ul>
+                        </div>
+                    }
+                    else
+                    {
+                        <ul>
+                            <li>Xin chào : @session.UserName</li>
+                            <li>@Html.ActionLink("Thoát","Logout","User")</li>
                         </ul>
-                    </div>
+                    }
                     <div class="social">
                         <ul class="d-flex flex-row align-items-center justify-content-start">
                             <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>

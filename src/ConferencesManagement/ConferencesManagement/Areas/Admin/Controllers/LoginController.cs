@@ -26,7 +26,12 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var dao = new AccountDao();
-                var result = dao.Login(model.UserName, model.PassWord);
+                var result = dao.AdminLogin(model.UserName, model.PassWord);
+                if(result==3)
+                {
+                    ModelState.AddModelError("", "Tài khoản của bạn không có quyền đăng nhập vào trang này");
+                }
+                else 
                 if (result==1)
                 {
                     var user = dao.GetByName(model.UserName);
@@ -48,8 +53,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             }
             return View("Index");
         }
-        
-  
+    
        
     }
 }

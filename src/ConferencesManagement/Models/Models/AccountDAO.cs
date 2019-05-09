@@ -47,9 +47,6 @@ namespace Models
             return account.OrderByDescending(x=>x.CreatedDate).ToPagedList(page, pageSize);
         }
 
-
-        
-
         public bool Update(Account entity)
         {
             try
@@ -91,6 +88,26 @@ namespace Models
 
         }
 
+        public int AdminLogin(string userName,string passWord)
+        {
+            var result = db.Accounts.SingleOrDefault(x => x.UserName == userName);
+            if (result == null)
+            {
+                return 0;
+
+            }
+            else
+            {
+                if (result.TypeAccount != 1) return 3;
+                if (result.PassWord == passWord) return 1;
+                else return 2;
+                
+            }
+
+
+
+        }
+
         public bool Delete(int id)
         {
             try
@@ -106,5 +123,12 @@ namespace Models
             }
         }
 
+        public bool checkemail(string email)
+        {
+            var account = db.Accounts.SingleOrDefault(x => x.Email == email);
+            if (account == null)
+                return false;
+            else return true;
+        }
     }
 }

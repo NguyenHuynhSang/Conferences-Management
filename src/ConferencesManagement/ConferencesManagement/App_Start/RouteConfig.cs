@@ -20,6 +20,7 @@ namespace ConferencesManagement
                 namespaces: new[] { "ConferencesManagement.Controllers" }
             );
 
+
             routes.MapRoute(
               name: "Contact",
               url: "lien-he",
@@ -32,7 +33,16 @@ namespace ConferencesManagement
             url: "dang-ky",
             defaults: new { controller = "DangKy", action = "Index", id = UrlParameter.Optional },
             namespaces: new[] { "ConferencesManagement.Controllers" }
-          );
+            );
+
+             routes.MapRoute(
+              name: "Login",
+              url: "login",
+              defaults: new { controller = "Login", action = "Index", id = UrlParameter.Optional },
+              namespaces: new[] { "ConferencesManagement.Controllers" }
+            );
+
+
 
 
 
