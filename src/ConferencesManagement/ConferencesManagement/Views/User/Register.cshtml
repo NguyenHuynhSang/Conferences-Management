@@ -2,17 +2,15 @@
 
 @{
     ViewBag.Title = "Đăng ký";
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@section HomeHeader
+    {
 <head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
+ 
     <title>SB Admin 2 - Register</title>
 
     <!-- Custom fonts for this template-->
@@ -22,24 +20,41 @@
     <!-- Custom styles for this template-->
     <link href="/Assets/Admin/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <title>Website tổ chức hội nghị khoa học</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Confpro template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/Assets/Client/styles/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="/Assets/Client/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Assets/Client/plugins/OwlCarousel2-2.3.4/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/Client/plugins/OwlCarousel2-2.3.4/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/Client/plugins/OwlCarousel2-2.3.4/animate.css">
+    <link href="/Assets/Client/plugins/" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Assets/Client/styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/Client/styles/responsive.css">
+
+
 </head>
-<body class="bg-gradient-primary">
+}
 
-        <div class="container">
 
-            <div class="card o-hidden border-0 shadow-lg my-5">
-                <div class="card-body p-0">
-                    <!-- Nested Row within Card Body -->
-                    <div class="row">
-                        <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-                        <div class="col-lg-7">
-                            <div class="p-5">
-                                <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
-                                </div>
-                                @using (Html.BeginForm("Register", "User", FormMethod.Post))
-                                {
-                                    @Html.AntiForgeryToken()
+
+<div class="intro">
+    <div class="container">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                            </div>
+                            @using (Html.BeginForm("Register", "User", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
 
                                 <div class="form-horizontal">
                                     <h4>Account</h4>
@@ -106,33 +121,31 @@
                                         </div>
                                     </div>
                                 </div>
-                                }
-                                <hr>
-                                <div class="text-center">
-                                    <a class="small" href="forgot-password">Forgot Password?</a>
-                                </div>
-                                <div class="text-center">
-                                    <a class="small" href="~/login">Bạn đã có tài khoản? Login!</a>
-                                </div>
+                            }
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="forgot-password">Forgot Password?</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="~/login">Bạn đã có tài khoản? Login!</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="/Assets/Admin/vendor/jquery/jquery.min.js"></script>
-        <script src="/Assets/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    </div>
+</div>
+<!-- Bootstrap core JavaScript-->
+<script src="/Assets/Admin/vendor/jquery/jquery.min.js"></script>
+<script src="/Assets/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="/Assets/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="/Assets/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="/Assets/Admin/js/sb-admin-2.min.js"></script>
-
-
+<!-- Custom scripts for all pages-->
+<script src="/Assets/Admin/js/sb-admin-2.min.js"></script>
 
 
-</body>
+
