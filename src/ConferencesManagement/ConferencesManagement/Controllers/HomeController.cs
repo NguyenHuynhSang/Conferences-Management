@@ -78,7 +78,7 @@ namespace ConferencesManagement.Controllers
            
 
             var model = new TimeSpan();
-            model = dao.GetActiveHoiThao().NgayDienRa.Value-DateTime.Now ;
+            model = dao.GetActiveHoiThao().NgayDienRa-DateTime.Now ;
 
 
             return PartialView(model);

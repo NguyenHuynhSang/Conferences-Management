@@ -35,9 +35,11 @@ namespace Models.Models
             return db.HoiThaos.Where(x=>x.Status==true).ToList();
         }
 
+
+
         public HoiThao GetActiveHoiThao()
         {
-            return db.HoiThaos.Single(x => x.Status == true);
+            return db.HoiThaos.FirstOrDefault(x => x.Status == true);
         }
 
 

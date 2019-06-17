@@ -1,62 +1,105 @@
-﻿@model List<Models.Framework.HoiThao>
+﻿@model Models.Framework.HoiThao
 
-<h1>Chi tiết hội thảo</h1>
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-                <tr>
+<style>
+    .titleColor {
+        color: black;
+    }
 
+    .statusColor {
+        color: white;
+        background-color: forestgreen;
+    }
 
-                    <th>STT</th>
-                    <th>ID</th>
-                    <th>Tên Hội thảo</th>
-                    <th>Ngày diễn ra </th>
-                    <th>Nơi diễn ra</th>
-                    <th>Created by</th>
-                    <th>Created date</th>
-                    <th>Modified By</th>
-                    <th>Modified Date</th>
-                    <th>Status</th>
+    .headerColor {
+        color: black;
+        font-size: larger;
+    }
+</style>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card shadow mb-4">
+            <div class="row m-sm-2">
+                <b class="headerColor">Thông tin hội thảo</b>
+            </div>
+            <div class="row m-sm-4">
+                <div class="col-sm-2">
+                    <b class="titleColor">Tên sự kiện:</b>
+                </div>
+                <div class="col-xl-6">
+                    @Model.TenHoiThao
+                </div>
+            </div>
+            <div class="row m-sm-4">
+                <div class="col-sm-2">
+                    <b class="titleColor">Ngày diễn ra:</b>
+                </div>
+                <div class="col-xl-6">
 
-                </tr>
-            </thead>
-            <tfoot>
-                <tr>
+                    @Model.NgayDienRa.ToString("dd/MMM/yyyy")
+                </div>
+            </div>
 
-                    <th>STT</th>
-                    <th>ID</th>
-                    <th>Tên Hội thảo</th>
-                    <th>Ngày diễn ra </th>
-                    <th>Nơi diễn ra</th>
-                    <th>Created by</th>
-                    <th>Created date</th>
-                    <th>Modified By</th>
-                    <th>Modified Date</th>
-                    <th>Status</th>
-                </tr>
-            </tfoot>
-            <tbody>
-                @{ int Stt = 1;}
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>@Stt</td>
-                        <td>@item.ID</td>
-                        <td>@item.TenHoiThao</td>
-                        <td>@item.NgayDienRa</td>
-                        <td>@item.NoiDienRa</td>
-                        <td>@item.CreatedBy</td>
-                        <td>@item.CreatedDate</td>
-                        <td>@item.ModifiedBy</td>
-                        <td>@item.ModifiedDate</td>
-                        <td>@item.Status</td>
+            <div class="row m-sm-4">
+                <div class="col-sm-2">
+                    <b class="titleColor">Nơi diễn ra:</b>
+                </div>
+                <div class="col-xl-6">
+                    @Model.NoiDienRa
+                </div>
+            </div>
+            <div class="row m-sm-4">
+                <div class="col-sm-2">
+                    <b class="titleColor">Trạng thái:</b>
+                </div>
+                <div class="col-sm-4">
+                    <span class="statusColor">Đang diễn ra</span>
+                </div>
+            </div>
+            <hr />
+        </div>
 
-                    </tr>
-                    Stt++;
-                }
-            </tbody>
-        </table>
+    </div>
+    <div class="col-lg-6">
+        <div class="card shadow mb-4">
+            <div class="row m-sm-2">
+                <b class="headerColor">Chi tiết hội thảo</b>
+            </div>
+            <div class="row m-sm-4">
+                <div class="col-sm-2">
+                    <b class="titleColor">Số nhà tài trợ:</b>
+                </div>
+                <div class="col-xl-6">
+                    @Model.TenHoiThao
+                </div>
+            </div>
+            <div class="row m-sm-4">
+                <div class="col-sm-2">
+                    <b class="titleColor">Số diễn giả:</b>
+                </div>
+                <div class="col-xl-6">
+
+                    @Model.NgayDienRa.ToString("dd/MMM/yyyy")
+                </div>
+            </div>
+
+            <div class="row m-sm-4">
+                <div class="col-sm-2">
+                    <b class="titleColor">Tổng Số vé:</b>
+                </div>
+                <div class="col-xl-6">
+                    @Model.NoiDienRa
+                </div>
+            </div>
+            <div class="row m-sm-4">
+                <div class="col-sm-2">
+                    <b class="titleColor">Số vé đã bán:</b>
+                </div>
+                <div class="col-sm-4">
+                    <span class="statusColor">Đang diễn ra</span>
+                </div>
+            </div>
+            <hr />
+        </div>
+
     </div>
 </div>
-
