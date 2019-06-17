@@ -24,7 +24,6 @@
         [Required]
         [DisplayName("Ngày diễn ra")]
         [DataType(DataType.Date)]
-        
         public DateTime NgayDienRa { get; set; }
 
         [StringLength(250)]

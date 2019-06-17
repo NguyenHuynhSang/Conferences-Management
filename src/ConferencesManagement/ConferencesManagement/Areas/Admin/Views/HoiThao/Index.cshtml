@@ -29,42 +29,64 @@
                     <!-- Page Heading -->
                     <h1 class="h3 mb-2 text-gray-800">Thông tin Hội thảo</h1>
                     <style>
-                        .blueText{
-                            color:royalblue;
+                        .blueText {
+                            color: royalblue;
+                        }
+
+                        .resizeTextBox {
+                            width: 400px;
+                            height: 32px;
                         }
                     </style>
                     @using (Html.BeginForm("Index", "HoiThao", FormMethod.Get))
                     {
-
-
-                        <div class="card mb-4 py-3 border-left-primary">
+                        <div class="card border-left-primary">
                             <div class="card-body">
-                                <div class="row m-sm-n4">
-                                    <div class="col-xl-6">
+                                <div class="row m-xl-4">
+                                    <div class="col-md-1">
                                         <b class="blueText">Tên hội thảo</b>
-                                        <input #searchText type="text" value="@ViewBag.SearchingString" name="searchingString" placeholder="Nhập tên hội thảo" />
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input class="resizeTextBox" #searchText type="text" value="@ViewBag.SearchingString" name="searchingString" placeholder="Nhập tên hội thảo" />
                                     </div>
                                     <div class="col-xl-6">
                                         <b class="blueText">Ngày diễn ra</b>
                                         <input #seachByName type="date" name="searching" />
                                     </div>
-                                    <div class="col-xl-6">
+
+                                </div>
+                                <div class="row m-xl-4">
+                                    <div class="col-md-1">
+                                        <b class="blueText">Nơi diễn ra</b>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input class="resizeTextBox" #searchText type="text" value="@ViewBag.SearchingString" name="searchingString" placeholder="Nhập nơi diễn ra" />
+                                    </div>
+
+
+                                </div>
+                                <div class="row m-xl-4">
+                                    <div class="col-md-2">
                                         <button class="btn btn-facebook">Search</button>
                                     </div>
+                                    <div class="col-md-2">
+                                        <button class="btn btn-facebook">Reset</button>
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
 
 
 
                     }
-                    <a href="/Admin/HoiThao/Create" class="btn btn-light btn-icon-split">
-                        <span class="icon text-gray-600">
-                            <i class="fas fa-arrow-right"></i>
-                        </span>
-                        <span class="text">Tạo mới hội thảo</span>
-                    </a>
+                    <div class="col-5">
+                        <a href="/Admin/HoiThao/Create" class="btn btn-light btn-icon-split">
+                            <span class="icon text-gray-600">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                            <span class="text">Tạo mới hội thảo</span>
+                        </a>
+                    </div>
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -78,7 +100,7 @@
                                             <th>#</th>
                                             <th>#</th>
                                             <th>STT</th>
-                                            <th>ID</th>
+
                                             <th>Tên Hội thảo</th>
                                             <th>Ngày diễn ra </th>
                                             <th>Nơi diễn ra</th>
@@ -95,7 +117,7 @@
                                             <th>#</th>
                                             <th>#</th>
                                             <th>STT</th>
-                                            <th>ID</th>
+
                                             <th>Tên Hội thảo</th>
                                             <th>Ngày diễn ra </th>
                                             <th>Nơi diễn ra</th>
@@ -129,7 +151,7 @@
                                                               })
                                                     </td>*@
                                                 <td>@Stt</td>
-                                                <td>@item.ID</td>
+
                                                 <td>@item.TenHoiThao</td>
                                                 <td>@item.NgayDienRa</td>
                                                 <td>@item.NoiDienRa</td>
@@ -137,8 +159,22 @@
                                                 <td>@item.CreatedDate</td>
                                                 <td>@item.ModifiedBy</td>
                                                 <td>@item.ModifiedDate</td>
-                                                <td>@item.Status</td>
+                                                <td>
+                                                    @{
+                                                        string status = "a";
+                                                        if (item.Status == false)
+                                                        {
+                                                            status = "Chưa hiển thị";
+                                                        }
+                                                        else
+                                                        {
+                                                            status = "Đang hiển thị";
+                                                        }
 
+
+                                                    }
+                                                    @status
+                                                </td>
                                             </tr>
                                             Stt++;
                                         }
