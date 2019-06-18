@@ -73,9 +73,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             var model = dao.GetTopicForIndex(1, 10);
             if (ModelState.IsValid)
             {
-
                 var result = dao.Update(topic);
-
                 if (result)
                 {
                     SetAlert("Cập nhật chủ đề thành công", "success");
@@ -102,7 +100,6 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             selectedid = CommonConstants.CURRENT_HOITHAO;
             var dao = new HoiNghiDao();
             ViewBag.IDTopic = new SelectList(dao.GetHoiThaos(), "ID", "TenHoiThao", selectedid);
-
         }
     }
 }
