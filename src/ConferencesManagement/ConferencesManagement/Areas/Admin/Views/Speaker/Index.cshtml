@@ -6,14 +6,51 @@
 }
 <div class="card shadow mb-4">
     <div class="card-header py-3">
+        <style>
+            .blueText {
+                color: royalblue;
+            }
 
+            .resizeTextBox {
+                width: 400px;
+                height: 32px;
+            }
+        </style>
         @using (Html.BeginForm("Index", "Speaker", FormMethod.Get))
         {
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="col-lg-4">
-                        <input type="text" value="@ViewBag.SearchingString" name="searchingString"  placeholder="Tìm kiếm bằng tên, email" ; />
-                        <button type="submit">Tìm kiếm</button>
+            <div class="card border-left-primary">
+                <div class="card-body">
+                    <h6 class="m-0 font-weight-bold text-primary">Diễn giả</h6>
+                    <div class="row m-xl-4">
+                        <div class="col-md-1">
+                            <b class="blueText">Tên speaker:</b>
+                        </div>
+                        <div class="col-sm-4">
+                            <input class="resizeTextBox" #searchText type="text" value="@ViewBag.SearchingString" name="searchingString" placeholder="Nhập tên" />
+                        </div>
+                        <div class="col-xl-6">
+                            <b class="blueText">Email:</b>
+                            <input #seachByName type="email" name="searching" placeholder="Nhập Email " />
+                        </div>
+
+                    </div>
+                    <div class="row m-xl-4">
+                        <div class="col-md-1">
+                            <b class="blueText">Số điện thoại:</b>
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="resizeTextBox" #searchText type="number" value="@ViewBag.SearchingString" name="searchingString" placeholder="Nhập Số điện thoại" />
+                        </div>
+
+
+                    </div>
+                    <div class="row m-xl-4">
+                        <div class="col-md-2">
+                            <button class="btn btn-facebook">Search</button>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn-facebook">Reset</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -59,14 +96,12 @@
                                 Modified Date
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-
+                                #
                             </th>
                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-
+                                #
                             </th>
-                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-
-                            </th>
+                         
 
                         </tr>
                     </thead>
