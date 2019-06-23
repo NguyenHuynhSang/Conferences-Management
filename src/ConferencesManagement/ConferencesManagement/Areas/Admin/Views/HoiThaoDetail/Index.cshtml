@@ -68,18 +68,18 @@
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
-                                            <tr>
+                                            <tr role="row" class="odd" id="row_@item.ID">
                                                 <td>
                                                     <a href="/Admin/HoiThaoDetail/Edit/@item.ID" class="btn btn-success btn-circle btn-sm">Sửa </a>
 
                                                 </td>
                                                 <td>
-                                                    @Ajax.ActionLink("Xóa", "Delete",new { @id = item.ID }, new AjaxOptions
-                                                        {
-                                                          Confirm = "bạn có muốn xóa không",
-                                                          OnComplete="$('row_"+@item.ID+"').remove()",
-                                                          HttpMethod="Delete"
-                                                          })
+                                                    @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
+                   {
+                       Confirm = "Bạn có muốn xoá bản ghi này?",
+                       OnComplete = "$('#row_" + @item.ID + "').remove()",
+                       HttpMethod = "Delete"
+                   })
                                                 </td>
                                                 <td>@item.TenHoiThao</td>
                                                 <td>@item.TenSpeaker</td>
