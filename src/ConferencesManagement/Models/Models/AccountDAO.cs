@@ -97,6 +97,11 @@ namespace Models
 
         }
 
+        public Account GetUserByID(long id)
+        {
+            var result = db.Accounts.FirstOrDefault(x => x.IdAccount ==id);
+            return result;
+        }
         public int AdminLogin(string userName,string passWord)
         {
             var result = db.Accounts.SingleOrDefault(x => x.UserName == userName);

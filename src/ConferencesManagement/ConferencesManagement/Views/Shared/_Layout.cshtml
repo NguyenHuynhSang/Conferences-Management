@@ -1,9 +1,21 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Confpro template project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/Assets/Client/styles/bootstrap-4.1.2/bootstrap.min.css">
+    <link href="/Assets/Client/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Assets/Client/plugins/OwlCarousel2-2.3.4/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/Client/plugins/OwlCarousel2-2.3.4/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/Client/plugins/OwlCarousel2-2.3.4/animate.css">
+    <link href="/Assets/Client/plugins/" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/Assets/Client/styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/Client/styles/responsive.css">
 
-
-@RenderSection("HomeHeader", required: false)
-
+    @RenderSection("HomeHeader", required: false)
+</head>
 
 
 <body>
@@ -44,16 +56,11 @@
                     }
                     else
                     {
-                        <ul>
-                            <li>Xin chào : @session.UserName</li>
-                            <li>@Html.ActionLink("Thoát", "Logout", "User")</li>
-                            
-                        </ul>
-                       
+                        Html.RenderAction("UserProfile", "Home");
                     }
-                        <div class="social">
-                            @{Html.RenderAction("UserProfile", "Home");}
-                        </div>
+                    <div class="social">
+                        @*@{Html.RenderAction("UserProfile", "Home");}*@
+                    </div>
                     <div class="header_link">
                         <a href="#">
                             <span>get tickets<img src="/Assets/Client/images/arrow.png" alt=""></span>

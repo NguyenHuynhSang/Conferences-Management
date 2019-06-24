@@ -65,8 +65,10 @@ namespace ConferencesManagement.Controllers
         }
         public ActionResult UserProfile()
         {
-
-            return PartialView();
+            var session = (ConferencesManagement.Common.UserLogin)Session[ConferencesManagement.Common.CommonConstants.USER_SESSION];
+            if (session == null) Index();
+            var modal = new AccountDao().GetUserByID(session.IdAccount);
+            return PartialView(modal);
         }
         public ActionResult ScheduleMainMenu()
         {
