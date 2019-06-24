@@ -24,6 +24,7 @@
         [Required]
         [DisplayName("Ngày diễn ra")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime NgayDienRa { get; set; }
 
         [StringLength(250)]

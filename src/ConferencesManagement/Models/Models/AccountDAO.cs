@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PagedList;
-
 namespace Models
 {
     public class AccountDao
@@ -21,8 +20,7 @@ namespace Models
 
         public long Insert(Account entity)
         {
-            entity.CreatedDate = DateTime.Now;
-
+        
             db.Accounts.Add(entity);
             db.SaveChanges();
             return entity.IdAccount;
@@ -35,15 +33,24 @@ namespace Models
             return db.Accounts.SingleOrDefault(x => x.UserName == userName);
         }
 
-        public IEnumerable<Account> ListAllPaging( int page, int pageSize,string searchingString = null)
+        public IEnumerable<Account> ListAllPaging( int page, int pageSize,string userName = null,string hoTen=null,string email=null)
         {
             IOrderedQueryable<Account> account = db.Accounts;
-            if (!string.IsNullOrEmpty(searchingString))
+            if (!string.IsNullOrEmpty(userName))
             {
-                account=account.Where(x=>x.UserName.Contains(searchingString)||x.HoTen.Contains(searchingString)||x.SDT.Contains(searchingString)||x.Email.Contains(searchingString)).OrderByDescending(x=>x.CreatedDate);
+                account=account.Where(x=>x.UserName.Contains(userName)).OrderByDescending(x=>x.CreatedDate);
 
             }
-            
+            if (!string.IsNullOrEmpty(hoTen))
+            {
+                account = account.Where(x => x.HoTen.Contains(hoTen)).OrderByDescending(x => x.CreatedDate);
+
+            }
+            if (!string.IsNullOrEmpty(email))
+            {
+                account = account.Where(x => x.Email.Contains(email)).OrderByDescending(x => x.CreatedDate);
+            }
+
             return account.OrderByDescending(x=>x.CreatedDate).ToPagedList(page, pageSize);
         }
 
@@ -54,9 +61,11 @@ namespace Models
                 var account = db.Accounts.Find(entity.IdAccount);    
                 account.PassWord = entity.PassWord;
                 account.Email = entity.Email;
+                account.HoTen = entity.HoTen;
                 account.DiaChi = entity.DiaChi;
                 account.SDT = entity.SDT;
-                account.ModifiedDate = DateTime.Now;
+                account.ModifiedBy = entity.ModifiedBy;
+                account.ModifiedDate = entity.ModifiedDate;
                 db.SaveChanges();
                 return true;
             }

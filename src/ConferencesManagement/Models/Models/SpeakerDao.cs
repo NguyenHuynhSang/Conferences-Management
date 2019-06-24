@@ -22,6 +22,7 @@ namespace Models
         public long Insert(Speaker entity)
         {
             entity.CreatedDate = DateTime.Now;
+
             db.Speakers.Add(entity);
             db.SaveChanges();
             return entity.ID;
@@ -33,12 +34,22 @@ namespace Models
             return db.Speakers.SingleOrDefault(x => x.Name == Name);
         }
 
-        public IEnumerable<Speaker> ListAllPaging(int page, int pageSize, string searchingString = null)
+        public IEnumerable<Speaker> ListAllPaging(int page, int pageSize, string HoTen = null,string SoDienThoai=null,string Email=null)
         {
             IOrderedQueryable<Speaker> speaker = db.Speakers;
-            if (!string.IsNullOrEmpty(searchingString))
+            if (!string.IsNullOrEmpty(HoTen))
             {
-                speaker = speaker.Where(x => x.Name.Contains(searchingString) || x.ChucVu.Contains(searchingString) || x.SDT.Contains(searchingString) || x.Email.Contains(searchingString)).OrderByDescending(x => x.CreatedDate);
+                speaker = speaker.Where(x => x.Name.Contains(HoTen)).OrderByDescending(x => x.CreatedDate);
+
+            }
+            if (!string.IsNullOrEmpty(SoDienThoai))
+            {
+                speaker = speaker.Where(x => x.SDT.Contains(SoDienThoai)).OrderByDescending(x => x.CreatedDate);
+
+            }
+            if (!string.IsNullOrEmpty(Email))
+            {
+                speaker = speaker.Where(x => x.Email.Contains(Email)).OrderByDescending(x => x.CreatedDate);
 
             }
             return speaker.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);

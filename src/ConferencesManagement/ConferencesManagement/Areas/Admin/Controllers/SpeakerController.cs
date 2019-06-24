@@ -12,12 +12,14 @@ namespace ConferencesManagement.Areas.Admin.Controllers
     public class SpeakerController : BaseController
     {
         // GET: Admin/Speaker
-        public ActionResult Index(string searchingString, int page = 1, int pageSize = 10)
+        public ActionResult Index(string HoTen, string SoDienThoai, string Email,int page = 1, int pageSize = 10)
         {
             SetAlert("Load diễn giả thành công", "success");
             var dao = new SpeakerDao();
-            var result = dao.ListAllPaging(page, pageSize, searchingString);
-            ViewBag.Searching = searchingString;
+            var result = dao.ListAllPaging(page, pageSize, HoTen,SoDienThoai,Email);
+            ViewBag.HoTen = HoTen;
+            ViewBag.SDT = SoDienThoai;
+            ViewBag.Email = Email;
             return View(result);
         }
 

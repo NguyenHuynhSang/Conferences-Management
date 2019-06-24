@@ -9,6 +9,8 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 {
     public class BaseController : Controller
     {
+        protected string _userAction;
+        protected DateTime? _date;
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var sess = (UserLogin)Session[CommonConstants.USER_SESSION];
@@ -18,6 +20,14 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     System.Web.Routing.RouteValueDictionary(new { controller = "Login", action = "Index", Area = "Admin" }));
 
             }
+        }
+
+        protected void SetAuditLog()
+        {
+            var sess = (UserLogin)Session[CommonConstants.USER_SESSION];
+            if (sess == null) return;
+            _userAction = sess.UserName;
+             _date = DateTime.Now;
         }
         protected void SetAlert(string message, string type)
         {

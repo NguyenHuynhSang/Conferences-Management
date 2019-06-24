@@ -47,11 +47,11 @@
                                         <b class="blueText">Tên hội thảo</b>
                                     </div>
                                     <div class="col-sm-4">
-                                        <input class="resizeTextBox" #searchText type="text" value="@ViewBag.SearchingString" name="searchingString" placeholder="Nhập tên hội thảo" />
+                                        <input class="resizeTextBox" #searchText type="text" value="@ViewBag.tenHoiThao" name="tenHoiThao" placeholder="Nhập tên hội thảo" />
                                     </div>
                                     <div class="col-xl-6">
                                         <b class="blueText">Ngày diễn ra</b>
-                                        <input #seachByName type="date" name="searching" />
+                                        <input #seachByName type="date" value="@ViewBag.ngayDienRa"  name="ngayDienRa" />
                                     </div>
 
                                 </div>
@@ -60,7 +60,7 @@
                                         <b class="blueText">Nơi diễn ra</b>
                                     </div>
                                     <div class="col-sm-6">
-                                        <input class="resizeTextBox" #searchText type="text" value="@ViewBag.SearchingString" name="searchingString" placeholder="Nhập nơi diễn ra" />
+                                        <input class="resizeTextBox" #searchText type="text" value="@ViewBag.noiDienRa" name="noiDienRa" placeholder="Nhập nơi diễn ra" />
                                     </div>
 
 
@@ -70,7 +70,12 @@
                                         <button class="btn btn-facebook">Search</button>
                                     </div>
                                     <div class="col-md-2">
-                                        <button class="btn btn-facebook">Reset</button>
+                                        <a href="/Admin/HoiThao/Index" class="btn btn-facebook">
+                                            <span class="icon text-gray-600">
+                                                <i class="fas fa-arrow-right"></i>
+                                            </span>
+                                            <span class="text">Reset</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -153,7 +158,7 @@
                                                 <td>@Stt</td>
 
                                                 <td>@item.TenHoiThao</td>
-                                                <td>@item.NgayDienRa</td>
+                                                <td>@item.NgayDienRa.ToString("dd/MMM/yyyy")</td>
                                                 <td>@item.NoiDienRa</td>
                                                 <td>@item.CreatedBy</td>
                                                 <td>@item.CreatedDate</td>

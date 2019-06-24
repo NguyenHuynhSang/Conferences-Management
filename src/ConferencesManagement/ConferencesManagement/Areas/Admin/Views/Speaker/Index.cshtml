@@ -26,11 +26,11 @@
                             <b class="blueText">Tên speaker:</b>
                         </div>
                         <div class="col-sm-4">
-                            <input class="resizeTextBox" #searchText type="text" value="@ViewBag.SearchingString" name="searchingString" placeholder="Nhập tên" />
+                            <input class="resizeTextBox" #searchText type="text" value="@ViewBag.HoTen" name="HoTen" placeholder="Nhập tên" />
                         </div>
                         <div class="col-xl-6">
                             <b class="blueText">Email:</b>
-                            <input #seachByName type="email" name="searching" placeholder="Nhập Email " />
+                            <input #seachByName type="text" value="@ViewBag.Email" name="Email" placeholder="Nhập Email " />
                         </div>
 
                     </div>
@@ -39,7 +39,7 @@
                             <b class="blueText">Số điện thoại:</b>
                         </div>
                         <div class="col-sm-6">
-                            <input class="resizeTextBox" #searchText type="number" value="@ViewBag.SearchingString" name="searchingString" placeholder="Nhập Số điện thoại" />
+                            <input class="resizeTextBox" value="@ViewBag.SDT" type="text"  name="SoDienThoai" placeholder="Nhập Số điện thoại" />
                         </div>
 
 
@@ -49,7 +49,12 @@
                             <button class="btn btn-facebook">Search</button>
                         </div>
                         <div class="col-md-2">
-                            <button class="btn btn-facebook">Reset</button>
+                            <a href="/Admin/Speaker/Index" class="btn btn-facebook">
+                                <span class="icon text-gray-600">
+                                    <i class="fas fa-arrow-right"></i>
+                                </span>
+                                <span class="text">Reset</span>
+                            </a>
                         </div>
                     </div>
                 </div>

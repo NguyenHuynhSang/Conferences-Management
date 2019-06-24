@@ -63,7 +63,11 @@ namespace ConferencesManagement.Controllers
             return PartialView(model);
 
         }
+        public ActionResult UserProfile()
+        {
 
+            return PartialView();
+        }
         public ActionResult ScheduleMainMenu()
         {
             var model = new ScheduleDetailDao().GetScheduleDetailForIndex();

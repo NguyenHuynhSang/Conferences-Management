@@ -80,6 +80,7 @@
     <Compile Include="Framework\TypeAccount.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountDao.cs" />
+    <Compile Include="Models\AuditLog.cs" />
     <Compile Include="Models\ContactDao.cs" />
     <Compile Include="Models\FeedBackDao.cs" />
     <Compile Include="Models\HoiNghiDao.cs" />

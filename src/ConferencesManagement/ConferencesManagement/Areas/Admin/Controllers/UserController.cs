@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using ConferencesManagement.Common;
+using Models;
 using Models.Framework;
 using Models.Models;
 using System;
@@ -14,20 +15,20 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
         private static long getIDforEdit;
         // GET: Admin/User
-        public ActionResult Index(string searchingString, int page =1 , int pageSize =10)
+        public ActionResult Index(string userName,string HoTen,string Email, int page =1 , int pageSize =10)
         {
+          
             SetAlert("Load tài khoản thành công", "success");
             var dao = new AccountDao();
-            var result = dao.ListAllPaging(page, pageSize, searchingString);
-            ViewBag.Searching = searchingString;
+            var result = dao.ListAllPaging(page, pageSize, userName,HoTen,Email);
+            ViewBag.UserName = userName;
+            ViewBag.HoTen = HoTen;
+            ViewBag.Email = Email;
             return View(result);
         }
-        //[HttpGet]
-        //public ActionResult Create()
-        //{
-        //    return View();
-        //}
 
+
+   
         [HttpGet]
        public ActionResult Create()
         {
@@ -52,7 +53,8 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             var dao = new AccountDao();
             if (ModelState.IsValid)
             {
-             
+                account.CreatedDate = _date;
+                account.CreatedBy = _userAction;
                 long id = dao.Insert(account);
                 if (id > 0)
                 {
@@ -73,8 +75,11 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(Account account)
         {
-          account.IdAccount = getIDforEdit;
+            account.IdAccount = getIDforEdit;
             SetViewBack();
+            SetAuditLog();
+            account.ModifiedDate = _date;
+            account.ModifiedBy = _userAction;
             var dao = new AccountDao();
             var model = dao.ListAllPaging(1, 10);
             if (ModelState.IsValid)
@@ -92,7 +97,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                     ModelState.AddModelError("", "Cập nhật không thành công");
                 }
             }
-            return View("Index",model);
+            return View("Edit");
         }
 
         // lấy danh sách typeaccount hiện thị vào dropdownlist

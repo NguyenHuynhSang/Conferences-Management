@@ -16,14 +16,24 @@ namespace Models.Models
             db = new ConferencesManagementDbContext();
         }
 
-        public IEnumerable<HoiThao> ListAllPaging(int page, int pageSize, string searchingString = null)
+        public IEnumerable<HoiThao> ListAllPaging(int page, int pageSize, string tenHoiThao = null,string NoiDienRa=null,string NgayDienRa=null)
         {
             IOrderedQueryable<HoiThao> hoiThao = db.HoiThaos;
-            if (!string.IsNullOrEmpty(searchingString))
+            if (!string.IsNullOrEmpty(tenHoiThao))
             {
-                hoiThao = hoiThao.Where(x => x.TenHoiThao.Contains(searchingString)||x.NoiDienRa.Contains(searchingString)).OrderByDescending(x => x.CreatedDate);
-
+                hoiThao = hoiThao.Where(x => x.TenHoiThao.Contains(tenHoiThao)).OrderByDescending(x => x.CreatedDate);
             }
+
+            if (!string.IsNullOrEmpty(NoiDienRa))
+            {
+                hoiThao = hoiThao.Where(x => x.NoiDienRa.Contains(NoiDienRa)).OrderByDescending(x => x.CreatedDate);
+            }
+
+            if (!string.IsNullOrEmpty(NgayDienRa))
+            {
+                hoiThao = hoiThao.Where(x => x.NgayDienRa.ToString().Contains(NgayDienRa)).OrderByDescending(x => x.CreatedDate);
+            }
+
 
             return hoiThao.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }

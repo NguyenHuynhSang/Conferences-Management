@@ -10,11 +10,13 @@ namespace ConferencesManagement.Areas.Admin.Controllers
     public class HoiThaoController : BaseController
     {
         // GET: Admin/HoiThao
-        public ActionResult Index(string searchingString, int page = 1,int pageSize=10)
+        public ActionResult Index(string tenHoiThao,string noiDienRa,string ngayDienRa, int page = 1,int pageSize=10)
         {
             var db = new HoiNghiDao();
-            var model = db.ListAllPaging(page, pageSize, searchingString);
-            ViewBag.Searching = searchingString;
+            var model = db.ListAllPaging(page, pageSize, tenHoiThao,noiDienRa, ngayDienRa);
+            ViewBag.tenHoiThao = tenHoiThao;
+            ViewBag.noiDienRa = noiDienRa;
+            ViewBag.ngayDienRa = ngayDienRa;
             return View(model);
         }
         [ValidateInput(false)]
@@ -39,8 +41,9 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         public ActionResult Create(HoiThao hoinghi)
         {
 
-  
+            hoinghi.NgayDienRa = hoinghi.NgayDienRa.Date;
             var dao = new HoiNghiDao();
+          
             if (ModelState.IsValid)
             {
 
@@ -50,7 +53,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
                     var result = dao.ListAllPaging(1, 10);
                     // chuyển hướng trang về admin/User/index
-                    SetAlert("Tạo tài khoản thành công", "success");
+                    SetAlert("Tạo hội nghị thành công", "success");
                     return RedirectToAction("Index", "HoiThao", result);
                 }
                 else
@@ -76,7 +79,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
                 if (result)
                 {
-                    SetAlert("Sửa tài khoản thành công", "success");
+                    SetAlert("Sửa Hội nghị thành công", "success");
                     return RedirectToAction("Index", "HoiThao", model);
                 }
                 else
@@ -88,6 +91,8 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             return View("Edit");
         }
 
+
+    
 
         [HttpPost]
         public JsonResult ChangeStatus(long id)
