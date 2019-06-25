@@ -15,7 +15,7 @@
         [Required]
         [StringLength(500)]
         [DisplayName("Tên Hội thảo")]
-        [MinLength(6,ErrorMessage ="Tên hội thảo ít nhất là 6 ký tự")]
+        [MinLength(6, ErrorMessage = "Tên hội thảo ít nhất là 6 ký tự")]
         public string TenHoiThao { get; set; }
 
         [Column(TypeName = "ntext")]

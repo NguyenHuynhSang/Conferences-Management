@@ -1,0 +1,18 @@
+﻿@model List<Models.Framework.Blog>
+
+<h3>Recent Blog</h3>
+@foreach (var item in Model)
+{
+    <div class="block-21 mb-4 d-flex">
+        <a class="blog-img mr-4" style="background-image: url(@item.Image);"></a>
+        <div class="text">
+            <h3 class="heading"><a href="/Blog/BlogDetail/@item.ID">@item.Title</a></h3>
+            <div class="meta">
+                <div><a href="#"><span class="icon-calendar"></span> @item.CreatedDate.Value.Day/@item.CreatedDate.Value.Month/@item.CreatedDate.Value.Year </a></div>
+                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+            </div>
+        </div>
+    </div>
+
+}

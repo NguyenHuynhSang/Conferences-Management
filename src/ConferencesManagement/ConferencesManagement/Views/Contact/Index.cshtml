@@ -4,6 +4,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<style>
+    .customTextArex{
+        height:100px;
+        width:600px;
+    }
+
+</style>
 
 @section HomeHeader
     {
@@ -148,14 +155,14 @@
                                         <li>Email: @Html.Raw(Model.Email)</li>
                                     </ul>
                                 </div>
-                                <div class="contact_form_container">
+                                <div class="contact_form_container bg-light">
                                     <form action="#" class="contact_form" id="contact_form">
                                         <div class="d-flex flex-md-row flex-column align-items-start justify-content-between">
                                             <div><input type="text" id="txtName" class="contact_input" placeholder="Your name" required="required"></div>
                                             <div><input type="email" id="txtEmail" class="contact_input" placeholder="Your email" required="required"></div>
                                         </div>
                                         <input type="text" id="txtTieuDe" class="contact_input" placeholder="Subject">
-                                        <textarea class="contact_textarea" id="txtContent" placeholder="Message"></textarea>
+                                        <textarea class="customTextArex" id="txtContent" rows="5" placeholder="Message"></textarea>
                                         <button id="btnSend" class="btn btn-success">send</button>
                                     </form>
                                 </div>

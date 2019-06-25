@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,10 @@ namespace ConferencesManagement.Controllers
         // GET: UserProfileDetail
         public ActionResult Index()
         {
-            return View();
+            var session = (ConferencesManagement.Common.UserLogin)Session[ConferencesManagement.Common.CommonConstants.USER_SESSION];
+            if (session == null) Index();
+            var modal = new AccountDao().GetUserByID(session.IdAccount);
+            return View(modal);
         }
     }
 }

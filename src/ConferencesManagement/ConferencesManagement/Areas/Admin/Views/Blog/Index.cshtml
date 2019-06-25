@@ -1,0 +1,174 @@
+﻿@model PagedList.IPagedList<Models.Framework.Blog>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <style>
+            .blueText {
+                color: royalblue;
+            }
+
+            .resizeTextBox {
+                width: 400px;
+                height: 32px;
+            }
+        </style>
+
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+
+                @using (Html.BeginForm("Index", "Speaker", FormMethod.Get))
+                {
+                    <div class="card border-left-primary">
+                        <div class="card-body">
+                            <h6 class="m-0 font-weight-bold text-primary">Blog</h6>
+                            <div class="row m-xl-4">
+                                <div class="col-md-1">
+                                    <b class="blueText">Tên speaker:</b>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input class="resizeTextBox" #searchText type="text" value="@ViewBag.HoTen" name="HoTen" placeholder="Nhập tên" />
+                                </div>
+                                <div class="col-xl-6">
+                                    <b class="blueText">Email:</b>
+                                    <input #seachByName type="text" value="@ViewBag.Email" name="Email" placeholder="Nhập Email " />
+                                </div>
+
+                            </div>
+                            <div class="row m-xl-4">
+                                <div class="col-md-1">
+                                    <b class="blueText">Số điện thoại:</b>
+                                </div>
+                                <div class="col-sm-6">
+                                    <input class="resizeTextBox" value="@ViewBag.SDT" type="text" name="SoDienThoai" placeholder="Nhập Số điện thoại" />
+                                </div>
+
+
+                            </div>
+                            <div class="row m-xl-4">
+                                <div class="col-md-2">
+                                    <button class="btn btn-facebook">Search</button>
+                                </div>
+                                <div class="col-md-2">
+                                    <a href="/Admin/Blog/Index" class="btn btn-facebook">
+                                        <span class="icon text-gray-600">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </span>
+                                        <span class="text">Reset</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+                <a href="/Admin/Blog/Create" class="btn btn-light btn-icon-split">
+                    <span class="icon text-gray-600">
+                        <i class="fas fa-arrow-right"></i>
+                    </span>
+                    <span class="text">Tạo Blog</span>
+                </a>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                            <thead>
+                                <tr role="row">
+                                    <th>Hình ảnh</th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="UserName: activate to sort column ascending" style="width: 95.0062px;">
+                                        Tiêu đề
+                                    </th>
+                                    <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Password: activate to sort column descending" style="width: 149.006px;" aria-sort="ascending">
+                                        Mô tả
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
+                                        Loại
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
+                                        Tác giả
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
+                                        Nội dung
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
+                                        Created By
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
+                                        Ngày tạo
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
+                                        Modified By
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
+                                        Modified Date
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
+                                        #
+                                    </th>
+                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
+                                        #
+                                    </th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr role="row" class="odd" id="row_@item.ID">
+
+                                        <td>
+                                            <img src="@item.Image" height="100" width=" 100" />
+                                        </td>
+                                        <td>
+                                            @item.Title
+                                        </td>
+                                        <td>
+                                            @item.ShotDescription
+                                        </td>
+                                        <td>
+                                            @item.IDBlogCategory
+                                        </td>
+                                        <td>
+                                            @item.IDSpeaker
+                                        </td>
+                                        <td>
+                                            @Html.Raw(item.Content)
+                                        </td>
+                                        <td>
+                                            @item.CreatedBy
+                                        </td>
+                                        <td>
+                                            @item.CreatedDate
+                                        </td>
+                                        <td>
+                                            @item.ModifiedBy
+                                        </td>
+                                        <td>
+                                            @item.ModifiedDate
+                                        </td>
+                                        <td>
+                                            <a href="/Admin/Blog/Edit/@item.ID">Sửa</a>
+                                        </td>
+                                        <td>
+                                            @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
+                                                                {
+                                                                    Confirm = "Bạn có muốn xoá bản ghi này?",
+                                                                    OnComplete = "$('#row_" + @item.ID + "').remove()",
+                                                                    HttpMethod = "Delete"
+                                                                })
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchingString = ViewBag.SearchingString }))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

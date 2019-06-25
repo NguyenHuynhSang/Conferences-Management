@@ -63,6 +63,8 @@
     <Compile Include="Entities\TopicForIndex.cs" />
     <Compile Include="Framework\About.cs" />
     <Compile Include="Framework\Account.cs" />
+    <Compile Include="Framework\Blog.cs" />
+    <Compile Include="Framework\BlogCategory.cs" />
     <Compile Include="Framework\ConferencesManagementDbContext.cs" />
     <Compile Include="Framework\Contact.cs" />
     <Compile Include="Framework\FeedBack.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountDao.cs" />
     <Compile Include="Models\AuditLog.cs" />
+    <Compile Include="Models\BlogDao.cs" />
     <Compile Include="Models\ContactDao.cs" />
     <Compile Include="Models\FeedBackDao.cs" />
     <Compile Include="Models\HoiNghiDao.cs" />

@@ -51,7 +51,7 @@
                                     </div>
                                     <div class="col-xl-6">
                                         <b class="blueText">Ngày diễn ra</b>
-                                        <input #seachByName type="date" value="@ViewBag.ngayDienRa"  name="ngayDienRa" />
+                                        <input #seachByName type="date" value="@ViewBag.ngayDienRa" name="ngayDienRa" />
                                     </div>
 
                                 </div>
@@ -104,6 +104,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>#</th>
+                                            <th>#</th>
                                             <th>STT</th>
 
                                             <th>Tên Hội thảo</th>
@@ -119,6 +120,7 @@
                                     </thead>
                                     <tfoot>
                                         <tr>
+                                            <th>#</th>
                                             <th>#</th>
                                             <th>#</th>
                                             <th>STT</th>
@@ -137,24 +139,24 @@
                                         @{ int Stt = 1;}
                                         @foreach (var item in Model)
                                         {
-                                            <tr>
+                                            <tr role="row" class="odd" id="row_@item.ID">
                                                 <td>
                                                     <a href="/Admin/HoiThao/Edit/@item.ID" class="btn btn-success btn-circle btn-sm">Sửa </a>
 
                                                 </td>
-
+                                                <td>
+                                                    @Ajax.ActionLink("Xóa", "Delete",new { @id = item.ID }, new AjaxOptions
+                                                        {
+                                                          Confirm = "bạn có muốn xóa không",
+                                                          OnComplete="$('row_"+@item.ID+"').remove()",
+                                                          HttpMethod="Delete"
+                                                          })
+                                                </td>
 
 
                                                 <td><a href="#" class="btn-active" data-id="@item.ID">@Html.Raw("<strong>set Hội Thảo</strong>")</a></td>
 
-                                                @*<td>
-                                                        @Ajax.ActionLink("Xóa", "Delete",new { @id = item.ID }, new AjaxOptions
-                                                            {
-                                                              Confirm = "bạn có muốn xóa không",
-                                                              OnComplete="$('row_"+@item.ID+"').remove()",
-                                                              HttpMethod="Delete"
-                                                              })
-                                                    </td>*@
+
                                                 <td>@Stt</td>
 
                                                 <td>@item.TenHoiThao</td>

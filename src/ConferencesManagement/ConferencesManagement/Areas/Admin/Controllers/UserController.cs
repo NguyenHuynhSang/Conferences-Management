@@ -53,6 +53,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             var dao = new AccountDao();
             if (ModelState.IsValid)
             {
+                SetAuditLog();
                 account.CreatedDate = _date;
                 account.CreatedBy = _userAction;
                 long id = dao.Insert(account);

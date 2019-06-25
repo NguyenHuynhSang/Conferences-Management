@@ -13,17 +13,18 @@
         [Key]
         public long IdAccount { get; set; }
 
-        [Required(ErrorMessage ="Tên tài khoản không được để trống")]
+        [Required(ErrorMessage = "Tên tài khoản không được để trống")]
         [DisplayName("Tên tài khoản")]
-        [StringLength(50,ErrorMessage ="Tên tài khoản không vượt quá 50 ký tự"), MinLength(6, ErrorMessage = "Độ dài tối thiểu 6 ký tự")]
+        [StringLength(50, ErrorMessage = "Tên tài khoản không vượt quá 50 ký tự"), MinLength(6, ErrorMessage = "Độ dài tối thiểu 6 ký tự")]
         public string UserName { get; set; }
 
         [Required]
         [DisplayName("Mật khẩu")]
-        [StringLength(50)]
+        [StringLength(50, ErrorMessage = "Mật khẩu không vượt quá 50 ký tự"), MinLength(6, ErrorMessage = "Mật khẩu tối thiểu 6 ký tự")]
         public string PassWord { get; set; }
 
         [StringLength(20), MinLength(6, ErrorMessage = "Độ dài tối thiểu 6 ký tự")]
+
         public string SDT { get; set; }
 
         [StringLength(50)]

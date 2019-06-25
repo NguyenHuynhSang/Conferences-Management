@@ -14,6 +14,8 @@ namespace Models.Framework
 
         public virtual DbSet<About> Abouts { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<Blog> Blogs { get; set; }
+        public virtual DbSet<BlogCategory> BlogCategories { get; set; }
         public virtual DbSet<FeedBack> FeedBacks { get; set; }
         public virtual DbSet<Footer> Footers { get; set; }
         public virtual DbSet<HoiThao> HoiThaos { get; set; }
@@ -47,6 +49,18 @@ namespace Models.Framework
                 .Property(e => e.MetaDescriptions)
                 .IsFixedLength();
 
+            modelBuilder.Entity<Blog>()
+                .Property(e => e.IDBlogCategory)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Blog>()
+                .Property(e => e.CreatedBy)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<BlogCategory>()
+                .Property(e => e.CreatedBy)
+                .IsUnicode(false);
+
             modelBuilder.Entity<Footer>()
                 .Property(e => e.ID)
                 .IsUnicode(false);
@@ -79,6 +93,5 @@ namespace Models.Framework
                 .Property(e => e.MetaDescriptions)
                 .IsFixedLength();
         }
-
     }
 }

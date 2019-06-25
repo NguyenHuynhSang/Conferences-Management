@@ -29,7 +29,7 @@
         [DataType(DataType.Time)]
         [DisplayName("Giờ bắt đầu")]
         public TimeSpan? StartHour { get; set; }
-        
+
         [DataType(DataType.Time)]
         [DisplayName("Giờ kết thúc")]
         public TimeSpan? EndHour { get; set; }

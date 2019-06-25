@@ -103,5 +103,9 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                 status = result
             });
         }
+
+     
+
+
     }
 }
