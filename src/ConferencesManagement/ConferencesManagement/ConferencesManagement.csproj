@@ -3764,6 +3764,7 @@
     <Content Include="Views\Blog\Index.cshtml" />
     <Content Include="Views\Blog\BlogDetail.cshtml" />
     <Content Include="Views\Blog\RecentBlog.cshtml" />
+    <Content Include="Views\Home\SchdeduleDetail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

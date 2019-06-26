@@ -47,21 +47,7 @@ namespace Models.Models
 
                        };
 
-            //var model = from d in context.ScheduleDetails
-
-            //            join h in context.Speakers
-            //            on d.IDSpeaker equals h.ID
-            //            select new ScheduleDetailForIndex
-            //            {
-            //                ID = d.ID,
-            //                IDSchedule = d.IDSchedule,
-            //                TieuDe = d.TieuDe,
-            //                Content = d.Content,
-            //                SpeakerName = h.Name,
-            //                Image = d.Image,
-            //                StartHour = d.StartHour,
-            //                EndHour = d.EndHour
-            //            };
+     
             if (!string.IsNullOrEmpty(searchingString))
             {
                 model = model.Where(x => x.TieuDe.Contains(searchingString)|| x.SpeakerName.Contains(searchingString) || x.Content.Contains(searchingString));
@@ -69,6 +55,35 @@ namespace Models.Models
             }
             return model.OrderBy(x => x.TenHoiThao).ThenBy(x=>x.NgayDienRa).ThenBy(x=>x.StartHour).ToList();
         }
+
+
+        public IEnumerable<ScheduleDetailForIndex> GetScheduleDetailByIdSchedule(int idSchedule)
+        {
+
+            var model = from s in context.Schedules
+                        join h in context.HoiThaos
+                        on s.IDHoiThao equals h.ID
+                        join d in context.ScheduleDetails
+                        on s.ID equals d.IDSchedule
+                        join k in context.Speakers
+                        on d.IDSpeaker equals k.ID
+                        select new ScheduleDetailForIndex
+                        {
+                            ID = d.ID,
+                            IDSchedule = s.ID,
+                            TenHoiThao = h.TenHoiThao,
+                            NgayDienRa = s.NgayDienRa,
+                            SpeakerName = k.Name,
+                            ChucVu = k.ChucVu,
+                            Content = d.Content,
+                            TieuDe = d.TieuDe,
+                            StartHour = d.StartHour,
+                            EndHour = d.EndHour,
+                            Image = d.Image
+                        };
+            return model.Where(x=>x.IDSchedule==idSchedule).OrderBy(x => x.StartHour).ToList();
+        }
+
 
 
         public List<ScheduleDetailForIndex> GetScheduleDetailForIndexMenu(string searchingString = null)

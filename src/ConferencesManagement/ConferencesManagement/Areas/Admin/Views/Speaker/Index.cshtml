@@ -39,7 +39,7 @@
                             <b class="blueText">Số điện thoại:</b>
                         </div>
                         <div class="col-sm-6">
-                            <input class="resizeTextBox" value="@ViewBag.SDT" type="text"  name="SoDienThoai" placeholder="Nhập Số điện thoại" />
+                            <input class="resizeTextBox" value="@ViewBag.SDT" type="text" name="SoDienThoai" placeholder="Nhập Số điện thoại" />
                         </div>
 
 
@@ -57,22 +57,27 @@
                             </a>
                         </div>
                     </div>
+                    <hr />
+
+                    <div align="right" class="col-lg-10">
+                        <a href="/Admin/Speaker/Create" class="btn btn-primary btn-icon-split">
+                            <span class="icon text-gray-600">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                            <span class="text">Tạo mới Speaker</span>
+                        </a>
+                    </div>
                 </div>
             </div>
 
         }
-        <a href="/Admin/Speaker/Create" class="btn btn-light btn-icon-split">
-            <span class="icon text-gray-600">
-                <i class="fas fa-arrow-right"></i>
-            </span>
-            <span class="text">Tạo mới Speaker</span>
-        </a>
-        <div class="row">
+       <br />
+        <div class="row align-items-center">
             <div class="col-sm-12">
-                <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                    <thead>
+                <table class="table table-bordered dataTable table-striped" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                    <thead class="thead-dark">
                         <tr role="row">
-                            <th>Hình ảnh</th>
+                            <th width="120">Hình ảnh</th>
                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="UserName: activate to sort column ascending" style="width: 95.0062px;">
                                 Họ tên
                             </th>

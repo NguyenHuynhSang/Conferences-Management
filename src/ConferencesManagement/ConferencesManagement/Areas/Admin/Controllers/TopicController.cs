@@ -15,12 +15,15 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
         // GET: Admin/News
         [ValidateInput(false)]
-        public ActionResult Index(string searchingString, int page = 1, int pageSize = 5)
+        public ActionResult Index(int? HoiThaoID,string topicMenu,string chuDe, int page = 1, int pageSize = 5)
         {
+            GetDSHoiThao();
             SetAlert("Load chủ đề thành công", "success");
             var dao = new TopicDao();
-            var model = dao.GetTopicForIndex(page, pageSize, searchingString);
-            ViewBag.Searching = searchingString;
+            var model = dao.GetTopicForIndex(page, pageSize, HoiThaoID,topicMenu,chuDe);
+            ViewBag.Searching = HoiThaoID;
+            ViewBag.TopicMenu = topicMenu;
+            ViewBag.ChuDe = chuDe;
             return View(model);
         }
         [ValidateInput(false)]
@@ -100,6 +103,13 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             selectedid = CommonConstants.CURRENT_HOITHAO;
             var dao = new HoiNghiDao();
             ViewBag.IDTopic = new SelectList(dao.GetHoiThaos(), "ID", "TenHoiThao", selectedid);
+        }
+        public void GetDSHoiThao()
+        {
+
+            var dao = new HoiNghiDao();
+            ViewBag.DSHoiThao = dao.GetHoiThaos().ToList();
+
         }
     }
 }

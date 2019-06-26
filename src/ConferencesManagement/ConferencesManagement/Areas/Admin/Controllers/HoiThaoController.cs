@@ -12,6 +12,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         // GET: Admin/HoiThao
         public ActionResult Index(string tenHoiThao,string noiDienRa,string ngayDienRa, int page = 1,int pageSize=10)
         {
+            SetAlert("Load Hội thảo thành công", "success");
             var db = new HoiNghiDao();
             var model = db.ListAllPaging(page, pageSize, tenHoiThao,noiDienRa, ngayDienRa);
             ViewBag.tenHoiThao = tenHoiThao;
@@ -23,8 +24,13 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-        
-            return View();
+          
+            var modal = new HoiThao();
+            SetAuditLog();
+            modal.CreatedBy = _userAction;
+            modal.CreatedDate = _date;
+            modal.NgayDienRa = DateTime.Now;
+            return View(modal);
         }
         [ValidateInput(false)]
         [HttpGet]
@@ -41,7 +47,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         public ActionResult Create(HoiThao hoinghi)
         {
 
-            hoinghi.NgayDienRa = hoinghi.NgayDienRa.Date;
+            hoinghi.NgayDienRa = DateTime.Now;
             var dao = new HoiNghiDao();
           
             if (ModelState.IsValid)
@@ -72,6 +78,9 @@ namespace ConferencesManagement.Areas.Admin.Controllers
       
             var dao = new HoiNghiDao();
             var model = dao.ListAllPaging(1, 10);
+            SetAuditLog();
+            account.ModifiedBy = _userAction;
+            account.ModifiedDate = _date;
             if (ModelState.IsValid)
             {
 
