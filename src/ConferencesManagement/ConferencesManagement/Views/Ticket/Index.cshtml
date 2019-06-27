@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section JsFooter
+    {
+
+    <script src="/Assets/Client/js/about.js"></script>
+}
+@section HomeHeader
+    {
+
+    <link rel="stylesheet" type="text/css" href="/Assets/Client/styles/about.css">
+    <link rel="stylesheet" type="text/css" href="/Assets/Client/styles/about_responsive.css">
+}
+
+<!-- Home -->
+
+<div class="home">
+    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="/Assets/Client/images/about_page.jpg" data-speed="0.8"></div>
+    <div class="home_container">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="home_content">
+                        <div class="home_title"><h1>About us</h1></div>
+                        <div class="breadcrumbs">
+                            <ul class="d-flex flex-row align-items-center justify-content-start">
+                                <li><a href="index.html">Home</a></li>
+                                <li>About us</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Milestones -->
+
+<div class="milestones">
+    <div class="container">
+        <div class="row">
+
+            <!-- Milestone -->
+            <div class="col-xl-3 col-md-6 milestone_col">
+                <div class="milestone d-flex flex-row align-items-start justify-content-start">
+                    <div class="milestone_icon d-flex flex-column align-items-center justify-content-center"><img src="/Assets/Client/images/icon_1.svg" alt="https://www.flaticon.com/authors/freepik"></div>
+                    <div class="milestone_content">
+                        <div class="milestone_counter" data-end-value="1000" data-sign-after="">0</div>
+                        <div class="milestone_text">Members</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Milestone -->
+            <div class="col-xl-3 col-md-6 milestone_col">
+                <div class="milestone d-flex flex-row align-items-start justify-content-start">
+                    <div class="milestone_icon d-flex flex-column align-items-center justify-content-center"><img src="/Assets/Client/images/icon_2.svg" alt="https://www.flaticon.com/authors/freepik"></div>
+                    <div class="milestone_content">
+                        <div class="milestone_counter" data-end-value="24">0</div>
+                        <div class="milestone_text">Topics</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Milestone -->
+            <div class="col-xl-3 col-md-6 milestone_col">
+                <div class="milestone d-flex flex-row align-items-start justify-content-start">
+                    <div class="milestone_icon d-flex flex-column align-items-center justify-content-center"><img src="/Assets/Client/images/icon_3.svg" alt="https://www.flaticon.com/authors/freepik"></div>
+                    <div class="milestone_content">
+                        <div class="milestone_counter" data-end-value="4">0</div>
+                        <div class="milestone_text">Days</div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Milestone -->
+            <div class="col-xl-3 col-md-6 milestone_col">
+                <div class="milestone d-flex flex-row align-items-start justify-content-start">
+                    <div class="milestone_icon d-flex flex-column align-items-center justify-content-center"><img src="/Assets/Client/images/icon_4.svg" alt="https://www.flaticon.com/authors/freepik"></div>
+                    <div class="milestone_content">
+                        <div class="milestone_counter" data-end-value="37">0</div>
+                        <div class="milestone_text">Speakers</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Pricing -->
+
+ @{Html.RenderAction("TickerPlan", "Ticket");}
+<!-- Logos -->
+
+<div class="logos">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="section_title text-center"><h1>Official Sponsors & Partners</h1></div>
+                <div class="logos_text text-center">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravi da. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus co mmodo viverra maecenas accumsan lacus vel facilisis.</p>
+                </div>
+
+                <!-- Logos Slider -->
+                <div class="logos_slider_container">
+                    <div class="owl-carousel owl-theme logos_slider">
+
+                        <!-- Slide -->
+                        <div class="slide"><img src="/Assets/Client/images/logo_1.png" alt=""></div>
+
+                        <!-- Slide -->
+                        <div class="slide"><img src="/Assets/Client/images/logo_2.png" alt=""></div>
+
+                        <!-- Slide -->
+                        <div class="slide"><img src="/Assets/Client/images/logo_3.png" alt=""></div>
+
+                        <!-- Slide -->
+                        <div class="slide"><img src="/Assets/Client/images/logo_4.png" alt=""></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

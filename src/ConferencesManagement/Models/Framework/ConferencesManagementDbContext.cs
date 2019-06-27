@@ -11,7 +11,6 @@ namespace Models.Framework
             : base("name=ConferencesManagementDbContext")
         {
         }
-
         public virtual DbSet<About> Abouts { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<Blog> Blogs { get; set; }
@@ -30,12 +29,15 @@ namespace Models.Framework
         public virtual DbSet<Topic> Topics { get; set; }
         public virtual DbSet<TypeAccount> TypeAccounts { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
+        public virtual DbSet<LoaiVe> LoaiVes { get; set; }
+        public virtual DbSet<TaiTro> TaiTroes { get; set; }
+        public virtual DbSet<Ve> Ves { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<About>()
-                .Property(e => e.CreatedBy)
-                .IsUnicode(false);
+               .Property(e => e.CreatedBy)
+               .IsUnicode(false);
 
             modelBuilder.Entity<About>()
                 .Property(e => e.MetaDescriptions)
@@ -92,6 +94,17 @@ namespace Models.Framework
             modelBuilder.Entity<TypeAccount>()
                 .Property(e => e.MetaDescriptions)
                 .IsFixedLength();
+            modelBuilder.Entity<LoaiVe>()
+                .Property(e => e.CreatedBy)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<TaiTro>()
+                .Property(e => e.CreatedBy)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Ve>()
+                .Property(e => e.CreatedBy)
+                .IsUnicode(false);
         }
     }
 }

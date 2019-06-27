@@ -15,7 +15,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         private static long getIDforEdit;
         public ActionResult Index(string searchingString, int page = 1, int pageSize = 10)
         {
-            SetAlert("Load chi tiet hoi thao thành công", "success");
+            SetAlert("Load DS Speaker thành công", "success");
             var dao = new HoiThaoDetailDao();
             var result = dao.GetHTDetailForIndex(searchingString);
             ViewBag.Searching = searchingString;
@@ -72,6 +72,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         public void SetViewBagSpeaker(long? selectedid = null)
         {
             var dao1 = new SpeakerDao();
+          
             ViewBag.IDSpeaker = new SelectList(dao1.ListAll(), "ID", "Name", selectedid);
         }
 
@@ -102,7 +103,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
                 if (result)
                 {
-                    SetAlert("Sửa hoi thao thành công", "success");
+                    SetAlert("Sửa  thành công", "success");
                     return RedirectToAction("Index", "HoiThaoDeTail", model);
                 }
                 else

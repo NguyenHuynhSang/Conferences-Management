@@ -3481,6 +3481,8 @@
     <Content Include="Areas\Admin\Views\Blog\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Blog\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Blog\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiVE\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiVE\Create.cshtml" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
@@ -3501,6 +3503,7 @@
     <Compile Include="Areas\Admin\Controllers\HoiThaoController.cs" />
     <Compile Include="Areas\Admin\Controllers\HoiThaoDetailController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LoaiVeController.cs" />
     <Compile Include="Areas\Admin\Controllers\LoginController.cs" />
     <Compile Include="Areas\Admin\Controllers\ScheduleController.cs" />
     <Compile Include="Areas\Admin\Controllers\ScheduleDetailController.cs" />
@@ -3517,6 +3520,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
+    <Compile Include="Controllers\TickerController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserProfileDetailController.cs" />
     <Compile Include="Global.asax.cs">
@@ -3765,6 +3769,9 @@
     <Content Include="Views\Blog\BlogDetail.cshtml" />
     <Content Include="Views\Blog\RecentBlog.cshtml" />
     <Content Include="Views\Home\SchdeduleDetail.cshtml" />
+    <Content Include="Views\UserProfileDetail\UserTimeLine.cshtml" />
+    <Content Include="Views\Ticket\Index.cshtml" />
+    <Content Include="Views\Ticket\TickerPlan.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

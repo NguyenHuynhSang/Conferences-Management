@@ -1,4 +1,4 @@
-﻿@model PagedList.IPagedList<Models.Framework.Blog>
+﻿@model PagedList.IPagedList<Models.Framework.LoaiVe>
 @using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
@@ -11,7 +11,7 @@
                 color: royalblue;
             }
 
-            .resizeTextBox {
+            .    {
                 width: 400px;
                 height: 32px;
             }
@@ -30,30 +30,33 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
 
-                @using (Html.BeginForm("Index", "Speaker", FormMethod.Get))
+                @using (Html.BeginForm("Index", "LoaiVe", FormMethod.Get))
                 {
                     <div class="card border-left-primary">
                         <div class="card-body">
-                            <h6 class="m-0 font-weight-bold text-primary">Blog</h6>
                             <div class="row m-xl-4">
                                 <div class="col-md-1">
-                                    <b class="blueText">Tên speaker:</b>
+                                    <b class="blueText">Tên hội thảo</b>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input class="resizeTextBox" #searchText type="text" value="@ViewBag.HoTen" name="HoTen" placeholder="Nhập tên" />
+                                    @Html.DropDownList("HoiThaoID", new SelectList(ViewBag.DSHoiThao, "ID", "TenHoiThao"), "--Chọn Hội Thảo--", htmlAttributes: new { @class = "form-control" })
                                 </div>
-                                <div class="col-xl-6">
-                                    <b class="blueText">Email:</b>
-                                    <input #seachByName type="text" value="@ViewBag.Email" name="Email" placeholder="Nhập Email " />
+
+                                <div class="col-md-1">
+                                    <b class="blueText">Loại vé</b>
                                 </div>
+                                <div class="col-sm-4">
+                                    <input class="form-control" #seachByName type="text" value="@ViewBag.TopicMenu" name="TopicMenu" placeholder="Nhập topic menu" />
+                                </div>
+
 
                             </div>
                             <div class="row m-xl-4">
                                 <div class="col-md-1">
-                                    <b class="blueText">Số điện thoại:</b>
+                                    <b class="blueText">Nội dung</b>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input class="resizeTextBox" value="@ViewBag.SDT" type="text" name="SoDienThoai" placeholder="Nhập Số điện thoại" />
+                                    <input class="form-control" #searchText type="text" value="@ViewBag.ChuDe" name="ChuDe" placeholder="Nhập chủ đề" />
                                 </div>
 
 
@@ -63,7 +66,7 @@
                                     <button class="btn btn-facebook">Search</button>
                                 </div>
                                 <div class="col-md-2">
-                                    <a href="/Admin/Blog/Index" class="btn btn-facebook">
+                                    <a href="/Admin/LoaiVe/Index" class="btn btn-facebook">
                                         <span class="icon text-gray-600">
                                             <i class="fas fa-arrow-right"></i>
                                         </span>
@@ -71,36 +74,35 @@
                                     </a>
                                 </div>
                             </div>
+                            <hr />
+
+                            <div align="right" class="col-lg-10">
+                                <a href="/Admin/LoaiVe/Create" class="btn btn-primary btn-icon-split">
+                                    <span class="icon text-gray-600">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </span>
+                                    <span class="text">Tạo Loại Vé mới</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
 
                 }
-                <a href="/Admin/Blog/Create" class="btn btn-light btn-icon-split">
-                    <span class="icon text-gray-600">
-                        <i class="fas fa-arrow-right"></i>
-                    </span>
-                    <span class="text">Tạo Blog</span>
-                </a>
+               <br />
                 <div class="row">
                     <div class="col-sm-12">
                         <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                            <thead>
+                            <thead class="thead-dark">
                                 <tr role="row">
-                                    <th>Hình ảnh</th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="UserName: activate to sort column ascending" style="width: 95.0062px;">
-                                        Tiêu đề
+                                    <th>Loại vé</th>
+                                    <th >
+                                        Đơn giá
                                     </th>
-                                    <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Password: activate to sort column descending" style="width: 149.006px;" aria-sort="ascending">
-                                        Mô tả
-                                    </th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-                                        Loại
-                                    </th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-                                        Tác giả
-                                    </th>
-                                    <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
+                                    <th >
                                         Nội dung
+                                    </th>
+                                    <th>
+                                        Hội thảo
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
                                         Created By
@@ -130,22 +132,16 @@
                                     <tr role="row" class="odd" id="row_@item.ID">
 
                                         <td>
-                                            <img src="@item.Image" height="100" width=" 100" />
+                                            @item.Name
                                         </td>
                                         <td>
-                                            @item.Title
+                                            @item.DonGia
                                         </td>
                                         <td>
-                                            @item.ShotDescription
+                                            @Html.Raw(@item.content);
                                         </td>
                                         <td>
-                                            @item.IDBlogCategory
-                                        </td>
-                                        <td>
-                                            @item.IDSpeaker
-                                        </td>
-                                        <td>
-                                             @Html.Raw(@item.Content); 
+                                            @item.IDHoiThao
                                         </td>
                                         <td>
                                             @item.CreatedBy
@@ -160,7 +156,7 @@
                                             @item.ModifiedDate
                                         </td>
                                         <td>
-                                            <a href="/Admin/Blog/Edit/@item.ID">Sửa</a>
+                                            <a href="/Admin/LoaiVe/Edit/@item.ID">Sửa</a>
                                         </td>
                                         <td>
                                             @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
@@ -182,3 +178,4 @@
         </div>
     </div>
 </div>
+

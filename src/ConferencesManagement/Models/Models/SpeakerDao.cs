@@ -57,6 +57,16 @@ namespace Models
 
         public List<Speaker> ListAll()
         {
+            var ds = db.Speakers.ToList();
+            var dsDaThanhgia = db.ScheduleDetails.ToList();
+            foreach(var item in ds)
+            {
+                foreach(var child in dsDaThanhgia)
+                {
+                    if (item.ID == child.ID) ds.Remove(item);
+                }
+            }
+
             return db.Speakers.ToList();
         }
         public bool Update(Speaker entity)

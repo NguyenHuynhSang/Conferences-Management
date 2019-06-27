@@ -18,5 +18,13 @@ namespace ConferencesManagement.Controllers
             var modal = new AccountDao().GetUserByID(session.IdAccount);
             return View(modal);
         }
+
+        [ChildActionOnly]
+        [HttpGet]
+        public ActionResult UserTimeLine()
+        {
+
+            return PartialView();
+        }
     }
 }

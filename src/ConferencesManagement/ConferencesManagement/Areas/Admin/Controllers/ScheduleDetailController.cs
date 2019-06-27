@@ -26,6 +26,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
+         
             SetViewBagSpeaker();
             SetViewBag();
             return View();

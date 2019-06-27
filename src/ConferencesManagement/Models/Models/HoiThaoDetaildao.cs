@@ -82,6 +82,13 @@ namespace Models.Models
             }
         }
 
+
+        public int GetListSpeakerJoinHoiThao(int IDHoiThao)
+        {
+            var ds = db.HoiThaoDetails.Where(x => x.IDHoiThao == IDHoiThao);
+            if (ds == null) return 0;
+            return ds.Count();
+        }
         public bool Update(HoiThaoDetail entity)
         {
             try

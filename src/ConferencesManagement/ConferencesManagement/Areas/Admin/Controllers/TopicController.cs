@@ -64,6 +64,8 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
+            SetViewBag();
+
             var account = new TopicDao().TopicDetail(id);
             return View(account);
         }
