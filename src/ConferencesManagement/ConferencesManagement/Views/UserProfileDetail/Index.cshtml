@@ -9,8 +9,9 @@
 <style>
     .customBr {
         width: 200px;
-        height: 300px;
+        height: 200px;
     }
+
 </style>
 <div class="intro">
     <div class="container">
@@ -23,10 +24,16 @@
                                 <div class="col-md-4">
                                     <div class="profile-img">
                                         <br />
-                                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt="" />
-                                        <div class="file  btn btn-primary">
-                                            Change Photo
-                                        </div>
+                                        @if (Model.Image != null)
+                                        {
+                                            <img class="customBr" src="@Model.Image">
+                                        }
+                                        else
+                                        {
+                                            <img class="customBr" src="~/Assets/Client/images/user.png">
+                                        }
+                                        <hr />
+                                      
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -50,9 +57,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col-md-2">
-                                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
-                                </div>
+                               
                             </div>
                             <div class="row">
                                 <div class="col-md-4">

@@ -15,9 +15,10 @@
         [StringLength(250)]
         public string Image { get; set; }
 
+        [DisplayName("Hội thảo")]
         public long IDTopic { get; set; }
 
-        [StringLength(50)]
+        
         [DisplayName("Topic Menu")]
         public string TopicMenu { get; set; }
 

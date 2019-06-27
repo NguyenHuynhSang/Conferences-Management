@@ -5,224 +5,182 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<body id="page-top">
-
-    <!-- Page Wrapper -->
-    <div id="wrapper">
-
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
-
-            <!-- Main Content -->
-            <div id="content">
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <!-- Page Wrapper -->
 
 
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
+        <style>
+            .blueText {
+                color: royalblue;
+            }
 
-                    <!-- Page Heading -->
-
-                    <h1 class="h3 mb-2 text-gray-800">Thông tin Account</h1>
-
-                    <style>
-                        .blueText {
-                            color: royalblue;
-                        }
-
-                        .resizeTextBox {
-                            width: 400px;
-                            height: 32px;
-                        }
-                    </style>
+            .resizeTextBox {
+                width: 400px;
+                height: 32px;
+            }
+        </style>
 
 
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
+        <!-- DataTales Example -->
 
+        @using (Html.BeginForm("Index", "User", FormMethod.Get))
+        {
+            <div class="card border-left-primary">
+                <div class="card-body">
+                    <h6 class="m-0 font-weight-bold text-primary">Account</h6>
+                    <div class="row m-xl-4">
+                        <div class="col-md-1">
+                            <b class="blueText">User name:</b>
+                        </div>
+                        <div class="col-sm-4">
+                            <input class="resizeTextBox" #searchText type="text" value="@ViewBag.UserName" name="userName" placeholder="Nhập user name" />
+                        </div>
+                        <div class="col-xl-6">
+                            <b class="blueText">Tên người dùng:</b>
+                            <input #seachByName type="text" name="HoTen" value="@ViewBag.HoTen" placeholder="Nhập tên người dùng " />
+                        </div>
 
-                            @using (Html.BeginForm("Index", "User", FormMethod.Get))
-                            {
-                                <div class="card border-left-primary">
-                                    <div class="card-body">
-                                        <h6 class="m-0 font-weight-bold text-primary">Account</h6>
-                                        <div class="row m-xl-4">
-                                            <div class="col-md-1">
-                                                <b class="blueText">User name:</b>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <input class="resizeTextBox" #searchText type="text" value="@ViewBag.UserName" name="userName" placeholder="Nhập user name" />
-                                            </div>
-                                            <div class="col-xl-6">
-                                                <b class="blueText">Tên người dùng:</b>
-                                                <input #seachByName type="text" name="HoTen" value="@ViewBag.HoTen" placeholder="Nhập tên người dùng " />
-                                            </div>
-
-                                        </div>
-                                        <div class="row m-xl-4">
-                                            <div class="col-md-1">
-                                                <b class="blueText">Email:</b>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input class="resizeTextBox" #searchText type="text" value="@ViewBag.Email" name="Email" placeholder="Nhập Email" />
-                                            </div>
-
-
-                                        </div>
-                                        <div class="row m-xl-4">
-                                            <div class="col-md-2">
-                                                <button type="submit" class="btn btn-facebook">Search</button>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <a href="/Admin/User/Index" class="btn btn-facebook">
-                                                    <span class="icon text-gray-600">
-                                                        <i class="fas fa-arrow-right"></i>
-                                                    </span>
-                                                    <span class="text">Reset</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            }
-
-
-                            <div class="col-lg-12">
-                                <div class="col-lg-4">
-                                    <a href="/Admin/User/Create" class="btn btn-light btn-icon-split">
-                                        <span class="icon text-gray-600">
-                                            <i class="fas fa-arrow-right"></i>
-                                        </span>
-                                        <span class="text">Tạo mới User</span>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>#</th>
-                                                <th>Tên Tài Khoản</th>
-                                                <th>Mật Khẩu</th>
-                                                <th>LoạiTK</th>
-                                                <th>Họ Tên</th>
-                                                <th>Địa Chỉ</th>
-                                                <th>Email</th>
-                                                <th>Người tạo</th>
-                                                <th>Ngày tạo</th>
-                                                <th>Người sửa</th>
-                                                <th>Ngày sửa</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>#</th>
-                                                <th>Tên Tài Khoản</th>
-                                                <th>Mật Khẩu</th>
-                                                <th>LoạiTK</th>
-                                                <th>Họ Tên</th>
-                                                <th>Địa Chỉ</th>
-                                                <th>Email</th>
-                                                <th>Người tạo</th>
-                                                <th>Ngày tạo</th>
-                                                <th>Người sửa</th>
-                                                <th>Ngày sửa</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-                                            @foreach (var item in Model)
-                                            {
-                                                <tr role="row" class="odd" id="row_@item.IdAccount">
-                                                    <td>
-                                                        <a href="/Admin/User/Edit/@item.IdAccount" class="btn btn-success btn-circle btn-sm">Sửa </a>
-
-                                                    </td>
-                                                    <td>
-                                                        @Ajax.ActionLink("Xoá", "Delete", new { @id = item.IdAccount }, new AjaxOptions
-                                                  {
-                                                      Confirm = "Bạn có muốn xoá bản ghi này?",
-                                                      OnComplete = "$('#row_" + @item.IdAccount + "').remove()",
-                                                      HttpMethod = "Delete"
-                                                  })
-                                                    </td>
-                                                    <td>@item.UserName</td>
-                                                    <td>@item.PassWord</td>
-                                                    <td>@item.TypeAccount</td>
-                                                    <td>@item.HoTen</td>
-                                                    <td>@item.DiaChi</td>
-                                                    <td>@item.Email</td>
-                                                    <td>@item.CreatedBy</td>
-                                                    <td>@item.CreatedDate</td>
-                                                    <td>@item.ModifiedBy</td>
-                                                    <td>@item.ModifiedDate</td>
-                                                </tr>
-                                            }
-                                        </tbody>
-                                    </table>
-                                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchingString = ViewBag.SearchingString }))
-                                </div>
-                            </div>
+                    </div>
+                    <div class="row m-xl-4">
+                        <div class="col-md-1">
+                            <b class="blueText">Email:</b>
+                        </div>
+                        <div class="col-sm-6">
+                            <input class="resizeTextBox" #searchText type="text" value="@ViewBag.Email" name="Email" placeholder="Nhập Email" />
                         </div>
 
 
-                        <!-- /.container-fluid -->
-
                     </div>
-                    <!-- End of Main Content -->
+                    <div class="row m-xl-4">
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-facebook">Search</button>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="/Admin/User/Index" class="btn btn-facebook">
+                                <span class="icon text-gray-600">
+                                    <i class="fas fa-arrow-right"></i>
+                                </span>
+                                <span class="text">Reset</span>
+                            </a>
+                        </div>
+                    </div>
+                    <hr />
 
-
+                    <div align="right" class="col-lg-10">
+                        <a href="/Admin/User/Create" class="btn btn-primary btn-icon-split">
+                            <span class="icon text-gray-600">
+                                <i class="fas fa-arrow-right"></i>
+                            </span>
+                            <span class="text">Tạo mới User</span>
+                        </a>
+                    </div>
 
                 </div>
-                <!-- End of Content Wrapper -->
-
             </div>
-            <!-- End of Page Wrapper -->
-            <!-- Scroll to Top Button-->
-            <a class="scroll-to-top rounded" href="#page-top">
-                <i class="fas fa-angle-up"></i>
-            </a>
 
-            <!-- Logout Modal-->
-            @*<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">×</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                            <div class="modal-footer">
-                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                                <a class="btn btn-primary" href="login.html">Logout</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>*@
+        }
+
+        <br />
+
+
+        <div class="row align-items-center">
+            <div class="col-sm-12">
+                <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>#</th>
+                            <th>Tên Tài Khoản</th>
+                            <th>Mật Khẩu</th>
+                            <th>LoạiTK</th>
+                            <th>Họ Tên</th>
+                            <th>Địa Chỉ</th>
+                            <th>Email</th>
+                            <th>Người tạo</th>
+                            <th>Ngày tạo</th>
+                            <th>Người sửa</th>
+                            <th>Ngày sửa</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>#</th>
+                            <th>#</th>
+                            <th>Tên Tài Khoản</th>
+                            <th>Mật Khẩu</th>
+                            <th>LoạiTK</th>
+                            <th>Họ Tên</th>
+                            <th>Địa Chỉ</th>
+                            <th>Email</th>
+                            <th>Người tạo</th>
+                            <th>Ngày tạo</th>
+                            <th>Người sửa</th>
+                            <th>Ngày sửa</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr role="row" class="odd" id="row_@item.IdAccount">
+                                <td>
+                                    <a href="/Admin/User/Edit/@item.IdAccount" class="btn btn-success btn-circle btn-sm">Sửa </a>
+
+                                </td>
+                                <td>
+                                    @Ajax.ActionLink("Xoá", "Delete", new { @id = item.IdAccount }, new AjaxOptions
+                                          {
+                                              Confirm = "Bạn có muốn xoá bản ghi này?",
+                                              OnComplete = "$('#row_" + @item.IdAccount + "').remove()",
+                                              HttpMethod = "Delete"
+                                          })
+                                </td>
+                                <td>@item.UserName</td>
+                                <td>@item.PassWord</td>
+                                <td>@item.TypeAccount</td>
+                                <td>@item.HoTen</td>
+                                <td>@item.DiaChi</td>
+                                <td>@item.Email</td>
+                                <td>@item.CreatedBy</td>
+                                <td>@item.CreatedDate</td>
+                                <td>@item.ModifiedBy</td>
+                                <td>@item.ModifiedDate</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchingString = ViewBag.SearchingString }))
+            </div>
+
+
+            <!-- /.container-fluid -->
+
         </div>
+        <!-- End of Main Content -->
+        <!-- End of Page Wrapper -->
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="/Assets/Admin/vendor/jquery/jquery.min.js"></script>
+        <script src="/Assets/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+        <script src="/Assets/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="/Assets/Admin/js/sb-admin-2.min.js"></script>
+
+        <!-- Page level plugins -->
+        <script src="/Assets/Admin/vendor/datatables/jquery.dataTables.min.js"></script>
+        <script src="/Assets/Admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="/Assets/Admin/js/demo/datatables-demo.js"></script>
+
+
     </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="/Assets/Admin/vendor/jquery/jquery.min.js"></script>
-    <script src="/Assets/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="/Assets/Admin/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="/Assets/Admin/js/sb-admin-2.min.js"></script>
-
-    <!-- Page level plugins -->
-    <script src="/Assets/Admin/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="/Assets/Admin/vendor/datatables/dataTables.bootstrap4.min.js"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="/Assets/Admin/js/demo/datatables-demo.js"></script>
-
-</body>
+</div>

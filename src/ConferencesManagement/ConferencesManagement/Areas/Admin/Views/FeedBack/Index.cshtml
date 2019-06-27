@@ -22,7 +22,7 @@
             <div class="card-header py-3">
 
                 <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
-                    <thead>
+                    <thead class="thead-dark">
                         <tr role="row">
                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="CreatedDate: activate to sort column ascending" style="width: 68.0063px;">
                                 Created date
@@ -39,9 +39,7 @@
                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Content: activate to sort column ascending" style="width: 68.0063px;">
                                 Mô tả
                             </th>
-                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending" style="width: 68.0063px;">
-                                #
-                            </th>
+                      
                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Content: activate to sort column ascending" style="width: 68.0063px;">
                                 #
                             </th>
@@ -66,9 +64,7 @@
                                 <td>
                                     @item.Content
                                 </td>
-                                <td>
-                                    <a href="FeedBack/Edit/@item.ID">Sửa</a>
-                                </td>
+                             
                                 <td>
                                     <a href="FeedBack/Delete/@item.ID">Xóa</a>
                                 </td>

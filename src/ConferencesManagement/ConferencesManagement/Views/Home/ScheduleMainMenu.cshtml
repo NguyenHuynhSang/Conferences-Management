@@ -19,12 +19,12 @@
                     <div class="schedule_container">
                         @if (i % 2 == 0)
                         {
-                            <div class="schedule_title_bar schedule_title_bar_2 text-center">Day @i :<span>@item.NgayDienRa</span></div>
+                            <div class="schedule_title_bar schedule_title_bar_2 text-center">Day @i :<span>@item.NgayDienRa.ToString("dd/MMM/yyyy")</span></div>
 
                         }
                         else
                         {
-                            <div class="schedule_title_bar schedule_title_bar_1 text-center">Day @i :<span>@item.NgayDienRa</span></div>
+                            <div class="schedule_title_bar schedule_title_bar_1 text-center">Day @i :<span>@item.NgayDienRa.ToString("dd/MMM/yyyy")</span></div>
                         }
 
                         @{ i++;}

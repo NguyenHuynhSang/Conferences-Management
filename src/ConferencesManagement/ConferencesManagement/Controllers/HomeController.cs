@@ -39,7 +39,7 @@ namespace ConferencesManagement.Controllers
         
 
         }
-
+        [ChildActionOnly]
         public ActionResult TitleInfo()
         {
 
@@ -48,6 +48,7 @@ namespace ConferencesManagement.Controllers
 
         }
 
+        [ChildActionOnly]
         public ActionResult HomeContent()
         {
             var model = new SlideDao().GetCurrentSlideOfHoiThao((int)CommonConstants.CURRENT_HOITHAO);
@@ -57,12 +58,16 @@ namespace ConferencesManagement.Controllers
 
         }
 
+        [ChildActionOnly]
         public ActionResult SpeakerMenu()
         {
             var model = new SpeakerDao().GetSpeakersJoinConference(CommonConstants.CURRENT_HOITHAO);
             return PartialView(model);
 
         }
+
+        [HttpGet]
+        [ChildActionOnly]
         public ActionResult UserProfile()
         {
             var session = (ConferencesManagement.Common.UserLogin)Session[ConferencesManagement.Common.CommonConstants.USER_SESSION];
@@ -70,6 +75,8 @@ namespace ConferencesManagement.Controllers
             var modal = new AccountDao().GetUserByID(session.IdAccount);
             return PartialView(modal);
         }
+
+        [ChildActionOnly]
         public ActionResult ScheduleMainMenu()
         {
             var model = new ScheduleDetailDao().GetScheduleDetailForIndex();
@@ -77,6 +84,7 @@ namespace ConferencesManagement.Controllers
             return PartialView(model);
         }
 
+        [ChildActionOnly]
         public ActionResult TimerCount()
         {
          

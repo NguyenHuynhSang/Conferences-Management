@@ -37,7 +37,6 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         }
 
         [HttpGet]
-
         public ActionResult Edit(int id)
         {
             getIDforEdit = id;

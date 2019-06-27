@@ -10,6 +10,7 @@ namespace ConferencesManagement.Controllers
     public class UserProfileDetailController : Controller
     {
         // GET: UserProfileDetail
+        [HttpGet]
         public ActionResult Index()
         {
             var session = (ConferencesManagement.Common.UserLogin)Session[ConferencesManagement.Common.CommonConstants.USER_SESSION];

@@ -69,7 +69,7 @@ namespace Models.Models
         }
 
 
-        public IEnumerable<TopicForIndex> GetTopicForIndex(int page, int pageSize, string searchingString=null)
+        public IEnumerable<TopicForIndex> GetTopicForIndex(int page, int pageSize, int? HoiThaoID = null, string topicMenu = null, string chuDe = null)
         {
             var model = from a in db.Topics
                         join ht in db.HoiThaos
@@ -77,7 +77,8 @@ namespace Models.Models
                         select new TopicForIndex()
                         {
                             ID = a.ID,
-                            Image=a.Image,
+                            IDHoiThao=ht.ID,
+                            Image =a.Image,
                             TenHoiThao = ht.TenHoiThao,
                             TopicMenu = a.TopicMenu,
                             ChuDe = a.ChuDe,
@@ -90,10 +91,17 @@ namespace Models.Models
                         };
               
             
-            if (!string.IsNullOrEmpty(searchingString))
+            if (HoiThaoID!= null)
             {
-                model = model.Where(x => x.TenHoiThao.Contains(searchingString) || x.ChuDe.Contains(searchingString) || x.Content.Contains(searchingString) || x.TopicMenu.Contains(searchingString)).OrderByDescending(x => x.CreatedDate);
-
+                model = model.Where(x => x.IDHoiThao==HoiThaoID).OrderByDescending(x => x.CreatedDate);
+            }
+            if (!string.IsNullOrEmpty(topicMenu))
+            {
+                model = model.Where(x => x.TopicMenu.Contains(topicMenu) ).OrderByDescending(x => x.CreatedDate);
+            }
+            if (!string.IsNullOrEmpty(chuDe))
+            {
+                model = model.Where(x => x.ChuDe.Contains(chuDe)).OrderByDescending(x => x.CreatedDate);
             }
             return model.OrderByDescending(x => x.TenHoiThao).ThenBy(x=>x.CreatedDate).ToPagedList(page, pageSize);
            }

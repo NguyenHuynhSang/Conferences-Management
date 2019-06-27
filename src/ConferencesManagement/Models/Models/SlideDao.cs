@@ -29,7 +29,7 @@ namespace Models.Models
             return entity.ID;
         }
 
-        public IEnumerable<SlideForIndex> ListAllPaging(int page, int pageSize, string searchingString = null)
+        public IEnumerable<SlideForIndex> ListAllPaging(int page, int pageSize, int? IdHoiThao=null)
         {
 
             var slide = from a in db.Slides
@@ -52,10 +52,9 @@ namespace Models.Models
                             
                         };
 
-            if (!string.IsNullOrEmpty(searchingString))
+            if (IdHoiThao!=null)
             {
-                slide = slide.Where(x => x.IDHoiThao.Equals(searchingString)).OrderByDescending(x => x.CreatedDate);
-
+                slide = slide.Where(x => x.IDHoiThao==IdHoiThao).OrderByDescending(x => x.CreatedDate);
             }
             return (slide.OrderByDescending(x => x.CreatedDate)).ToPagedList(page, pageSize);
         }

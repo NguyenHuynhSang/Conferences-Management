@@ -1,0 +1,20 @@
+﻿@model List<Models.Entities.ScheduleDetailForIndex>
+@foreach (var childItem in Model)
+{
+    <div class="schedule_list">
+        <ul>
+            <li class="d-flex flex-row align-items-center justify-content-start">
+                <div class="schedule_image"><img src="@childItem.Image" alt=""></div>
+                <div class="schedule_content">
+                    <div class="schedule_time">@childItem.StartHour - @childItem.EndHour</div>
+                    <div class="schedule_title">@childItem.TieuDe</div>
+                    <div class="schedule_info">Host:<a href="#">@childItem.SpeakerName</a> - @childItem.ChucVu</div>
+                    <div class="schedule_text">
+                        <p>@Html.Raw(childItem.Content)</p>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+}

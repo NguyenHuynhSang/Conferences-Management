@@ -49,7 +49,9 @@ namespace Models.Models
 
         public HoiThao GetActiveHoiThao()
         {
-            return db.HoiThaos.FirstOrDefault(x => x.Status == true);
+            var current=db.HoiThaos.FirstOrDefault(x => x.Status == true);
+            if (current == null) return db.HoiThaos.FirstOrDefault(x => x.ID == 1);
+            return current;
         }
 
 
@@ -62,8 +64,6 @@ namespace Models.Models
 
         public long Insert(HoiThao entity)
         {
-            entity.CreatedDate = DateTime.Now;
-
             db.HoiThaos.Add(entity);
             db.SaveChanges();
             return entity.ID;
@@ -81,7 +81,9 @@ namespace Models.Models
                 hoinghi.Content = entity.Content;
                 hoinghi.NgayDienRa = entity.NgayDienRa;
                 hoinghi.NoiDienRa = entity.NoiDienRa;
-                hoinghi.Status = entity.Status;
+            
+                hoinghi.ModifiedBy = entity.ModifiedBy;
+                hoinghi.ModifiedDate = entity.ModifiedDate;
                 hoinghi.ModifiedDate = DateTime.Now;
                 db.SaveChanges();
                 return true;

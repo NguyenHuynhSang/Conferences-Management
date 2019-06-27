@@ -12,12 +12,14 @@ namespace ConferencesManagement.Areas.Admin.Controllers
     public class SlideController : BaseController
     {
         // GET: Admin/Slide
-        public ActionResult Index(string searchingString, int page = 1, int pageSize = 10)
+        public ActionResult Index(int? HoiThaoID, int page = 1, int pageSize = 10)
         {
-            SetAlert("Load diễn giả thành công", "success");
+            GetDSHoiThao();
+       
+            SetAlert("Load Slide thành công", "success");
             var dao = new SlideDao();
-            var result = dao.ListAllPaging(page, pageSize, searchingString);
-            ViewBag.Searching = searchingString;
+            var result = dao.ListAllPaging(page, pageSize,HoiThaoID);
+            ViewBag.Searching = HoiThaoID;
             return View(result);
         }
         [HttpGet]
@@ -101,8 +103,20 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         {
             selectedid = CommonConstants.CURRENT_HOITHAO;
             var dao = new HoiNghiDao();
-            ViewBag.IDHoiThao = new SelectList(dao.GetHoiThaos(), "ID", "TenHoiThao", selectedid);
+            ViewBag.IDHoiThao = new SelectList(dao.GetHoiThaos(), "ID", "TenHoiThao");
+            
+        }
 
+        public void SetFilter(int ID)
+        {
+            ViewBag.Searching = ID;
+        }
+        public void GetDSHoiThao()
+        {
+          
+            var dao = new HoiNghiDao();
+            ViewBag.DSHoiThao =dao.GetHoiThaos().ToList();
+            
         }
     }
 }
