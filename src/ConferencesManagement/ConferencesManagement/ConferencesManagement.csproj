@@ -3483,6 +3483,10 @@
     <Content Include="Areas\Admin\Views\Blog\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiVE\Index.cshtml" />
     <Content Include="Areas\Admin\Views\LoaiVE\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Topic\SelectHoiThao.cshtml" />
+    <Content Include="Areas\Admin\Views\Topic\SearchParameter.cshtml" />
+    <Content Include="Areas\Admin\Views\HoiThaoDetail\SearchParameter.cshtml" />
+    <Content Include="Areas\Admin\Views\HoiThaoDetail\SelectHoiThao.cshtml" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
@@ -3520,7 +3524,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ScheduleController.cs" />
-    <Compile Include="Controllers\TickerController.cs" />
+    <Compile Include="Controllers\TicketController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UserProfileDetailController.cs" />
     <Compile Include="Global.asax.cs">
@@ -3772,6 +3776,7 @@
     <Content Include="Views\UserProfileDetail\UserTimeLine.cshtml" />
     <Content Include="Views\Ticket\Index.cshtml" />
     <Content Include="Views\Ticket\TickerPlan.cshtml" />
+    <Content Include="Views\Ticket\Payment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

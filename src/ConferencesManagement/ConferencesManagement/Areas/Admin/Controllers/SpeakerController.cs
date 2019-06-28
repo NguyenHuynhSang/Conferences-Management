@@ -25,8 +25,9 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
         [HttpGet]
 
-        public ActionResult Create()
+        public ActionResult Create(int? IDHoiThao)
         {
+
             return View();
         }
 

@@ -95,7 +95,7 @@ namespace Models.Models
         }
 
 
-        public HoiThao HoiThaoDetail(int id)
+        public HoiThao GetHoiThaoByID(int id)
         {
             return db.HoiThaos.Find(id);
         }

@@ -37,7 +37,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
         public ActionResult Edit(int id)
         {
-            var account = new HoiNghiDao().HoiThaoDetail(id);
+            var account = new HoiNghiDao().GetHoiThaoByID(id);
             return View(account);
         }
 

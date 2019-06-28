@@ -1,0 +1,199 @@
+﻿
+@{
+    ViewBag.Title = "Payment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <title>Payment</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700|Kreon:700|Audiowide&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <!-- <link rel="stylesheet" href="styles/main.css" media="screen" charset="utf-8"/> -->
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="content-type" content="text-html; charset=utf-8">
+</head>
+<style>
+
+ 
+
+    section {
+        position: relative;
+        height: 280px;
+        width: 90%;
+        background-image: url(https://htmlpdfapi.com/uploads/images/568b96887261690f6dbe0000/content_background-concert-3.jpg?1451988615);
+        background-repeat: no-repeat;
+        overflow: hidden;
+    }
+
+        section .left {
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            float: left;
+            width: 400px;
+            padding: 35px 0 0 60px;
+        }
+
+        section .right {
+            float: right;
+            width: 400px;
+            padding-top: 30px;
+        }
+
+        section .event {
+            margin-bottom: 40px;
+            font-weight: 700;
+            font-size: 1.6em;
+            line-height: 35px;
+            text-transform: uppercase;
+        }
+
+        section .title {
+            margin-bottom: 35px;
+            color: #F5A623;
+            font-family: "Audiowide", cursive;
+            font-size: 4em;
+            line-height: 72px;
+        }
+
+        section .info {
+            font-size: 0.8em;
+            text-transform: uppercase;
+        }
+
+        section .seats {
+            margin-bottom: 35px;
+            font-size: 0.36em;
+            text-transform: uppercase;
+            text-align: right;
+        }
+
+            section .seats:last-child {
+                margin-bottom: 0;
+            }
+
+            section .seats span {
+                display: inline-block;
+                width: 80px;
+                margin-left: 15px;
+                padding: 10px 0;
+                color: #F5A623;
+                background: rgba(255, 255, 255, 0.5);
+                font-family: "Kreon", serif;
+                font-size: 2.777em;
+                text-align: center;
+                vertical-align: middle;
+            }
+
+    .headerColor{
+        color:royalblue;
+    }
+    .titleColor {
+        color: royalblue;
+    }
+</style>
+
+<!-- Home -->
+
+<div class="home">
+    <div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="/Assets/Client/images/about_page.jpg" data-speed="0.8"></div>
+    <div class="home_container">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="home_content">
+                        <div class="home_title"><h1>About us</h1></div>
+                        <div class="breadcrumbs">
+                            <ul class="d-flex flex-row align-items-center justify-content-start">
+                                <li><a href="index.html">Home</a></li>
+                                <li>About us</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<body>
+    @using (Html.BeginForm("Payment", "Ticket", FormMethod.Post))
+    {
+
+        <div class="row">
+            <div class="col-lg-5">
+                <div class="card shadow mb-4 customPanel">
+                    <div class="row m-sm-2">
+                        <b class="headerColor">Thông tin hội thảo</b>
+                    </div>
+                    <div class="row m-sm-4">
+                        <div class="col-sm-2">
+                            <b class="titleColor">Tên sự kiện:</b>
+                        </div>
+                        <div class="col-xl-6">
+                            ABC
+                        </div>
+                    </div>
+                    <div class="row m-sm-4">
+                        <div class="col-sm-2">
+                            <b class="titleColor">Ngày diễn ra:</b>
+                        </div>
+                        <div class="col-xl-6">
+
+                            ABC
+                        </div>
+                    </div>
+
+                    <div class="row m-sm-4">
+                        <div class="col-sm-2">
+                            <b class="titleColor">Nơi diễn ra:</b>
+                        </div>
+                        <div class="col-xl-6 titleColor">
+                            ABC
+                        </div>
+                    </div>
+                    <div class="row m-sm-4">
+                        <div class="col-sm-2">
+                            <b class="titleColor">Trạng thái:</b>
+                        </div>
+                        <div class="col-sm-4">
+                            <span class="statusColor">Đang diễn ra</span>
+                        </div>
+                    </div>
+                    <hr />
+                </div>
+
+            </div>
+
+            <div class="col-lg-7">
+                <br />
+                <br />
+                <div class="container">
+                    <section>
+                        <div class="left">
+                            <div class="event">Live in concert</div>
+                            <div class="title">Joe Doe</div>
+                            <div class="info">Saturday // August 25 2020 // The Plaza // New York</div>
+                            <div class="info">Saturday // August 25 2020 // The Plaza // New York</div>
+                        </div>
+                        <div class="right">
+                            <div class="seats">section<span>A</span></div>
+                            <div class="seats">row<span>Vip</span></div>
+                            <div class="seats">seat<span>120</span></div>
+                        </div>
+                    </section>
+                    <hr />
+                    <div class="row">
+                        <div class="col-xl-10">
+                            <button class="btn btn-primary" type="submit">Xác nhận</button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    }
+</body>
+    
+

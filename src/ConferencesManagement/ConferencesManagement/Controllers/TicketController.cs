@@ -26,5 +26,20 @@ namespace ConferencesManagement.Controllers
             return PartialView(price);
         }
 
+
+        [HttpGet]
+        public ActionResult Payment()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Payment(int ID)
+        {
+            
+            return View();
+        }
+
+ 
     }
 }

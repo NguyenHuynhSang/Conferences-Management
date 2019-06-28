@@ -26,9 +26,40 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             ViewBag.ChuDe = chuDe;
             return View(model);
         }
+
+        [HttpGet]
+        public ActionResult SelectHoiThao(string tenHoiThao, string noiDienRa, string ngayDienRa, int page = 1, int pageSize = 10)
+        {
+            SetAlert("Load Hội thảo thành công", "success");
+            var db = new HoiNghiDao();
+            var model = db.ListAllPaging(page, pageSize, tenHoiThao, noiDienRa, ngayDienRa);
+            ViewBag.tenHoiThao = tenHoiThao;
+            ViewBag.noiDienRa = noiDienRa;
+            ViewBag.ngayDienRa = ngayDienRa;
+            return PartialView(model);
+        }
+        public ActionResult SearchParameter(string tenHoiThao, string noiDienRa, string ngayDienRa, int page = 1, int pageSize = 10)//Partial View for partial refreshing.
+        {
+            SetAlert("Load Hội thảo thành công", "success");
+            var db = new HoiNghiDao();
+            var model = db.ListAllPaging(page, pageSize, tenHoiThao, noiDienRa, ngayDienRa);
+            ViewBag.tenHoiThao = tenHoiThao;
+            ViewBag.noiDienRa = noiDienRa;
+            ViewBag.ngayDienRa = ngayDienRa;
+            return PartialView(model);
+        }
+
+
         [ValidateInput(false)]
         [HttpGet]
         public ActionResult Create()
+        {
+            SetViewBag();
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult CreateBy(int ID)
         {
             SetViewBag();
             return View();

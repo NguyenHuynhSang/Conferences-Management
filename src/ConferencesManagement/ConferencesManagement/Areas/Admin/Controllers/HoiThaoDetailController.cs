@@ -24,13 +24,22 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
 
         [HttpGet]
-        public ActionResult Create()
+        public ActionResult Create(int? id=0)
         {
-            SetViewBackHoiNghi();
+            if (id != 0 && id!=null)
+            {
+                var db = (new HoiNghiDao()).GetHoiThaoByID((int)id);
+                GetDSSpeaker(id);
+                var htD = new HoiThaoDetail();
+                htD.IDHoiThao = (long)id;
+                return View(htD);
+            }
+
             SetViewBagSpeaker();
             return View();
         }
 
+       
         [HttpPost]
         public ActionResult Create(HoiThaoDetail account)
         {
@@ -60,6 +69,32 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
         }
 
+        [ChildActionOnly]
+        public ActionResult SelectHoiThao(string tenHoiThao, string noiDienRa, string ngayDienRa, int page = 1, int pageSize = 10)
+        {
+            SetAlert("Load Hội thảo thành công", "success");
+            var db = new HoiNghiDao();
+            var model = db.ListAllPaging(page, pageSize, tenHoiThao, noiDienRa, ngayDienRa);
+            ViewBag.tenHoiThao = tenHoiThao;
+            ViewBag.noiDienRa = noiDienRa;
+            ViewBag.ngayDienRa = ngayDienRa;
+            return PartialView(model);
+        }
+
+  
+        [ChildActionOnly]
+        public ActionResult SearchParameter(string tenHoiThao, string noiDienRa, string ngayDienRa, int page = 1, int pageSize = 10)//Partial View for partial refreshing.
+        {
+            SetAlert("Load Hội thảo thành công", "success");
+            var db = new HoiNghiDao();
+            var model = db.ListAllPaging(page, pageSize, tenHoiThao, noiDienRa, ngayDienRa);
+            ViewBag.tenHoiThao = tenHoiThao;
+            ViewBag.noiDienRa = noiDienRa;
+            ViewBag.ngayDienRa = ngayDienRa;
+            return PartialView(model);
+        }
+
+
         public void SetViewBackHoiNghi(long? selectedid = null)
         {
 
@@ -69,6 +104,22 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
         }
 
+        public void GetDSSpeaker(int? IDHoiThao)
+        {
+            var dsSpeakerJoined = (new HoiThaoDetailDao()).ListByGroupId((long)IDHoiThao);
+            var dsSpeaker = (new SpeakerDao()).ListAll();
+            foreach (var item in dsSpeaker.ToList())
+            {
+                foreach (var child in dsSpeakerJoined)
+                {
+                    if (item.ID == child.IDSpeaker)
+                    {
+                        dsSpeaker.Remove(item);
+                    }
+                }
+            }
+            ViewBag.IDSpeaker = new SelectList(dsSpeaker, "ID", "Name");
+        }
         public void SetViewBagSpeaker(long? selectedid = null)
         {
             var dao1 = new SpeakerDao();

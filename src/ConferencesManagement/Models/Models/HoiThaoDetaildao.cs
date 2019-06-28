@@ -16,6 +16,9 @@ namespace Models.Models
         {
             db = new ConferencesManagementDbContext();
         }
+
+       
+        
         public List<HoiThaoDetail> ListByGroupId(long group = 1)
         {
             return db.HoiThaoDetails.Where(x => x.IDHoiThao == group).ToList();
@@ -55,7 +58,7 @@ namespace Models.Models
                 model = model.Where(x => x.TenHoiThao.Contains(searchingString) || x.TenSpeaker.Contains(searchingString));
 
             }
-            return model.ToList();
+            return model.OrderByDescending(x=>x.TenHoiThao).ToList();
 
 
         }

@@ -11,9 +11,12 @@
     public partial class HoiThaoDetail
     {
         public long ID { get; set; }
+
+        [Required]
         [DisplayName("Mã hội thảo")]
         public long IDHoiThao { get; set; }
 
+        [Required]
         [DisplayName("Mã diễn giả")]
         public int IDSpeaker { get; set; }
     }
