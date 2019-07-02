@@ -25,11 +25,11 @@
             <div class="row">
                 <div class="col">
                     <div class="home_content">
-                        <div class="home_title"><h1>About us</h1></div>
+                        <div class="home_title"><h1>Ticket</h1></div>
                         <div class="breadcrumbs">
                             <ul class="d-flex flex-row align-items-center justify-content-start">
                                 <li><a href="index.html">Home</a></li>
-                                <li>About us</li>
+                                <li>Ticket</li>
                             </ul>
                         </div>
                     </div>
@@ -39,65 +39,12 @@
     </div>
 </div>
 
+@{Html.RenderAction("ThongKeHoiThao", "Ticket");}
 
-<!-- Milestones -->
-
-<div class="milestones">
-    <div class="container">
-        <div class="row">
-
-            <!-- Milestone -->
-            <div class="col-xl-3 col-md-6 milestone_col">
-                <div class="milestone d-flex flex-row align-items-start justify-content-start">
-                    <div class="milestone_icon d-flex flex-column align-items-center justify-content-center"><img src="/Assets/Client/images/icon_1.svg" alt="https://www.flaticon.com/authors/freepik"></div>
-                    <div class="milestone_content">
-                        <div class="milestone_counter" data-end-value="1000" data-sign-after="">0</div>
-                        <div class="milestone_text">Members</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Milestone -->
-            <div class="col-xl-3 col-md-6 milestone_col">
-                <div class="milestone d-flex flex-row align-items-start justify-content-start">
-                    <div class="milestone_icon d-flex flex-column align-items-center justify-content-center"><img src="/Assets/Client/images/icon_2.svg" alt="https://www.flaticon.com/authors/freepik"></div>
-                    <div class="milestone_content">
-                        <div class="milestone_counter" data-end-value="24">0</div>
-                        <div class="milestone_text">Topics</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Milestone -->
-            <div class="col-xl-3 col-md-6 milestone_col">
-                <div class="milestone d-flex flex-row align-items-start justify-content-start">
-                    <div class="milestone_icon d-flex flex-column align-items-center justify-content-center"><img src="/Assets/Client/images/icon_3.svg" alt="https://www.flaticon.com/authors/freepik"></div>
-                    <div class="milestone_content">
-                        <div class="milestone_counter" data-end-value="4">0</div>
-                        <div class="milestone_text">Days</div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Milestone -->
-            <div class="col-xl-3 col-md-6 milestone_col">
-                <div class="milestone d-flex flex-row align-items-start justify-content-start">
-                    <div class="milestone_icon d-flex flex-column align-items-center justify-content-center"><img src="/Assets/Client/images/icon_4.svg" alt="https://www.flaticon.com/authors/freepik"></div>
-                    <div class="milestone_content">
-                        <div class="milestone_counter" data-end-value="37">0</div>
-                        <div class="milestone_text">Speakers</div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
 
 <!-- Pricing -->
 
- @{Html.RenderAction("TickerPlan", "Ticket");}
+@{Html.RenderAction("TickerPlan", "Ticket");}
 <!-- Logos -->
 
 <div class="logos">

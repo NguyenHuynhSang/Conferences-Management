@@ -35,7 +35,9 @@
                                             <img class="customBr" src="~/Assets/Client/images/user.png">
                                         }
                                         <hr />
-                                      
+                                        <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#myModal">
+                                            Cập nhật tài khoản
+                                        </button>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -48,7 +50,7 @@
                                         <h6>
                                             @Model.HoTen
                                         </h6>
-                                        <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                                        <p class="proile-rating">Ngày tham gia: <span>@Model.CreatedDate</span></p>
                                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                                             <li class="nav-item">
                                                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Thông tin </a>

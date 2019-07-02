@@ -1,0 +1,45 @@
+﻿@model Models.Framework.HoiThao
+<div class="col-lg-5">
+    <div class="card shadow mb-4 customPanel">
+        <div class="row m-sm-2">
+            <b class="headerColor">Thông tin hội thảo</b>
+        </div>
+        <div class="row m-sm-4">
+            <div class="col-sm-2">
+                <b class="titleColor">Tên sự kiện:</b>
+            </div>
+            <div class="col-xl-6">
+                @Model.TenHoiThao
+            </div>
+        </div>
+        <div class="row m-sm-4">
+            <div class="col-sm-2">
+                <b class="titleColor">Ngày diễn ra:</b>
+            </div>
+            <div class="col-xl-6">
+
+                @Model.NgayDienRa
+            </div>
+        </div>
+
+        <div class="row m-sm-4">
+            <div class="col-sm-2">
+                <b class="titleColor">Nơi diễn ra:</b>
+            </div>
+            <div class="col-xl-6 titleColor">
+                @Model.NoiDienRa
+            </div>
+        </div>
+        <div class="row m-sm-4">
+            <div class="col-sm-2">
+                <b class="titleColor">Trạng thái:</b>
+            </div>
+            <div class="col-sm-4">
+                <span class="statusColor">Đang diễn ra</span>
+            </div>
+        </div>
+        <hr />
+    </div>
+
+</div>
+

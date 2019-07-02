@@ -11,10 +11,10 @@ using Models.Entities;
 
 namespace Models.Models
 {
-    public class TopicDao
+    public class ChuDeDao
     {
         ConferencesManagementDbContext db = null;
-        public TopicDao()
+        public ChuDeDao()
         {
             db = new ConferencesManagementDbContext();
         }

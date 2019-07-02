@@ -15,7 +15,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         // GET: Admin/ScheduleDetail
         public ActionResult Index(string searchingString, int page = 1, int pageSize = 10)
         {
-            SetAlert("Load chi tiet lich trinh thành công", "success");
+            SetAlert("Load chi tiết lịch trình thành công", "success");
             var dao = new ScheduleDetailDao();
             var result = dao.GetScheduleDetailForIndex(searchingString);
             ViewBag.Searching = searchingString;

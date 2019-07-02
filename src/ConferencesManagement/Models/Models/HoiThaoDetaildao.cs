@@ -38,7 +38,7 @@ namespace Models.Models
 
 
 
-        public List<HoiThaoDetailForIndex> GetHTDetailForIndex(string searchingString=null)
+        public List<HoiThaoDetailForIndex> GetHTDetailForIndex(int? HoiThaoID = null)
         {
             
             var model = from d in db.HoiThaoDetails
@@ -49,13 +49,16 @@ namespace Models.Models
                         select new HoiThaoDetailForIndex
                         {
                             ID=d.ID,
+                            IDHoiThao=h.ID,
                             TenHoiThao=h.TenHoiThao,
-                            TenSpeaker=s.Name
-
+                            TenSpeaker=s.Name,
+                            ChucVu=s.ChucVu,
+                            Email=s.Email,
+                            SDT=s.SDT
                         };
-            if (!string.IsNullOrEmpty(searchingString))
+            if (HoiThaoID!=null)
             {
-                model = model.Where(x => x.TenHoiThao.Contains(searchingString) || x.TenSpeaker.Contains(searchingString));
+                model = model.Where(x => x.IDHoiThao==(long)HoiThaoID);
 
             }
             return model.OrderByDescending(x=>x.TenHoiThao).ToList();

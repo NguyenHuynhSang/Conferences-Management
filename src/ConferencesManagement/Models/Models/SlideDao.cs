@@ -73,6 +73,8 @@ namespace Models.Models
                             IDHoiThao = b.ID,
                             Content = b.Content,
                             NgayDienRa = b.NgayDienRa,
+                            NgayKetThuc=b.NgayKetThuc,
+                            TrangThaiToChuc=b.TrangThaiToChuc,
                             NoiDienRa = b.NoiDienRa,
                             CreatedDate = a.CreatedDate,
                             CreatedBy = a.CreatedBy,

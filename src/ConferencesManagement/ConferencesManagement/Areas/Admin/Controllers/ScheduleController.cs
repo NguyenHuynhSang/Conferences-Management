@@ -13,12 +13,13 @@ namespace ConferencesManagement.Areas.Admin.Controllers
     {
         private static long getIDforEdit;
         // GET: Admin/Schedule
-        public ActionResult Index(string searchingString, int page = 1, int pageSize = 10)
+        public ActionResult Index(int page = 1, int pageSize = 10,int? IDHoiThao=null)
         {
             SetAlert("Load lịch trình thành công", "success");
+            GetDSHoiThao();
             var dao = new ScheduleDao();
-            var result = dao.GetScheduleForIndex(searchingString);
-            ViewBag.Searching = searchingString;
+            var result = dao.GetScheduleForIndex(IDHoiThao);
+            ViewBag.IDHoiThao = IDHoiThao;
             return View(result);
         }
 
@@ -35,8 +36,32 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         public ActionResult Create(Schedule speaker)
         {
             SetViewBackHoiNghi();
+            bool isTrung = false;
             var dao = new ScheduleDao();
-            if (ModelState.IsValid)
+            var hn = (new HoiNghiDao()).GetHoiThaoByID((int)speaker.IDHoiThao);
+            var dsLichTrinh = dao.GetDSLichTrinhByIDHoiThao(speaker.IDHoiThao.Value);
+            foreach (var item in dsLichTrinh)
+            {
+                if (item.NgayDienRa.Date==speaker.NgayDienRa.Date)
+                {
+                    isTrung = true;
+                }
+            }
+
+            if (isTrung == true)
+            {
+                ModelState.AddModelError("", "Ngày lịch trình bị trùng");
+                return View("Create");
+            }
+            if(speaker.NgayDienRa.Date<hn.NgayDienRa.Date)
+            {
+                ModelState.AddModelError("", "Ngày lịch trình không được nhỏ hơn ngày bắt đầu hội nghị");
+            }
+            else if(speaker.NgayDienRa.Date > hn.NgayKetThuc.Date)
+            {
+                ModelState.AddModelError("", "Ngày lịch trình không được lớn hơn ngày kết thúc hội nghị");
+            }
+            else if (ModelState.IsValid)
             {
 
                 long id = dao.Insert(speaker);
@@ -106,6 +131,14 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             var dao = new ScheduleDao();
             var model = dao.GetScheduleForIndex();
             return RedirectToAction("Index", "Schedule", model);
+        }
+
+        public void GetDSHoiThao()
+        {
+
+            var dao = new HoiNghiDao();
+            ViewBag.DSHoiThao = dao.GetHoiThaos().ToList();
+
         }
     }
 }

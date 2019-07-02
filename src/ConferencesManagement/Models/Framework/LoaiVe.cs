@@ -1,7 +1,8 @@
-namespace Models.Framework
+﻿namespace Models.Framework
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -10,11 +11,15 @@ namespace Models.Framework
     public partial class LoaiVe
     {
         public int ID { get; set; }
+
+        [DisplayName("Tên Hội thảo")]
         public int? IDHoiThao { get; set; }
         [StringLength(50)]
+        [DisplayName("Tên Loại vé")]
         public string Name { get; set; }
 
-        [DataType(DataType.Currency)]   
+        [DataType(DataType.Currency)]
+        [DisplayName("Đơn giá")]
         public double? DonGia { get; set; }
 
         [StringLength(250)]

@@ -19,7 +19,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         {
             GetDSHoiThao();
             SetAlert("Load chủ đề thành công", "success");
-            var dao = new TopicDao();
+            var dao = new ChuDeDao();
             var model = dao.GetTopicForIndex(page, pageSize, HoiThaoID,topicMenu,chuDe);
             ViewBag.Searching = HoiThaoID;
             ViewBag.TopicMenu = topicMenu;
@@ -70,7 +70,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         public ActionResult Create(Topic topic)
         {
             SetViewBag();
-            var dao = new TopicDao();
+            var dao = new ChuDeDao();
             var result = dao.GetTopicForIndex(1, 10);
             if (ModelState.IsValid)
             {
@@ -97,7 +97,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         {
             SetViewBag();
 
-            var account = new TopicDao().TopicDetail(id);
+            var account = new ChuDeDao().TopicDetail(id);
             return View(account);
         }
 
@@ -105,7 +105,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(Topic topic)
         {
-            var dao = new TopicDao();
+            var dao = new ChuDeDao();
             var model = dao.GetTopicForIndex(1, 10);
             if (ModelState.IsValid)
             {
@@ -127,7 +127,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         [HttpDelete]
         public ActionResult Delete(int id)
         {
-            new TopicDao().Delete(id);
+            new ChuDeDao().Delete(id);
             return RedirectToAction("Index");
         }
 

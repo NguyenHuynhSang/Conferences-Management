@@ -57,10 +57,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\HoiThaoDetailForIndex.cs" />
+    <Compile Include="Entities\LoaiVeForView.cs" />
     <Compile Include="Entities\ScheduleDetailForIndex.cs" />
     <Compile Include="Entities\ScheduleForIndex.cs" />
     <Compile Include="Entities\SlideForIndex.cs" />
     <Compile Include="Entities\TopicForIndex.cs" />
+    <Compile Include="Entities\VeDetail.cs" />
     <Compile Include="Framework\About.cs" />
     <Compile Include="Framework\Account.cs" />
     <Compile Include="Framework\Blog.cs" />
@@ -97,7 +99,7 @@
     <Compile Include="Models\ScheduleDetailDao.cs" />
     <Compile Include="Models\SlideDao.cs" />
     <Compile Include="Models\SpeakerDao.cs" />
-    <Compile Include="Models\TopicDao.cs" />
+    <Compile Include="Models\ChuDeDao.cs" />
     <Compile Include="Models\TypeAccountDao.cs" />
     <Compile Include="Models\VeDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

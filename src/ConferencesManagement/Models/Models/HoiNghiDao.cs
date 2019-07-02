@@ -14,10 +14,12 @@ namespace Models.Models
         public HoiNghiDao()
         {
             db = new ConferencesManagementDbContext();
+         
         }
 
         public IEnumerable<HoiThao> ListAllPaging(int page, int pageSize, string tenHoiThao = null,string NoiDienRa=null,string NgayDienRa=null)
         {
+            CapNhatTrangThai();
             IOrderedQueryable<HoiThao> hoiThao = db.HoiThaos;
             if (!string.IsNullOrEmpty(tenHoiThao))
             {
@@ -42,6 +44,7 @@ namespace Models.Models
 
         public IEnumerable<HoiThao> ListAllPagingforindex()
         {
+            CapNhatTrangThai();
             return db.HoiThaos.Where(x=>x.Status==true).ToList();
         }
 
@@ -49,6 +52,7 @@ namespace Models.Models
 
         public HoiThao GetActiveHoiThao()
         {
+            CapNhatTrangThai();
             var current=db.HoiThaos.FirstOrDefault(x => x.Status == true);
             if (current == null) return db.HoiThaos.FirstOrDefault(x => x.ID == 1);
             return current;
@@ -57,6 +61,7 @@ namespace Models.Models
 
         public List<HoiThao> GetHoiThaos()
         {
+         //   CapNhatTrangThai();
             return db.HoiThaos.ToList();
 
 
@@ -81,10 +86,10 @@ namespace Models.Models
                 hoinghi.Content = entity.Content;
                 hoinghi.NgayDienRa = entity.NgayDienRa;
                 hoinghi.NoiDienRa = entity.NoiDienRa;
-            
+                hoinghi.NgayKetThuc = entity.NgayKetThuc;
                 hoinghi.ModifiedBy = entity.ModifiedBy;
                 hoinghi.ModifiedDate = entity.ModifiedDate;
-                hoinghi.ModifiedDate = DateTime.Now;
+           
                 db.SaveChanges();
                 return true;
             }
@@ -115,6 +120,29 @@ namespace Models.Models
             return ht.Status;
         }
 
+        public void CapNhatTrangThai()
+        {
+            foreach(var item in db.HoiThaos)
+            {
+                if(item.NgayKetThuc!=null && item.NgayDienRa != null)
+                {
+                    if (DateTime.Now.Date < item.NgayDienRa.Date)
+                    {
+                        item.TrangThaiToChuc = "Chưa diễn ra";
+                    }
+                    else if( DateTime.Now.Date <= item.NgayDienRa.Date)
+                    {
+                        item.TrangThaiToChuc = "Đang diễn ra";
+                    }
+                    else
+                    {
+                        item.TrangThaiToChuc = "Đã kết thúc";
+                    }
+                    
+                }
+            }
+            db.SaveChanges();
+        }
 
     }
 }

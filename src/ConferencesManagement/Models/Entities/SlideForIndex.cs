@@ -28,7 +28,7 @@ namespace Models.Entities
         public string ModifiedBy { get; set; }
 
         public bool? Status { get; set; }
-
-
+        public DateTime NgayKetThuc { get; set; }
+        public string TrangThaiToChuc { get; set; }
     }
 }

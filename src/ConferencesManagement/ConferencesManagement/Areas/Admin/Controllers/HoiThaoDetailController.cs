@@ -13,12 +13,14 @@ namespace ConferencesManagement.Areas.Admin.Controllers
     {
         // GET: Admin/HoiThaoDetail
         private static long getIDforEdit;
-        public ActionResult Index(string searchingString, int page = 1, int pageSize = 10)
+        public ActionResult Index(int? HoiThaoID, int page = 1, int pageSize = 10)
         {
             SetAlert("Load DS Speaker thành công", "success");
+            GetDSHoiThao();
+            SetViewBagSpeaker();
             var dao = new HoiThaoDetailDao();
-            var result = dao.GetHTDetailForIndex(searchingString);
-            ViewBag.Searching = searchingString;
+            var result = dao.GetHTDetailForIndex(HoiThaoID);
+            ViewBag.HoiThaoID = HoiThaoID;
             return View(result);
         }
 
@@ -26,10 +28,12 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create(int? id=0)
         {
+            ViewBag.TenHoiThao = "";
             if (id != 0 && id!=null)
             {
                 var db = (new HoiNghiDao()).GetHoiThaoByID((int)id);
                 GetDSSpeaker(id);
+                ViewBag.TenHoiThao = db.TenHoiThao;
                 var htD = new HoiThaoDetail();
                 htD.IDHoiThao = (long)id;
                 return View(htD);
@@ -69,7 +73,8 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
         }
 
-        [ChildActionOnly]
+       
+       
         public ActionResult SelectHoiThao(string tenHoiThao, string noiDienRa, string ngayDienRa, int page = 1, int pageSize = 10)
         {
             SetAlert("Load Hội thảo thành công", "success");
@@ -82,7 +87,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         }
 
   
-        [ChildActionOnly]
+      
         public ActionResult SearchParameter(string tenHoiThao, string noiDienRa, string ngayDienRa, int page = 1, int pageSize = 10)//Partial View for partial refreshing.
         {
             SetAlert("Load Hội thảo thành công", "success");
@@ -128,6 +133,8 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         }
 
 
+
+
         [HttpGet]
 
         public ActionResult Edit(int id)
@@ -169,6 +176,14 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         {
             new HoiThaoDetailDao().Delete(id);
             return RedirectToAction("Index");
+        }
+
+        public void GetDSHoiThao()
+        {
+
+            var dao = new HoiNghiDao();
+            ViewBag.DSHoiThao = dao.GetHoiThaos().ToList();
+
         }
     }
    

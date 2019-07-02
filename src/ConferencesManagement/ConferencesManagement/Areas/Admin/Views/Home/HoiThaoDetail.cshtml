@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-xl-6">
 
-                    @Model.NgayDienRa.ToString("dd/MMM/yyyy")
+                    @Model.NgayDienRa.ToString("dd/MMM/yyyy") - @Model.NgayKetThuc.ToString("dd/MMM/yyyy")
                 </div>
             </div>
 
@@ -56,7 +56,7 @@
                     <b class="titleColor">Trạng thái:</b>
                 </div>
                 <div class="col-sm-4">
-                    <span class="statusColor">Đang diễn ra</span>
+                    <span class="statusColor">@Model.TrangThaiToChuc</span>
                 </div>
             </div>
             <hr />
@@ -73,7 +73,7 @@
                     <b class="titleColor">Số nhà tài trợ:</b>
                 </div>
                 <div class="col-xl-6">
-                    @Model.TenHoiThao
+                   0
                 </div>
             </div>
             <div class="row m-sm-4">
@@ -91,7 +91,7 @@
                     <b class="titleColor">Tổng Số vé:</b>
                 </div>
                 <div class="col-xl-6">
-                    @Model.NoiDienRa
+                    1000
                 </div>
             </div>
             <div class="row m-sm-4">
@@ -99,7 +99,7 @@
                     <b class="titleColor">Số vé đã bán:</b>
                 </div>
                 <div class="col-sm-4">
-                    <span class="statusColor">Đang diễn ra</span>
+                    <span class="statusColor">10</span>
                 </div>
             </div>
             <hr />

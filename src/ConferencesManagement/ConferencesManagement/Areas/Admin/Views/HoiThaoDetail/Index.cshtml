@@ -21,70 +21,108 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Thong tin chi tiet hoi thao </h1>
+                    <h1 class="h3 mb-2 text-gray-800">Diễn giả tham dự</h1>
                     @using (Html.BeginForm("Index", "HoiThaoDetail", FormMethod.Get))
                     {
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="col-lg-4">
-                                    <input type="text" value="@ViewBag.SearchingString" name="searchingString"  placeholder="Tìm kiếm bằng tên" ; />
-                                    <button type="submit">Tìm kiếm</button>
+                        <div class="card border-left-primary">
+                            <div class="card-body">
+                                <div class="row m-xl-4">
+                                    <div class="col-md-1">
+                                        <b class="blueText">Tên hội thảo</b>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        @Html.DropDownList("HoiThaoID", new SelectList(ViewBag.DSHoiThao, "ID", "TenHoiThao"), "--Chọn Hội Thảo--", htmlAttributes: new { @class = "form-control" })
+                                    </div>
+
+                                    <div class="col-md-1">
+                                        <b class="blueText">Diễn giả</b>
+                                    </div>
+                                    
+
+
+                                </div>
+                           
+                                <div class="row m-xl-4">
+                                    <div class="col-md-2">
+                                        <button class="btn btn-facebook">Search</button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a href="/Admin/HoiThaoDetail/Index" class="btn btn-facebook">
+                                            <span class="icon text-gray-600">
+                                                <i class="fas fa-arrow-right"></i>
+                                            </span>
+                                            <span class="text">Reset</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <hr />
+
+                                <div align="right" class="col-lg-10">
+                                    <a href="/Admin/HoiThaoDetail/Create" class="btn btn-primary btn-icon-split">
+                                        <span class="icon text-gray-600">
+                                            <i class="fas fa-arrow-right"></i>
+                                        </span>
+                                        <span class="text">Thêm diễn giả tham dự</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
 
                     }
-                    <a href="/Admin/HoiThaoDetail/Create" class="btn btn-light btn-icon-split">
-                        <span class="icon text-gray-600">
-                            <i class="fas fa-arrow-right"></i>
-                        </span>
-                        <span class="text">Tạo mới chi tiet hoi thao</span>
-                    </a>
+                   
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Account</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Diễn giả tham dự</h6>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
+                                    <thead class="thead-dark">
                                         <tr>
                                             <th>#</th>
                                             <th>#</th>
-                                            <th>Ten hoi thao</th>
-                                            <th>ten speaker</th>
+                                            <th>Tên hội thảo</th>
+                                            <th>Tên diễn giả</th>
+                                            <th>Chức vụ</th>
+                                            <th>Email</th>
+                                            <th>Số điện thoại</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>#</th>
                                             <th>#</th>
-                                            <th>Ten hoi thao</th>
-                                            <th>Ten speaker</th>
+                                            <th>Tên hội thảo</th>
+                                            <th>Tên diễn giả</th>
+                                            <th>Chức vụ</th>
+                                            <th>Email</th>
+                                            <th>Số điện thoại</th>
 
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                         @foreach (var item in Model)
                                         {
-                                            <tr role="row" class="odd" id="row_@item.ID">
-                                                <td>
-                                                    <a href="/Admin/HoiThaoDetail/Edit/@item.ID" class="btn btn-success btn-circle btn-sm">Sửa </a>
+                                        <tr role="row" class="odd" id="row_@item.ID">
+                                            <td>
+                                                <a href="/Admin/HoiThaoDetail/Edit/@item.ID" class="btn btn-success btn-circle btn-sm">Sửa </a>
 
-                                                </td>
-                                                <td>
-                                                    @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
-                   {
-                       Confirm = "Bạn có muốn xoá bản ghi này?",
-                       OnComplete = "$('#row_" + @item.ID + "').remove()",
-                       HttpMethod = "Delete"
-                   })
-                                                </td>
-                                                <td>@item.TenHoiThao</td>
-                                                <td>@item.TenSpeaker</td>
-
-                                            </tr>
+                                            </td>
+                                            <td>
+                                                @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
+               {
+                   Confirm = "Bạn có muốn xoá bản ghi này?",
+                   OnComplete = "$('#row_" + @item.ID + "').remove()",
+                   HttpMethod = "Delete"
+               })
+                                            </td>
+                                            <td>@item.TenHoiThao</td>
+                                            <td>@item.TenSpeaker</td>
+                                            <td>@item.ChucVu</td>
+                                            <td>@item.Email</td>
+                                            <td>@item.SDT</td>
+                                        </tr>
                                         }
                                     </tbody>
                                 </table>

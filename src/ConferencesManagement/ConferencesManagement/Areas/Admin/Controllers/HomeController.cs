@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace ConferencesManagement.Areas.Admin.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         // GET: Admin/Home
         public ActionResult Index()
@@ -46,7 +46,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         public ActionResult TopicMenu(string searchingString, int page = 1, int pageSize = 5)
         {
             var currentHoiThao = (new HoiNghiDao().GetActiveHoiThao()).ID;
-            var model = new TopicDao().GetTopicForIndexMenu(page,pageSize,searchingString,CommonConstants.CURRENT_HOITHAO);
+            var model = new ChuDeDao().GetTopicForIndexMenu(page,pageSize,searchingString,CommonConstants.CURRENT_HOITHAO);
             return PartialView(model);
 
         }

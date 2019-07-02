@@ -12,13 +12,14 @@
     {
         public long ID { get; set; }
 
+        [DisplayName("Tên Hội thảo")]
         public long? IDHoiThao { get; set; }
 
         [Required]
         [DisplayName("Ngày diễn ra")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime? NgayDienRa { get; set; }
+        public DateTime NgayDienRa { get; set; }
 
         [StringLength(500)]
         [DisplayName("Chi tiết")]

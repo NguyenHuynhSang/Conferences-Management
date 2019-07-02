@@ -1,4 +1,5 @@
-﻿using Models.Framework;
+﻿using Models.Entities;
+using Models.Framework;
 using PagedList;
 using System;
 using System.Collections.Generic;
@@ -56,10 +57,38 @@ namespace Models.Models
             }
         }
 
-        public IEnumerable<LoaiVe> ListAllPaging(int page, int pageSize)
+        public IEnumerable<LoaiVeForView> ListAllPaging(int page, int pageSize,int? IDHoiThao=null, string tenLoaiVe=null)
         {
-            IOrderedQueryable<LoaiVe> account = db.LoaiVes;
-            return account.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
+   
+            var list = from lve in db.LoaiVes
+                       join ht in db.HoiThaos
+                       on lve.IDHoiThao equals ht.ID
+                       select new LoaiVeForView
+                       {
+                           ID = lve.ID,
+                           DonGia = lve.DonGia,
+                           content = lve.content,
+                           IDHoiThao = lve.IDHoiThao,
+                           Name = lve.Name,
+                           TenHoiThao = ht.TenHoiThao,
+                           CreatedDate=lve.CreatedDate,
+                           CreatedBy=lve.CreatedBy,
+                           ModifiedBy=lve.ModifiedBy,
+                           ModifiedDate=lve.ModifiedDate,
+                       };
+            if (IDHoiThao != null)
+            {
+                list = list.Where(x => x.IDHoiThao == IDHoiThao);
+                if (!string.IsNullOrEmpty(tenLoaiVe))
+                {
+                    list = list.Where(x => x.Name.Contains(tenLoaiVe));
+                }
+            }
+            if (!string.IsNullOrEmpty(tenLoaiVe))
+            {
+                list = list.Where(x => x.Name.Contains(tenLoaiVe));
+            }
+            return list.OrderByDescending(x => x.CreatedDate).ToPagedList(page, pageSize);
         }
 
         public List<LoaiVe> ListTop5()

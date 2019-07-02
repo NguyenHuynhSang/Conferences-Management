@@ -1,4 +1,4 @@
-﻿
+﻿@model Models.Entities.VeDetail
 <head>
     <title>Profile</title>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700|Kreon:700|Audiowide&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
@@ -6,10 +6,12 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta http-equiv="content-type" content="text-html; charset=utf-8">
 </head>
+
+
 <style>
 
-    .customSpan{
-        font-size:0.5em;
+    .customSpan {
+        font-size: 0.5em;
     }
 
     section {
@@ -48,7 +50,7 @@
             margin-bottom: 35px;
             color: #F5A623;
             font-family: "Audiowide", cursive;
-            font-size: 4em;
+            font-size: 2em;
             line-height: 72px;
         }
 
@@ -60,7 +62,6 @@
         section .seats {
             margin-bottom: 35px;
             font-size: 0.36em;
-            
             text-transform: uppercase;
             text-align: right;
         }
@@ -68,7 +69,6 @@
             section .seats:last-child {
                 margin-bottom: 0;
                 color: royalblue;
-
             }
 
             section .seats span {
@@ -76,7 +76,7 @@
                 width: 80px;
                 margin-left: 15px;
                 padding: 10px 0;
-                color:royalblue;
+                color: royalblue;
                 background: rgba(255, 255, 255, 0.5);
                 font-family: "Kreon", serif;
                 font-size: 2.777em;
@@ -85,19 +85,25 @@
             }
 </style>
 <body>
-    <div class="container">
-        <section>
-            <div class="left">
-                <div class="event">Vé tham Gia:</div>
-                <div class="title">Joe Doe</div>
-                <div class="info">Saturday // August 25 2020 // The Plaza // New York</div>
-                <div class="info">Saturday // August 25 2020 // The Plaza // New York</div>
-            </div>
-            <div class="right">
-                <div class="seats">section<span>A</span></div>
-                <div class="seats">Loại Vé<span>Vip</span></div>
-                <div class="seats">seat<span>120000000</span></div>
-            </div>
-        </section>
-    </div>
+    @if (Model != null)
+    {
+        <div class="container">
+            <section>
+                <div class="left">
+                    <div class="event">@Model.TenHoiThao</div>
+                    <div class="title">@Model.HoTen</div>
+                    <div class="info">Ngày diễn ra: @Model.NgayDienRa.ToString("dd/MMM/yyyy")</div>
+                    <div class="info">Địa điểm: @Model.NoiDienRa</div>
+                </div>
+                <div class="right">
+                    <div class="seats">section<span>A</span></div>
+                    <div class="seats">Loại Vé<span>@Model.LoaiVe</span></div>
+                    <div class="seats">seat<span>120000000</span></div>
+                </div>
+            </section>
+        </div>
+
+    }
+
 </body>
+@{ Html.RenderAction("UpdateAccount", "UserProfileDetail");}

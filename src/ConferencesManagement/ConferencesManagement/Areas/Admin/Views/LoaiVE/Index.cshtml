@@ -1,4 +1,4 @@
-﻿@model PagedList.IPagedList<Models.Framework.LoaiVe>
+﻿@model PagedList.IPagedList<Models.Entities.LoaiVeForView>
 @using PagedList.Mvc;
 @{
     ViewBag.Title = "Index";
@@ -46,21 +46,12 @@
                                     <b class="blueText">Loại vé</b>
                                 </div>
                                 <div class="col-sm-4">
-                                    <input class="form-control" #seachByName type="text" value="@ViewBag.TopicMenu" name="TopicMenu" placeholder="Nhập topic menu" />
+                                    <input class="form-control" #seachByName type="text" value="@ViewBag.tenLoaiVe" name="tenLoaiVe" placeholder="Nhập tên loại vé" />
                                 </div>
 
 
                             </div>
-                            <div class="row m-xl-4">
-                                <div class="col-md-1">
-                                    <b class="blueText">Nội dung</b>
-                                </div>
-                                <div class="col-sm-6">
-                                    <input class="form-control" #searchText type="text" value="@ViewBag.ChuDe" name="ChuDe" placeholder="Nhập chủ đề" />
-                                </div>
-
-
-                            </div>
+                           
                             <div class="row m-xl-4">
                                 <div class="col-md-2">
                                     <button class="btn btn-facebook">Search</button>
@@ -141,7 +132,7 @@
                                             @Html.Raw(@item.content);
                                         </td>
                                         <td>
-                                            @item.IDHoiThao
+                                            @item.TenHoiThao
                                         </td>
                                         <td>
                                             @item.CreatedBy

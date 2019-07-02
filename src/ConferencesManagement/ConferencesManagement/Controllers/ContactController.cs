@@ -22,13 +22,14 @@ namespace ConferencesManagement.Controllers
      
         public JsonResult Send(string name,string email,string tieude,string content)
         {
-            var feedback = new FeedBack();
+                var feedback = new FeedBack();
             feedback.Name = name;
             feedback.Email = email;
             feedback.TieuDe = tieude;
             feedback.Content = content;
             feedback.CreatedDate = DateTime.Now;
             feedback.Status = true;
+
             var id=new ContactDao().InsertFeedBack(feedback);
             if (id>0)
             {

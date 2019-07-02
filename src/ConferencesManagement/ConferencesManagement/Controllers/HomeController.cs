@@ -15,6 +15,7 @@ namespace ConferencesManagement.Controllers
         
         public ActionResult Index()
         {
+            (new HoiNghiDao()).CapNhatTrangThai();
             CommonConstants.CURRENT_HOITHAO = (new HoiNghiDao().GetActiveHoiThao()).ID;
            
             return View();
@@ -32,9 +33,9 @@ namespace ConferencesManagement.Controllers
         //PartialView là 1 phần trong trang, nhưng k phải là trang
         public ActionResult TopicMenu()
         {
-            var dao = new TopicDao();
+            var dao = new ChuDeDao();
             var currentHoiThao = (new HoiNghiDao().GetActiveHoiThao()).ID;
-            var model = new TopicDao().ListByGroupId(CommonConstants.CURRENT_HOITHAO);
+            var model = new ChuDeDao().ListByGroupId(CommonConstants.CURRENT_HOITHAO);
             return PartialView(model);
         
 

@@ -22,10 +22,22 @@
         public string Content { get; set; }
 
         [Required]
-        [DisplayName("Ngày diễn ra")]
+        [DisplayName("Ngày bắt đầu")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime NgayDienRa { get; set; }
+
+
+        [Required]
+        [DisplayName("Ngày kết thúc")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime NgayKetThuc { get; set; }
+
+
+
+        [DisplayName("Trạng thái tổ chức")]
+        public string TrangThaiToChuc   { get; set; }
 
         [StringLength(250)]
         [Required]
@@ -43,7 +55,7 @@
         public string ModifiedBy { get; set; }
 
         [Required]
-        [DisplayName("Trạng thái")]
+        [DisplayName("Hiển thị")]
         public bool Status { get; set; }
     }
 }

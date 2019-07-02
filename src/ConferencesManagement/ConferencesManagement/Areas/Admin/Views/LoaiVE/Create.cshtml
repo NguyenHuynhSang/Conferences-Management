@@ -6,7 +6,7 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create Topic</h2>
+<h2>Create </h2>
 @section jsFooter{
     <script>
         var editor = CKEDITOR.replace('txtTopic', {
@@ -30,7 +30,7 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Topic</h4>
+        <h4>Loại vé</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 

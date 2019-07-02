@@ -11,12 +11,12 @@ namespace Models.Framework
     {
         public int ID { get; set; }
 
-        public int? IDLoaiVe { get; set; }
+        public int IDLoaiVe { get; set; }
 
    
         public DateTime? NgayMua { get; set; }
 
-        public int? IDAccount { get; set; }
+        public int IDAccount { get; set; }
 
         [StringLength(50)]
         public string ModifiedBy { get; set; }

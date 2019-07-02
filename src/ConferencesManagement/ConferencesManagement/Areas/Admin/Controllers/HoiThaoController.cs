@@ -26,10 +26,9 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         {
           
             var modal = new HoiThao();
-            SetAuditLog();
-            modal.CreatedBy = _userAction;
-            modal.CreatedDate = _date;
+          
             modal.NgayDienRa = DateTime.Now;
+            modal.NgayKetThuc = DateTime.Now.AddDays(1);
             return View(modal);
         }
         [ValidateInput(false)]
@@ -46,11 +45,17 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(HoiThao hoinghi)
         {
-
-            hoinghi.NgayDienRa = DateTime.Now;
+            SetAuditLog();
+            hoinghi.CreatedBy = _userAction;
+            hoinghi.CreatedDate = _date;
+         
             var dao = new HoiNghiDao();
-          
-            if (ModelState.IsValid)
+
+            if (hoinghi.NgayDienRa > hoinghi.NgayKetThuc)
+            {
+                ModelState.AddModelError("", "Ngày bắt đầu phải nhỏ hơn ngày kết thúc");
+            }
+            else if (ModelState.IsValid)
             {
 
                 long id = dao.Insert(hoinghi);
@@ -81,7 +86,11 @@ namespace ConferencesManagement.Areas.Admin.Controllers
             SetAuditLog();
             account.ModifiedBy = _userAction;
             account.ModifiedDate = _date;
-            if (ModelState.IsValid)
+            if (account.NgayDienRa > account.NgayKetThuc)
+            {
+                ModelState.AddModelError("", "Ngày bắt đầu phải nhỏ hơn ngày kết thúc");
+            }
+            else if (ModelState.IsValid)
             {
 
                 var result = dao.Update(account);

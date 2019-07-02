@@ -12,13 +12,14 @@ namespace ConferencesManagement.Areas.Admin.Controllers
     public class LoaiVeController : BaseController
     {
         // GET: Admin/LoaiVe
-        public ActionResult Index(int page = 1, int pageSize = 10)
+        public ActionResult Index(int page = 1, int pageSize = 10,int? HoiThaoID = null,string tenLoaiVe=null)
         {
             GetDSHoiThao();
             SetAlert("Load dữ liệu thành công", "success");
             var dao = new LoaiVeDao();
-            var result = dao.ListAllPaging(page, pageSize);
-
+            var result = dao.ListAllPaging(page, pageSize, HoiThaoID, tenLoaiVe);
+            ViewBag.HoiThaoID = HoiThaoID;
+            ViewBag.tenLoaiVe = tenLoaiVe;
             return View(result);
         }
 

@@ -20,7 +20,7 @@ namespace Models.Models
 
         public List<Schedule> GetScheduleByCurrentHoiThao(long curentHoiThao = 1)
         {
-            return db.Schedules.Where(x => x.IDHoiThao == curentHoiThao).ToList();
+            return db.Schedules.Where(x => x.IDHoiThao == curentHoiThao).OrderBy(x=>x.NgayDienRa).ToList();
 
         }
 
@@ -31,14 +31,14 @@ namespace Models.Models
 
         public long Insert(Schedule entity)
         {
-            entity.ChiTiet = db.HoiThaos.SingleOrDefault(x=>x.ID==entity.IDHoiThao).TenHoiThao+entity.NgayDienRa.Value.ToString(string.Format("dd/MMM/yyyy"));
+            entity.ChiTiet = db.HoiThaos.SingleOrDefault(x=>x.ID==entity.IDHoiThao).TenHoiThao+entity.NgayDienRa.ToString(string.Format("dd/MMM/yyyy"));
             db.Schedules.Add(entity);
             db.SaveChanges();
             return entity.ID;
         }
 
 
-        public List<ScheduleForIndex> GetScheduleForIndex(string searchingString = null)
+        public List<ScheduleForIndex> GetScheduleForIndex(int? IDHoiThao=null)
         {
             var model = from d in db.Schedules
                         join h in db.HoiThaos
@@ -47,27 +47,34 @@ namespace Models.Models
                         {
                             ID = d.ID,
                             TenHoiThao = h.TenHoiThao,
-                            NgayDienRa = d.NgayDienRa,
-                            ChiTiet = d.ChiTiet
+                            NgayLichTrinh = d.NgayDienRa,
+                            NgayDienRa=h.NgayDienRa,
+                            NgayKetThuc=h.NgayKetThuc,
+                            ChiTiet = d.ChiTiet,
+                            IDHoiThao=h.ID
                         };
-            if (!string.IsNullOrEmpty(searchingString))
+            if (IDHoiThao!=null)
             {
-                model = model.Where(x => x.TenHoiThao.Contains(searchingString));
+                model = model.Where(x => x.IDHoiThao== IDHoiThao);
 
             }
-            return model.ToList();
+            return model.OrderBy(x=>x.TenHoiThao).ThenBy(x=>x.NgayLichTrinh).ToList();
         }
 
+        public List<Schedule> GetDSLichTrinhByIDHoiThao(long id)
+        {
+            return db.Schedules.Where(x => x.IDHoiThao == id).ToList();
+        }
         public bool Update(Schedule entity)
         {
             try
             {
+                entity.ChiTiet = db.HoiThaos.SingleOrDefault(x => x.ID == entity.IDHoiThao).TenHoiThao + entity.NgayDienRa.ToString(string.Format("dd/MMM/yyyy"));
                 var schedule = db.Schedules.Find(entity.ID);
-
                 //   account.ModifiedBy =USER_SEASON;
                 schedule.IDHoiThao = entity.IDHoiThao;
                 schedule.NgayDienRa = entity.NgayDienRa;
-
+                schedule.ChiTiet = entity.ChiTiet;
                 db.SaveChanges();
                 return true;
             }
