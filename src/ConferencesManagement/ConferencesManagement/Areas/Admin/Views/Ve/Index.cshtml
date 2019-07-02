@@ -1,0 +1,117 @@
+﻿@model PagedList.IPagedList<Models.Entities.VeDetail>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Vé";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        @using (Html.BeginForm("Index", "Ve", FormMethod.Get))
+        {
+            <div class="card border-left-primary">
+                <div class="card-body">
+                    <div class="row m-xl-4">
+                        <div class="col-md-1">
+                            <b class="blueText">Tên hội thảo</b>
+                        </div>
+                        <div class="col-sm-4">
+                            @Html.DropDownList("HoiThaoID", new SelectList(ViewBag.DSHoiThao, "ID", "TenHoiThao"), "--Chọn Hội Thảo--", htmlAttributes: new { @class = "form-control" })
+                        </div>
+
+                   
+                    </div>
+               
+                    <div class="row m-xl-4">
+                        <div class="col-md-2">
+                            <button class="btn btn-facebook">Search</button>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="/Admin/Ve/Index" class="btn btn-facebook">
+                                <span class="icon text-gray-600">
+                                    <i class="fas fa-arrow-right"></i>
+                                </span>
+                                <span class="text">Reset</span>
+                            </a>
+                        </div>
+                    </div>
+                    <hr />
+
+                    
+                </div>
+            </div>
+
+        }
+
+        <br />
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                    <thead class="thead-dark">
+                        <tr role="row">
+                            <th>Tên hội thảo</th>
+                            <th>
+                                Tên tài khoản
+                            </th>
+                            <th>
+                                Họ tên
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                SĐT
+                            </th>
+                            <th>
+                                Loại vé
+                            </th>
+                            <th>
+                                Ngày mua
+                            </th>
+                            <th>
+                                Trị giá(VND)
+                            </th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ int stt = 0;}
+                        @foreach (var item in Model)
+                        {
+                            stt++;
+                        <tr role="row" class="odd">
+
+                            <td>
+                                @item.TenHoiThao
+                            </td>
+                            <td>
+                                @item.UserName
+                            </td>
+                            <td>
+                                @item.HoTen
+                            </td>
+                            <td>
+                                @item.Email
+                            </td>
+                            <td>
+                                @item.SDT
+                            </td>
+                            <td>
+                                @item.LoaiVe
+                            </td>
+                            <td>
+                                @item.NgayMua
+                            </td>
+                            <td>
+                                @item.DonGia
+                            </td>
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+            </div>
+        </div>
+    </div>
+</div>

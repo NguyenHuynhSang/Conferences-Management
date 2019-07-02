@@ -15,6 +15,8 @@ namespace ConferencesManagement.Controllers
         // GET: Ticket
         public ActionResult Index()
         {
+            (new HoiNghiDao()).CapNhatTrangThai();
+            CommonConstants.CURRENT_HOITHAO = (new HoiNghiDao().GetActiveHoiThao()).ID;
             return View();
         }
 

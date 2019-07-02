@@ -1,0 +1,73 @@
+﻿@model List<Models.Entities.VeDetail>
+<h1> Danh sách khách hàng</h1>
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                    <thead class="thead-dark">
+                        <tr role="row">
+                            <th>Hình ảnh</th>
+                            <th>
+                                Tên tài khoản
+                            </th>
+                            <th>
+                                Họ tên
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                SĐT
+                            </th>
+                            <th>
+                                Loại vé
+                            </th>
+                            <th>
+                                Ngày mua
+                            </th>
+                            <th>
+                                Trị giá(VND)
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr role="row" class="odd">
+
+                            <td>
+                                @*<img src="@item.Image" height="100" width=" 100" />*@
+                            </td>
+                            <td>
+                                @item.UserName
+                            </td>
+                            <td>
+                                @item.HoTen
+                            </td>
+                            <td>
+                                @item.Email
+                            </td>
+                            <td>
+                                @item.SDT
+                            </td>
+                            <td>
+                                @item.LoaiVe
+                            </td>
+                            <td>
+                                @item.NgayMua
+                            </td>
+                            <td>
+                                @item.DonGia
+                            </td>
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

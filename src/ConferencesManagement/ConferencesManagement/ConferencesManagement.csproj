@@ -3487,6 +3487,9 @@
     <Content Include="Areas\Admin\Views\Topic\SearchParameter.cshtml" />
     <Content Include="Areas\Admin\Views\HoiThaoDetail\SearchParameter.cshtml" />
     <Content Include="Areas\Admin\Views\HoiThaoDetail\SelectHoiThao.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\DsVe.cshtml" />
+    <Content Include="Areas\Admin\Views\LoaiVE\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Ve\Index.cshtml" />
     <None Include="Scripts\jquery-1.8.0.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.0.js" />
     <Content Include="Scripts\jquery-1.8.0.min.js" />
@@ -3515,6 +3518,7 @@
     <Compile Include="Areas\Admin\Controllers\TopicController.cs" />
     <Compile Include="Areas\Admin\Controllers\SpeakerController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VeController.cs" />
     <Compile Include="Areas\Admin\Models\LoginModel.cs" />
     <Compile Include="Common\CommonConstants.cs" />
     <Compile Include="Common\Encryptor.cs" />

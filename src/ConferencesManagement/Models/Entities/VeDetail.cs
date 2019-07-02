@@ -18,7 +18,8 @@ namespace Models.Entities
         public string TenHoiThao { get; set; }
         public string UserName { get; set; }
         public bool Status { get; set; }
-
+        public string SDT { get; set; }
+        public string Email { get; set; }
         public string NoiDienRa { get; set; }
     }
 }

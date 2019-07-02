@@ -52,11 +52,29 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         }
 
         [ChildActionOnly]
+        public ActionResult DsVe()
+        {
+            var currentHoiThao = (new HoiNghiDao().GetActiveHoiThao()).ID;
+            var model = (new VeDao()).GetVeDetailByIDHoiThao((int)CommonConstants.CURRENT_HOITHAO);
+            return PartialView(model);
+
+        }
+
+        [ChildActionOnly]
         public ActionResult HoiThaoDetail()
         {
             var db = new HoiNghiDao();
             var model = db.GetActiveHoiThao();
            SetHoiThaoDetail();
+            var currentHoiThao = (new HoiNghiDao().GetActiveHoiThao()).ID;
+            var soVe = (new VeDao()).GetVeDetailByIDHoiThao((int)CommonConstants.CURRENT_HOITHAO);
+            ViewBag.Sove = soVe.Count;
+            double tongtien = 0;
+            foreach (var item in soVe)
+            {
+                tongtien += item.DonGia.Value;
+            }
+            ViewBag.TongTien = tongtien;
             return PartialView(model);
         }
 

@@ -50,7 +50,7 @@ namespace Models.Models
      
             if (!string.IsNullOrEmpty(searchingString))
             {
-                model = model.Where(x => x.TieuDe.Contains(searchingString)|| x.SpeakerName.Contains(searchingString) || x.Content.Contains(searchingString));
+                model = model.Where(x => x.TieuDe.Contains(searchingString)|| x.SpeakerName.Contains(searchingString) || x.TenHoiThao.Contains(searchingString));
 
             }
             return model.OrderBy(x => x.TenHoiThao).ThenBy(x=>x.NgayDienRa).ThenBy(x=>x.StartHour).ToList();

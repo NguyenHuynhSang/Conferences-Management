@@ -21,13 +21,13 @@
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Thong tin lịch trình </h1>
+                    <h1 class="h3 mb-2 text-gray-800">Chi tiết lịch trình </h1>
                     @using (Html.BeginForm("Index", "ScheduleDetail", FormMethod.Get))
                     {
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="col-lg-4">
-                                    <input type="text" value="@ViewBag.SearchingString" name="searchingString"  placeholder="Tìm kiếm bằng tên"; />
+                                    <input type="text" class="form-control" value="@ViewBag.SearchingString" name="searchingString"  placeholder="Tìm kiếm bằng tên"; />
                                     <button type="submit">Tìm kiếm</button>
                                 </div>
                             </div>

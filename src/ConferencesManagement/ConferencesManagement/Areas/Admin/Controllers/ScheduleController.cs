@@ -103,11 +103,37 @@ namespace ConferencesManagement.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Edit(Schedule account)
         {
-            account.ID = getIDforEdit;
             SetViewBackHoiNghi();
+            bool isTrung = false;
             var dao = new ScheduleDao();
+            var dsLichTrinh = dao.GetDSLichTrinhByIDHoiThao(account.IDHoiThao.Value);
+            var hn = (new HoiNghiDao()).GetHoiThaoByID((int)account.IDHoiThao);
+            foreach (var item in dsLichTrinh)
+            {
+                if (item.NgayDienRa.Date == account.NgayDienRa.Date)
+                {
+                    isTrung = true;
+                }
+            }
+
+            if (isTrung == true)
+            {
+                ModelState.AddModelError("", "Ngày lịch trình bị trùng");
+                return View("Edit");
+            }
+            account.ID = getIDforEdit;
+          
             var model = dao.GetScheduleForIndex();
-            if (ModelState.IsValid)
+            if (account.NgayDienRa.Date < hn.NgayDienRa.Date)
+            {
+                ModelState.AddModelError("", "Ngày lịch trình không được nhỏ hơn ngày bắt đầu hội nghị");
+            }
+            else if (account.NgayDienRa.Date > hn.NgayKetThuc.Date)
+            {
+                ModelState.AddModelError("", "Ngày lịch trình không được lớn hơn ngày kết thúc hội nghị");
+            }
+
+            else if(ModelState.IsValid)
             {
 
                 var result = dao.Update(account);

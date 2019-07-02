@@ -48,17 +48,18 @@ namespace ConferencesManagement.Areas.Admin.Controllers
                 {
 
                     // chuyển hướng trang về admin/User/index
-                    SetAlert("Tạo diễn giả thành công", "success");
+                    SetAlert("Tạo loại vé  thành công", "success");
                     return RedirectToAction("Index", "LoaiVe", result);
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Thêm diễn giả không thành công");
+                    ModelState.AddModelError("", "Thêm loại vé không thành công");
                 }
             }
             return View("Create");
 
         }
+        [ValidateInput(false)]
         [HttpGet]
         public ActionResult Edit(int id)
         {
@@ -69,10 +70,14 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
 
         [HttpPost]
+        [ValidateInput(false)]
         public ActionResult Edit(LoaiVe loaiVe)
         {
             var dao = new LoaiVeDao();
             var model = dao.ListAllPaging(1, 10);
+            SetAuditLog();
+            loaiVe.ModifiedBy = _userAction;
+            loaiVe.ModifiedDate = _date;
             if (ModelState.IsValid)
             {
 
@@ -80,7 +85,7 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 
                 if (result)
                 {
-                    SetAlert("Cập nhật diễn giả thành công", "success");
+                    SetAlert("Cập nhật loại vé thành công", "success");
                     return RedirectToAction("Index", "LoaiVe", model);
                 }
                 else
