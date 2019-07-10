@@ -81,7 +81,7 @@
                                     <thead class="thead-dark">
                                         <tr>
                                             <th>#</th>
-                                            <th>#</th>
+                                            
                                             <th>Tên hội thảo</th>
                                             <th>Tên diễn giả</th>
                                             <th>Chức vụ</th>
@@ -92,7 +92,7 @@
                                     <tfoot>
                                         <tr>
                                             <th>#</th>
-                                            <th>#</th>
+                                           
                                             <th>Tên hội thảo</th>
                                             <th>Tên diễn giả</th>
                                             <th>Chức vụ</th>
@@ -109,14 +109,7 @@
                                                 <a href="/Admin/HoiThaoDetail/Edit/@item.ID" class="btn btn-success btn-circle btn-sm">Sửa </a>
 
                                             </td>
-                                            <td>
-                                                @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
-               {
-                   Confirm = "Bạn có muốn xoá bản ghi này?",
-                   OnComplete = "$('#row_" + @item.ID + "').remove()",
-                   HttpMethod = "Delete"
-               })
-                                            </td>
+                                         
                                             <td>@item.TenHoiThao</td>
                                             <td>@item.TenSpeaker</td>
                                             <td>@item.ChucVu</td>

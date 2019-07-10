@@ -107,7 +107,7 @@
                                     <thead class="thead-dark">
                                         <tr>
                                             <th>#</th>
-                                            <th>#</th>
+                                           
                                             <th>#</th>
                                             <th>STT</th>
 
@@ -127,7 +127,7 @@
                                     <tfoot>
                                         <tr>
                                             <th>#</th>
-                                            <th>#</th>
+                                          
                                             <th>#</th>
                                             <th>STT</th>
 
@@ -152,15 +152,7 @@
                                                 <a href="/Admin/HoiThao/Edit/@item.ID" class="btn btn-success btn-circle btn-sm">Sửa </a>
 
                                             </td>
-                                            <td>
-                                                @Ajax.ActionLink("Xóa", "Delete",new { @id = item.ID }, new AjaxOptions
-                                                    {
-                                                      Confirm = "bạn có muốn xóa không",
-                                                      OnComplete="$('row_"+@item.ID+"').remove()",
-                                                      HttpMethod="Delete"
-                                                      })
-                                            </td>
-
+                                         
 
                                             <td><a href="#" class="btn-active" data-id="@item.ID">@Html.Raw("<strong>set Hội Thảo</strong>")</a></td>
 

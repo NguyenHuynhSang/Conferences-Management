@@ -130,7 +130,7 @@ namespace Models.Models
                     {
                         item.TrangThaiToChuc = "Chưa diễn ra";
                     }
-                    else if( DateTime.Now.Date <= item.NgayDienRa.Date)
+                    else if( DateTime.Now.Date <= item.NgayKetThuc.Date)
                     {
                         item.TrangThaiToChuc = "Đang diễn ra";
                     }

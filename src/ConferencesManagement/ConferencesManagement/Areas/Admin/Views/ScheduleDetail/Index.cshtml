@@ -51,7 +51,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>#</th>
+                                        
                                             <th>Tên hội thảo</th>
                                             <th>Ngày lịch trình</th>
                                             <th>Tiêu đề</th>
@@ -65,7 +65,7 @@
                                     <tfoot>
                                         <tr>
                                             <th>#</th>
-                                            <th>#</th>
+                                            
                                             <th>Tên hội thảo</th>
                                             <th>Ngày lịch trình</th>
                                             <th>Tiêu đề</th>
@@ -85,14 +85,7 @@
                                                 <a href="/Admin/ScheduleDetail/Edit/@item.ID" class="btn btn-success btn-circle btn-sm">Sửa </a>
 
                                             </td>
-                                            <td>
-                                                @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
-                      {
-                          Confirm = "Bạn có muốn xoá bản ghi này?",
-                          OnComplete = "$('#row_" + @item.ID + "').remove()",
-                          HttpMethod = "Delete"
-                      })
-                                            </td>
+                                          
                                             <td>@item.TenHoiThao</td>
                                             <td>@item.NgayDienRa.Value.ToString(string.Format("dd/MMM/yyyy"))</td>
                                             <td>@item.TieuDe</td>

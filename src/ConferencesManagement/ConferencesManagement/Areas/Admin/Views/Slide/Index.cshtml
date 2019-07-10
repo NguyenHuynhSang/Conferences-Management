@@ -86,7 +86,7 @@
                                         <thead class="thead-dark">
                                             <tr>
                                                 <th>#</th>
-                                                <th>#</th>
+                                              
                                                 <th>Tên  Hội Thảo</th>
                                                 <th>Hình ảnh</th>
                                                 <th>Người tạo</th>
@@ -98,7 +98,7 @@
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
-                                                <th>#</th>
+                                           
                                                 <th>Tên Hội Thảo</th>
                                                 <th>Hình ảnh</th>
                                                 <th>Người tạo</th>
@@ -112,19 +112,10 @@
                                             {
                                                 <tr role="row" class="odd" id="row_@item.ID">
                                                     <td>
-                                                        <a href="/Admin/User/Edit/@item.ID" class="btn btn-success btn-circle btn-sm">Sửa </a>
+                                                        <a href="/Admin/Slide/Edit/@item.ID" class="btn btn-success btn-circle btn-sm">Sửa </a>
 
                                                     </td>
-                                                    <td>
-
-                                                        @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
-                                                            {
-                                                                Confirm = "Bạn có muốn xoá bản ghi này?",
-                                                                OnComplete = "$('#row_" + @item.ID + "').remove()",
-                                                                HttpMethod = "Delete"
-                                                            })
-
-                                                    </td>
+                                                  
                                                     <td>@item.TenHoiThao</td>
 
                                                     <td width="220">

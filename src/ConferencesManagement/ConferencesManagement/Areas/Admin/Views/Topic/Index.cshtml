@@ -106,11 +106,9 @@
                             </th>
 
                             <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-
+                                #
                             </th>
-                            <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Email: activate to sort column ascending" style="width: 68.0063px;">
-
-                            </th>
+                        
 
                         </tr>
                     </thead>
@@ -157,14 +155,7 @@
                                 <td>
                                     <a href="/Admin/Topic/Edit/@item.ID">Sửa</a>
                                 </td>
-                                <td>
-                                    @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
-                               {
-                                   Confirm = "Bạn có muốn xoá bản ghi này?",
-                                   OnComplete = "$('#row_" + @item.ID + "').remove()",
-                                   HttpMethod = "Delete"
-                               })
-                                </td>
+                            
                             </tr>
                         }
 

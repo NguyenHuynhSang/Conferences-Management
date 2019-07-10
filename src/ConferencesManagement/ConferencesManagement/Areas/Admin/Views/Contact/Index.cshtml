@@ -65,7 +65,7 @@
                                         <thead class="thead-dark">
                                             <tr>
                                                 <th>#</th>
-                                                <th>#</th>
+                                               
                                                 <th>#</th>
                                                 <th>Email</th>
                                                 <th>SĐT</th>
@@ -77,7 +77,7 @@
                                         <tfoot>
                                             <tr>
                                                 <th>#</th>
-                                                <th>#</th>
+                                               
                                                 <th>#</th>
                                                 <th>Email</th>
                                                 <th>SĐT</th>
@@ -95,14 +95,7 @@
 
                                                     </td>
 
-                                                    <td>
-                                                        @Ajax.ActionLink("Xoá", "Delete", new { @id = item.ID }, new AjaxOptions
-{
-  Confirm = "Bạn có muốn xoá bản ghi này?",
-  OnComplete = "$('#row_" + @item.ID + "').remove()",
-  HttpMethod = "Delete"
-})
-                                                    </td>
+                                                  
                                                     <td><a href="#" class="btn-active" data-id="@item.ID">@Html.Raw("<strong>set Contact</strong>")</a></td>
                                                     <td>@item.Email</td>
                                                     <td>@item.SDT</td>
