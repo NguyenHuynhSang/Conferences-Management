@@ -13,6 +13,7 @@
         [Key]
         public long IdAccount { get; set; }
 
+
         [Required(ErrorMessage = "Tên tài khoản không được để trống")]
         [DisplayName("Tên tài khoản")]
         [StringLength(50, ErrorMessage = "Tên tài khoản không vượt quá 50 ký tự"), MinLength(6, ErrorMessage = "Độ dài tối thiểu 6 ký tự")]

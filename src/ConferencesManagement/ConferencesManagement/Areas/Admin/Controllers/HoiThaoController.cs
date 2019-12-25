@@ -9,6 +9,9 @@ namespace ConferencesManagement.Areas.Admin.Controllers
 {
     public class HoiThaoController : BaseController
     {
+
+
+     
         // GET: Admin/HoiThao
         public ActionResult Index(string tenHoiThao,string noiDienRa,string ngayDienRa, int page = 1,int pageSize=10)
         {
